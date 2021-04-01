@@ -33,11 +33,15 @@ public class UserInterface extends javax.swing.JFrame {
         Layered_SignIn_PanelBase = new javax.swing.JLayeredPane();
         Layered_Unchangable_Main = new javax.swing.JLayeredPane();
         Panel_Main_Head = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Layered_Main_PanelBase = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        Panel_MainMenu = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        Panel_Prestamos = new javax.swing.JPanel();
+        Panel_LibroDetalle = new javax.swing.JPanel();
+        Panel_UsuarioDetalle = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -59,6 +63,7 @@ public class UserInterface extends javax.swing.JFrame {
         Layered_Unchangable_SignIn.setMinimumSize(new java.awt.Dimension(600, 400));
         Layered_Unchangable_SignIn.setLayout(new java.awt.BorderLayout());
 
+        Panel_SignIn_Head.setBackground(new java.awt.Color(45, 49, 66));
         Panel_SignIn_Head.setMaximumSize(new java.awt.Dimension(600, 100));
         Panel_SignIn_Head.setMinimumSize(new java.awt.Dimension(600, 100));
 
@@ -75,6 +80,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         Layered_Unchangable_SignIn.add(Panel_SignIn_Head, java.awt.BorderLayout.PAGE_START);
 
+        Layered_SignIn_PanelBase.setBackground(new java.awt.Color(191, 192, 192));
         Layered_SignIn_PanelBase.setMaximumSize(new java.awt.Dimension(600, 300));
         Layered_SignIn_PanelBase.setMinimumSize(new java.awt.Dimension(600, 300));
 
@@ -110,18 +116,16 @@ public class UserInterface extends javax.swing.JFrame {
         Layered_Unchangable_Main.setPreferredSize(new java.awt.Dimension(900, 550));
         Layered_Unchangable_Main.setLayout(new java.awt.BorderLayout());
 
+        Panel_Main_Head.setBackground(new java.awt.Color(251, 133, 0));
+        Panel_Main_Head.setMaximumSize(new java.awt.Dimension(900, 100));
+        Panel_Main_Head.setMinimumSize(new java.awt.Dimension(900, 100));
         Panel_Main_Head.setPreferredSize(new java.awt.Dimension(900, 100));
+        Panel_Main_Head.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout Panel_Main_HeadLayout = new javax.swing.GroupLayout(Panel_Main_Head);
-        Panel_Main_Head.setLayout(Panel_Main_HeadLayout);
-        Panel_Main_HeadLayout.setHorizontalGroup(
-            Panel_Main_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        Panel_Main_HeadLayout.setVerticalGroup(
-            Panel_Main_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Bebas Neue", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Main Menu");
+        Panel_Main_Head.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 670, 100));
 
         Layered_Unchangable_Main.add(Panel_Main_Head, java.awt.BorderLayout.PAGE_START);
 
@@ -129,73 +133,82 @@ public class UserInterface extends javax.swing.JFrame {
         Layered_Main_PanelBase.setMinimumSize(new java.awt.Dimension(900, 450));
         Layered_Main_PanelBase.setPreferredSize(new java.awt.Dimension(900, 450));
 
-        jPanel1.setMaximumSize(new java.awt.Dimension(900, 450));
-        jPanel1.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_MainMenu.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_MainMenu.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_MainMenu.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_MainMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jButton3.setText("My Account");
+        jButton3.setMaximumSize(new java.awt.Dimension(250, 300));
+        jButton3.setMinimumSize(new java.awt.Dimension(250, 300));
+        jButton3.setPreferredSize(new java.awt.Dimension(250, 300));
+        Panel_MainMenu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 260, -1));
+
+        jButton5.setText("My Account");
+        jButton5.setMaximumSize(new java.awt.Dimension(250, 300));
+        jButton5.setMinimumSize(new java.awt.Dimension(250, 300));
+        jButton5.setPreferredSize(new java.awt.Dimension(250, 300));
+        Panel_MainMenu.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
+
+        jButton6.setText("My Account");
+        jButton6.setMaximumSize(new java.awt.Dimension(250, 300));
+        jButton6.setMinimumSize(new java.awt.Dimension(250, 300));
+        jButton6.setPreferredSize(new java.awt.Dimension(250, 300));
+        Panel_MainMenu.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        Layered_Main_PanelBase.add(Panel_MainMenu);
+        Panel_MainMenu.setBounds(0, 0, 900, 450);
+
+        Panel_Prestamos.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_Prestamos.setMinimumSize(new java.awt.Dimension(900, 450));
+
+        javax.swing.GroupLayout Panel_PrestamosLayout = new javax.swing.GroupLayout(Panel_Prestamos);
+        Panel_Prestamos.setLayout(Panel_PrestamosLayout);
+        Panel_PrestamosLayout.setHorizontalGroup(
+            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Panel_PrestamosLayout.setVerticalGroup(
+            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        Layered_Main_PanelBase.add(jPanel1);
-        jPanel1.setBounds(0, 0, 900, 450);
+        Layered_Main_PanelBase.add(Panel_Prestamos);
+        Panel_Prestamos.setBounds(0, 0, 900, 450);
 
-        jPanel2.setMaximumSize(new java.awt.Dimension(900, 450));
-        jPanel2.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_LibroDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_LibroDetalle.setMinimumSize(new java.awt.Dimension(900, 450));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Panel_LibroDetalleLayout = new javax.swing.GroupLayout(Panel_LibroDetalle);
+        Panel_LibroDetalle.setLayout(Panel_LibroDetalleLayout);
+        Panel_LibroDetalleLayout.setHorizontalGroup(
+            Panel_LibroDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Panel_LibroDetalleLayout.setVerticalGroup(
+            Panel_LibroDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        Layered_Main_PanelBase.add(jPanel2);
-        jPanel2.setBounds(0, 0, 900, 450);
+        Layered_Main_PanelBase.add(Panel_LibroDetalle);
+        Panel_LibroDetalle.setBounds(0, 0, 900, 450);
 
-        jPanel3.setMaximumSize(new java.awt.Dimension(900, 450));
-        jPanel3.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_UsuarioDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_UsuarioDetalle.setMinimumSize(new java.awt.Dimension(900, 450));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Panel_UsuarioDetalleLayout = new javax.swing.GroupLayout(Panel_UsuarioDetalle);
+        Panel_UsuarioDetalle.setLayout(Panel_UsuarioDetalleLayout);
+        Panel_UsuarioDetalleLayout.setHorizontalGroup(
+            Panel_UsuarioDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 900, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Panel_UsuarioDetalleLayout.setVerticalGroup(
+            Panel_UsuarioDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        Layered_Main_PanelBase.add(jPanel3);
-        jPanel3.setBounds(0, 0, 900, 450);
-
-        jPanel4.setMaximumSize(new java.awt.Dimension(900, 450));
-        jPanel4.setMinimumSize(new java.awt.Dimension(900, 450));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
-
-        Layered_Main_PanelBase.add(jPanel4);
-        jPanel4.setBounds(0, 0, 900, 450);
+        Layered_Main_PanelBase.add(Panel_UsuarioDetalle);
+        Panel_UsuarioDetalle.setBounds(0, 0, 900, 450);
 
         jPanel5.setMaximumSize(new java.awt.Dimension(900, 450));
         jPanel5.setMinimumSize(new java.awt.Dimension(900, 450));
@@ -463,9 +476,16 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JLayeredPane Layered_SignIn_PanelBase;
     private javax.swing.JLayeredPane Layered_Unchangable_Main;
     private javax.swing.JLayeredPane Layered_Unchangable_SignIn;
+    private javax.swing.JPanel Panel_LibroDetalle;
+    private javax.swing.JPanel Panel_MainMenu;
     private javax.swing.JPanel Panel_Main_Head;
+    private javax.swing.JPanel Panel_Prestamos;
     private javax.swing.JPanel Panel_SignIn_Head;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel Panel_UsuarioDetalle;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -473,9 +493,6 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

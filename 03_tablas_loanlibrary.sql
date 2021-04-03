@@ -89,12 +89,14 @@ CREATE TABLE item
    id_item                      NUMBER(6) CONSTRAINT item_pk PRIMARY KEY ,
    item                         VARCHAR2(30) CONSTRAINT item_item_nn NOT NULL,
    description                  VARCHAR2(50),
+   available                     char(1) CONSTRAINT item_available_nn NOT NULL,
+   CONSTRAINT item_available_ck check (available in ('Y','N')),
    id_user                      NUMBER(6) CONSTRAINT item_user_nn NOT NULL,
    CONSTRAINT item_user_fk FOREIGN KEY (id_user) REFERENCES user_person(id_user),
    cover_picture               ORDSYS.ORDImage,
    id_classification            NUMBER(6) CONSTRAINT item_classification_nn NOT NULL,
    CONSTRAINT item_classification_fk FOREIGN KEY (id_classification) REFERENCES classification(id_classification),
-   calification                 NUMBER(2,1) CONSTRAINT item_calification_nn NOT NULL 
+   calification                 NUMBER(2,1) CONSTRAINT item_calification_nn NOT NULL
 );
 
 

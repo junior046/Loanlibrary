@@ -14,6 +14,7 @@ CREATE TABLE person
     CONSTRAINT person_pk PRIMARY KEY (id_person) 
     USING INDEX
     TABLESPACE loanlibrary_Ind PCTFREE 20
+    STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
 CREATE TABLE phone
@@ -28,11 +29,12 @@ CREATE TABLE phone
     CONSTRAINT phone_pk PRIMARY KEY (id_phone) 
     USING INDEX
     TABLESPACE loanlibrary_Ind PCTFREE 20
+    STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
 CREATE TABLE email
 (
-    id_email                          NUMBER(6) CONSTRAINT email_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_email                          NUMBER(6) CONSTRAINT email_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     email                             VARCHAR2(70) CONSTRAINT  email_email_nn NOT NULL,
     CONSTRAINT email_email_uk UNIQUE (email),
     id_person                         NUMBER(6) CONSTRAINT email_person_id_nn NOT NULL,
@@ -43,15 +45,15 @@ CREATE TABLE email
 
 CREATE TABLE category
 (
-    id_category                     NUMBER(6) CONSTRAINT category_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_category                     NUMBER(6) CONSTRAINT category_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     category                        VARCHAR2(25) CONSTRAINT category_category__nn NOT NULL,
     CONSTRAINT category_category_uk UNIQUE (category),
     description                     VARCHAR2(50)
-)
+);
 
 CREATE TABLE borrower_list
 (
-    id_borrower_list               NUMBER(6) CONSTRAINT borrower_list_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_borrower_list               NUMBER(6) CONSTRAINT borrower_list_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     id_category                    NUMBER(6) CONSTRAINT borrower_list_category_nn NOT NULL,
     CONSTRAINT borrower_list_category_fk FOREIGN KEY (id_category) REFERENCES category(id_category),
     id_borrower                    NUMBER(6) CONSTRAINT borrower_list_borrower_nn NOT NULL,
@@ -62,7 +64,7 @@ CREATE TABLE borrower_list
 
 CREATE TABLE user_person
 (
-    id_user                        NUMBER(6) CONSTRAINT user_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_user                        NUMBER(6) CONSTRAINT user_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     user_person                    VARCHAR2(15) CONSTRAINT user_user_nn NOT NULL,
     CONSTRAINT user_user_uk UNIQUE (user_person),
     password                       VARCHAR(12) CONSTRAINT user_password_nn NOT NULL,
@@ -76,7 +78,7 @@ CREATE TABLE user_person
 
 CREATE TABLE classification
 (
-    id_classification            NUMBER(6) CONSTRAINT classification_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_classification            NUMBER(6) CONSTRAINT classification_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     classification              VARCHAR2(25) CONSTRAINT classification_class_nn NOT NULL,
     CONSTRAINT classification_class_uk UNIQUE (classification),
     description                 VARCHAR2(50)
@@ -84,7 +86,7 @@ CREATE TABLE classification
 
 CREATE TABLE item
 (
-   id_item                      NUMBER(6) CONSTRAINT item_pk PRIMARY KEY,
+   id_item                      NUMBER(6) CONSTRAINT item_pk PRIMARY KEY ,
    item                         VARCHAR2(30) CONSTRAINT item_item_nn NOT NULL,
    description                  VARCHAR2(50),
    id_user                      NUMBER(6) CONSTRAINT item_user_nn NOT NULL,
@@ -98,14 +100,14 @@ CREATE TABLE item
 
 CREATE TABLE type
 (
-    id_type                   NUMBER(6) CONSTRAINT type_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_type                   NUMBER(6) CONSTRAINT type_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     type                      VARCHAR2(20) CONSTRAINT type_type_nn NOT NULL,
     CONSTRAINT type_type_uk UNIQUE (type)
 );
 
 CREATE TABLE binnacle
 (
-    id_binnacle               NUMBER(12) CONSTRAINT binnacle_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_binnacle               NUMBER(12) CONSTRAINT binnacle_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     id_user                   NUMBER(6) CONSTRAINT binnacle_user_nn NOT NULL,
     CONSTRAINT binnacle_user_fk FOREIGN KEY (id_user) REFERENCES user_person (id_user),
     name_object               VARCHAR2(70) CONSTRAINT binnacle_name_object_nn NOT NULL,
@@ -117,7 +119,7 @@ CREATE TABLE binnacle
 
 CREATE TABLE parameter
 (
-    id_parameter              NUMBER(6) CONSTRAINT parameter_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_parameter              NUMBER(6) CONSTRAINT parameter_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     value                     NUMBER(5) CONSTRAINT parameter_value_nn NOT NULL,
     parameter                      VARCHAR2(50) CONSTRAINT parameter_parameter_nn NOT NULL,
     CONSTRAINT parameter_parameter_uk UNIQUE (parameter)
@@ -125,7 +127,7 @@ CREATE TABLE parameter
 
 CREATE TABLE author
 (
-    id_author                 NUMBER(6) CONSTRAINT author_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_author                 NUMBER(6) CONSTRAINT author_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     first_name                VARCHAR2(25)CONSTRAINT author_first_name_nn NOT NULL,
     second_name               VARCHAR2(25)CONSTRAINT author_second_name_nn NOT NULL,
     first_lastname            VARCHAR2(25)CONSTRAINT author_first_lastname_nn NOT NULL,
@@ -135,7 +137,7 @@ CREATE TABLE author
 
 CREATE TABLE editorial
 (
-    id_editorial            NUMBER(6) CONSTRAINT editorial_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_editorial            NUMBER(6) CONSTRAINT editorial_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     editorial               VARCHAR2(30) CONSTRAINT editorial_editorial_nn NOT NULL,
     CONSTRAINT editorail_editorial_uk UNIQUE(editorial)
 );
@@ -167,11 +169,14 @@ CREATE TABLE author_for_book
     FOREIGN KEY (id_author) 
     REFERENCES author(id_author),
     CONSTRAINT author_for_book_pk PRIMARY KEY (id_author, id_book)
+    USING INDEX
+    TABLESPACE loanlibrary_Ind PCTFREE 20
+    STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
 CREATE TABLE developer
 (
-    id_developer            NUMBER(6) CONSTRAINT developer_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20,
+    id_developer            NUMBER(6) CONSTRAINT developer_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     developer               VARCHAR2(30) CONSTRAINT developer_developer_nn NOT NULL,
     CONSTRAINT developer_developer_uk UNIQUE(developer)
 );

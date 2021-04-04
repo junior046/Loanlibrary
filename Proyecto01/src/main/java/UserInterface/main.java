@@ -1091,8 +1091,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_LogIn_Button_AcceptActionPerformed
 
     private void LogIn_Button_PasswordRecoveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_PasswordRecoveryActionPerformed
-        //openFrameCloseFrame(PasswordRecovery,LogIn);
-        //cleanWindow(PasswordRecovery_MainPanel);
+        hideEveryPanelExceptThis_LogIn(PasswordRecovery_Panel, true);
     }//GEN-LAST:event_LogIn_Button_PasswordRecoveryActionPerformed
 
     private void LogIn_Button_Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_Accept1ActionPerformed
@@ -1142,7 +1141,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordRecovery_Button_AcceptActionPerformed
 
     private void PasswordRecovery_Button_SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_Button_SignUpActionPerformed
-        // TODO add your handling code here:
+        hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
     }//GEN-LAST:event_PasswordRecovery_Button_SignUpActionPerformed
 
     /**

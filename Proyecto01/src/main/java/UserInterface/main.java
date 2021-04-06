@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import BusinessLayer.EmailServices;
 
 
 
@@ -40,12 +41,7 @@ public class main extends javax.swing.JFrame {
     
     //INICIO DE FUNCIONES CREADAS
 
-    private javax.swing.ImageIcon getImageIcon(String imageName){
-        String localDir = System.getProperty("user.dir");
-        String imagesDir= "/src/main/java/UserInterface/images/";
-        String absPath=localDir+imagesDir+imageName;
-        return new javax.swing.ImageIcon(absPath);
-}
+
     private  void initializeInterface(){
         
         currentVisibleFrame=LogIn_Frame;
@@ -56,7 +52,9 @@ public class main extends javax.swing.JFrame {
         LogIn_Frame.setVisible(true);
         LogIn_Frame.setLocationRelativeTo(null);
         hideEveryPanelExceptThis_LogIn(LogIn_Panel);
-        //SignUp_Panel.setVisible(false);
+
+        
+        
         
     }
        
@@ -95,9 +93,20 @@ public class main extends javax.swing.JFrame {
         
         if(flagrResponseClean) cleanWindow(panel);
         
+
+        
         panel.setVisible(true);
     }
      
+   private void setTitle(JPanel panel, String ... optionalMessage){
+       String message = (optionalMessage.length >= 1) ? optionalMessage[0] : "";
+       
+       if(panel==LogIn_Panel) LogIn_label_HeadTitle.setText("Log In");
+       if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
+       
+       
+   }
+    
      private void cleanWindow(JPanel panel){
         for(Component component : panel.getComponents()){   
             if(component instanceof JTextField){
@@ -147,6 +156,13 @@ public class main extends javax.swing.JFrame {
         return 0;
     }
     
+    
+    private javax.swing.ImageIcon getImageIcon(String imageName){
+        String localDir = System.getProperty("user.dir");
+        String imagesDir= "/src/main/java/UserInterface/images/";
+        String absPath=localDir+imagesDir+imageName;
+        return new javax.swing.ImageIcon(absPath);
+    }
 
     //FINAL DE FUNCIONES CREADAS
     
@@ -201,6 +217,11 @@ public class main extends javax.swing.JFrame {
         SignUp_TextField_Username = new javax.swing.JTextField();
         SignUp_Label_ID = new javax.swing.JLabel();
         SignUp_FormattedTextField_Email1 = new javax.swing.JFormattedTextField();
+        PasswordRecovery_Panel = new javax.swing.JPanel();
+        PasswordRecovery_TextField_UserName = new javax.swing.JTextField();
+        PasswordRecovery_Label_UserName = new javax.swing.JLabel();
+        PasswordRecovery_Button_SignUp = new javax.swing.JButton();
+        PasswordRecovery_Button_Accept = new javax.swing.JButton();
         mainWindow_Frame = new javax.swing.JFrame();
         Unchangable_Layered_Main = new javax.swing.JLayeredPane();
         Main_Panel_Head = new javax.swing.JPanel();
@@ -391,7 +412,7 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_SignUpActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 110, 40));
+        LogIn_Panel.add(LogIn_Button_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 110, 40));
 
         LogIn_Button_Accept.setBackground(new java.awt.Color(255, 255, 255));
         LogIn_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
@@ -410,7 +431,7 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_AcceptActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 70, 30));
+        LogIn_Panel.add(LogIn_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 70, 30));
 
         LogIn_Button_PasswordRecovery.setBorderPainted(false);
         LogIn_Button_PasswordRecovery.setContentAreaFilled(false);
@@ -446,7 +467,7 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_Accept1ActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_Accept1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 110, 40));
+        LogIn_Panel.add(LogIn_Button_Accept1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 110, 40));
 
         LogIn_Layered_PanelBase.add(LogIn_Panel);
         LogIn_Panel.setBounds(0, 0, 600, 380);
@@ -482,7 +503,7 @@ public class main extends javax.swing.JFrame {
                 SignUp_Button_CancelActionPerformed(evt);
             }
         });
-        SignUp_Panel.add(SignUp_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 120, 40));
+        SignUp_Panel.add(SignUp_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 120, 40));
 
         SignUp_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         SignUp_Button_Accept.setText("Accept");
@@ -499,7 +520,7 @@ public class main extends javax.swing.JFrame {
                 SignUp_Button_AcceptActionPerformed(evt);
             }
         });
-        SignUp_Panel.add(SignUp_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 110, 40));
+        SignUp_Panel.add(SignUp_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 110, 40));
 
         SignUp_Label_MiddleName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         SignUp_Label_MiddleName.setForeground(new java.awt.Color(255, 255, 255));
@@ -616,6 +637,66 @@ public class main extends javax.swing.JFrame {
 
         LogIn_Layered_PanelBase.add(SignUp_Panel);
         SignUp_Panel.setBounds(0, 0, 600, 380);
+
+        PasswordRecovery_Panel.setBackground(new java.awt.Color(253, 155, 2));
+        PasswordRecovery_Panel.setMaximumSize(new java.awt.Dimension(600, 380));
+        PasswordRecovery_Panel.setMinimumSize(new java.awt.Dimension(600, 380));
+        PasswordRecovery_Panel.setPreferredSize(new java.awt.Dimension(600, 380));
+        PasswordRecovery_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PasswordRecovery_TextField_UserName.setMaximumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_TextField_UserName.setMinimumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_TextField_UserName.setPreferredSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_TextField_UserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordRecovery_TextField_UserNameActionPerformed(evt);
+            }
+        });
+        PasswordRecovery_Panel.add(PasswordRecovery_TextField_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 260, -1));
+
+        PasswordRecovery_Label_UserName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 24)); // NOI18N
+        PasswordRecovery_Label_UserName.setForeground(new java.awt.Color(255, 255, 255));
+        PasswordRecovery_Label_UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PasswordRecovery_Label_UserName.setText("Username:");
+        PasswordRecovery_Label_UserName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        PasswordRecovery_Panel.add(PasswordRecovery_Label_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 148, 30));
+
+        PasswordRecovery_Button_SignUp.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        PasswordRecovery_Button_SignUp.setText("Cancel");
+        PasswordRecovery_Button_SignUp.setAlignmentY(0.0F);
+        PasswordRecovery_Button_SignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        PasswordRecovery_Button_SignUp.setFocusCycleRoot(true);
+        PasswordRecovery_Button_SignUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PasswordRecovery_Button_SignUp.setIconTextGap(0);
+        PasswordRecovery_Button_SignUp.setMaximumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_SignUp.setMinimumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_SignUp.setPreferredSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_SignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordRecovery_Button_SignUpActionPerformed(evt);
+            }
+        });
+        PasswordRecovery_Panel.add(PasswordRecovery_Button_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 110, 40));
+
+        PasswordRecovery_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        PasswordRecovery_Button_Accept.setText("Accept");
+        PasswordRecovery_Button_Accept.setAlignmentY(0.0F);
+        PasswordRecovery_Button_Accept.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        PasswordRecovery_Button_Accept.setFocusCycleRoot(true);
+        PasswordRecovery_Button_Accept.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PasswordRecovery_Button_Accept.setIconTextGap(0);
+        PasswordRecovery_Button_Accept.setMaximumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Accept.setMinimumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Accept.setPreferredSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordRecovery_Button_AcceptActionPerformed(evt);
+            }
+        });
+        PasswordRecovery_Panel.add(PasswordRecovery_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 110, 40));
+
+        LogIn_Layered_PanelBase.add(PasswordRecovery_Panel);
+        PasswordRecovery_Panel.setBounds(0, 0, 600, 380);
 
         Unchangable_Panel_LogIn.add(LogIn_Layered_PanelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 380));
 
@@ -994,7 +1075,7 @@ public class main extends javax.swing.JFrame {
 
     private void cofirmExit_button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cofirmExit_button_CancelActionPerformed
         confirmExit.setVisible(false);
-        mainWindow_Frame.setVisible(true);
+        currentVisibleFrame.setVisible(true);
     }//GEN-LAST:event_cofirmExit_button_CancelActionPerformed
 
     private void LogIn_TextField_UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_TextField_UserNameActionPerformed
@@ -1002,17 +1083,15 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_LogIn_TextField_UserNameActionPerformed
 
     private void LogIn_Button_SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_SignUpActionPerformed
-        //cleanWindow(SignUp_MainPanel);
-        //openFrameCloseFrame(SignUp,LogIn);
+        hideEveryPanelExceptThis_LogIn(SignUp_Panel, true);
     }//GEN-LAST:event_LogIn_Button_SignUpActionPerformed
 
     private void LogIn_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_AcceptActionPerformed
-        //closeProgram();
+       closeProgram();
     }//GEN-LAST:event_LogIn_Button_AcceptActionPerformed
 
     private void LogIn_Button_PasswordRecoveryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_PasswordRecoveryActionPerformed
-        //openFrameCloseFrame(PasswordRecovery,LogIn);
-        //cleanWindow(PasswordRecovery_MainPanel);
+        hideEveryPanelExceptThis_LogIn(PasswordRecovery_Panel, true);
     }//GEN-LAST:event_LogIn_Button_PasswordRecoveryActionPerformed
 
     private void LogIn_Button_Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_Accept1ActionPerformed
@@ -1026,12 +1105,11 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_SignUp_TextField_2ndSurnameActionPerformed
 
     private void SignUp_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUp_Button_CancelActionPerformed
-        //openFrameCloseFrame(LogIn,SignUp);
-        //cleanWindow(LogIn_MainPanel);
+        hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
     }//GEN-LAST:event_SignUp_Button_CancelActionPerformed
 
     private void SignUp_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUp_Button_AcceptActionPerformed
-        // TODO add your handling code here:
+        hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
     }//GEN-LAST:event_SignUp_Button_AcceptActionPerformed
 
     private void SignUp_TextField_MiddleNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUp_TextField_MiddleNameActionPerformed
@@ -1053,6 +1131,18 @@ public class main extends javax.swing.JFrame {
     private void SignUp_TextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUp_TextField_UsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SignUp_TextField_UsernameActionPerformed
+
+    private void PasswordRecovery_TextField_UserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_TextField_UserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordRecovery_TextField_UserNameActionPerformed
+
+    private void PasswordRecovery_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_Button_AcceptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordRecovery_Button_AcceptActionPerformed
+
+    private void PasswordRecovery_Button_SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_Button_SignUpActionPerformed
+        hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
+    }//GEN-LAST:event_PasswordRecovery_Button_SignUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1119,6 +1209,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_LibroDetalle;
     private javax.swing.JPanel Panel_Prestamos;
     private javax.swing.JPanel Panel_UsuarioDetalle;
+    private javax.swing.JButton PasswordRecovery_Button_Accept;
+    private javax.swing.JButton PasswordRecovery_Button_SignUp;
+    private javax.swing.JLabel PasswordRecovery_Label_UserName;
+    private javax.swing.JPanel PasswordRecovery_Panel;
+    private javax.swing.JTextField PasswordRecovery_TextField_UserName;
     private javax.swing.JButton SignUp_Button_Accept;
     private javax.swing.JButton SignUp_Button_Cancel;
     private javax.swing.JFormattedTextField SignUp_FormattedTextField_Email1;

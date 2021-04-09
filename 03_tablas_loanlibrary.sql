@@ -5,10 +5,10 @@
 CREATE TABLE person
 (
     id_person                           NUMBER(6),
-    identidication_card                 NUMBER(9) CONSTRAINT person_identification_card_nn NOT NULL,
-    CONSTRAINT person_identification_card_uk UNIQUE (identidication_card),
+    identification_card                 NUMBER(9) CONSTRAINT person_identification_card_nn NOT NULL,
+    CONSTRAINT person_identification_card_uk UNIQUE (identification_card),
     first_name                          VARCHAR2(25)CONSTRAINT person_first_name_nn NOT NULL,
-    second_name                         VARCHAR2(25)CONSTRAINT person_second_name_nn NOT NULL,
+    second_name                         VARCHAR2(25),--CONSTRAINT person_second_name_nn NOT NULL,
     first_lastname                      VARCHAR2(25)CONSTRAINT person_first_lastname_nn NOT NULL,
     second_lastname                     VARCHAR2(25)CONSTRAINT person_second_lastname_nn NOT NULL,
     CONSTRAINT person_pk PRIMARY KEY (id_person) 

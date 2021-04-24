@@ -248,4 +248,37 @@ EXCEPTION
         raise_application_error(-20017, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_author_add;
 /
---CREATE OR REPLACE PROCEDURE proc_classification_add
+CREATE OR REPLACE PROCEDURE proc_classification_add (
+    p_classification   IN                 classification.classification%TYPE,
+    p_description      IN                 classification.description%TYPE
+)IS
+    exception_pk EXCEPTION;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_pk, -1 );
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    INSERT INTO classification (
+        id_classification,
+        classification,
+        description
+    ) VALUES (
+        S_CLASSIFICATION.NEXTVAL,
+        initcap(p_classification),
+        upper(p_description)
+    );
+
+    dbms_output.put_line('CLASIFICACIÓN AGREGADA CON ÉXITO');
+    COMMIT;
+EXCEPTION
+    WHEN exception_pk THEN
+        dbms_output.put_line('Error de inserción, ya existe el ID');
+        raise_application_error(-20018, 'YA EXISTE EL ID QUE SE QUIERE AGREGAR EN EL REGISTRO DE clasificación');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20019, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20020, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_classification_add;
+/

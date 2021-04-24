@@ -131,10 +131,9 @@ CREATE TABLE author
 (
     id_author                 NUMBER(6) CONSTRAINT author_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     first_name                VARCHAR2(25)CONSTRAINT author_first_name_nn NOT NULL,
-    second_name               VARCHAR2(25)CONSTRAINT author_second_name_nn NOT NULL,
+    second_name               VARCHAR2(25),--CONSTRAINT author_second_name_nn NOT NULL,
     first_lastname            VARCHAR2(25)CONSTRAINT author_first_lastname_nn NOT NULL,
     second_lastname           VARCHAR2(25)CONSTRAINT author_second_lastname_nn NOT NULL
-    
 );
 
 CREATE TABLE editorial

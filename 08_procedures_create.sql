@@ -272,7 +272,7 @@ BEGIN
 EXCEPTION
     WHEN exception_pk THEN
         dbms_output.put_line('Error de inserción, ya existe el ID');
-        raise_application_error(-20018, 'YA EXISTE EL ID QUE SE QUIERE AGREGAR EN EL REGISTRO DE clasificación');
+        raise_application_error(-20018, 'YA EXISTE EL ID QUE SE QUIERE AGREGAR EN EL REGISTRO DE CLASIFICACIÓN');
     WHEN exception_nn THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
         raise_application_error(-20019, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
@@ -281,4 +281,48 @@ EXCEPTION
         dbms_output.put_line('MENSAJE:' || sqlerrm);
         raise_application_error(-20020, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_classification_add;
+/
+CREATE OR REPLACE PROCEDURE proc_email_add (
+    p_email       IN            email.email%TYPE,
+    p_id_person   IN            email.id_person%TYPE
+) IS
+
+    v_id_person email.id_person%TYPE;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        id_person
+    INTO v_id_person
+    FROM
+        person
+    WHERE
+        id_person = p_id_person;
+
+    INSERT INTO email (
+        id_email,
+        email,
+        id_person
+    ) VALUES (
+        s_email.NEXTVAL,
+        initcap(p_email),
+        p_id_person
+    );
+
+    COMMIT;
+EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+        dbms_output.put_line('NO EXISTE UNA PERSONA REGISTRADA CON ESE ID');
+       raise_application_error(-20021, 'NO EXISTE EL ID DE LA PERSONA QUE SE QUIERE VINCULAR');
+    WHEN DUP_VAL_ON_INDEX THEN
+        dbms_output.put_line('error DE INSERCIÓN, YA EXISTE EL VALOR');
+        raise_application_error(-20022, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20023, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20024, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_email_add;
 /

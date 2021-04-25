@@ -69,6 +69,7 @@ CREATE TABLE user_person
     CONSTRAINT user_user_uk UNIQUE (user_person),
     password                       VARCHAR(12) CONSTRAINT user_password_nn NOT NULL,
     id_person                      NUMBER(6) CONSTRAINT user_person_nn NOT NULL,
+    CONSTRAINT user_person_uk UNIQUE (id_person),
     CONSTRAINT user_person_fk FOREIGN KEY (id_person) REFERENCES person(id_person),
     alert_days                     NUMBER(2) DEFAULT 5 CONSTRAINT user_alert_nn NOT NULL,
     loan_days                     NUMBER(2) DEFAULT 15 CONSTRAINT user_loandays_nn NOT NULL,
@@ -89,14 +90,15 @@ CREATE TABLE item
    id_item                      NUMBER(6) CONSTRAINT item_pk PRIMARY KEY ,
    item                         VARCHAR2(30) CONSTRAINT item_item_nn NOT NULL,
    description                  VARCHAR2(50),
-   available                     char(1) CONSTRAINT item_available_nn NOT NULL,
+   available                     char(1) DEFAULT 'Y' CONSTRAINT item_available_nn NOT NULL,
    CONSTRAINT item_available_ck check (available in ('Y','N')),
    id_user                      NUMBER(6) CONSTRAINT item_user_nn NOT NULL,
    CONSTRAINT item_user_fk FOREIGN KEY (id_user) REFERENCES user_person(id_user),
    cover_picture               ORDSYS.ORDImage,
    id_classification            NUMBER(6) CONSTRAINT item_classification_nn NOT NULL,
    CONSTRAINT item_classification_fk FOREIGN KEY (id_classification) REFERENCES classification(id_classification),
-   calification                 NUMBER(2,1) CONSTRAINT item_calification_nn NOT NULL
+   calification                 NUMBER(2) CONSTRAINT item_calification_nn NOT NULL,
+   CONSTRAINT item_calification_ck check (calification >0 AND calification <=10)
 );
 
 

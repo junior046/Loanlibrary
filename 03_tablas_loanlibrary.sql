@@ -152,10 +152,14 @@ CREATE TABLE book
     isbn                    NUMBER(13) CONSTRAINT book_isbn_nn NOT NULL,
     CONSTRAINT book_isbn_uk UNIQUE(isbn),
     edition                 NUMBER(2) CONSTRAINT book_edition_nn NOT NULL,
+    id_editorial            NUMBER(6) CONSTRAINT book_editorial_nn NOT NULL,
     CONSTRAINT book_item_fk 
     FOREIGN KEY (id_item) 
     REFERENCES item(id_item),
-    CONSTRAINT book_pk PRIMARY KEY (id_item) 
+    CONSTRAINT book_editorial_fk 
+    FOREIGN KEY (id_editorial) 
+    REFERENCES editorial(id_editorial),
+    CONSTRAINT book_pk PRIMARY KEY (id_item)
     USING INDEX
     TABLESPACE loanlibrary_Ind PCTFREE 20
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)

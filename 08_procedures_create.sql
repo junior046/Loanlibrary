@@ -470,7 +470,7 @@ BEGIN
     COMMIT;
 EXCEPTION
     WHEN no_data_found THEN
-        dbms_output.put_line('NO EXISTE UNA USUARIO REGISTRADA CON ESE ID');
+        dbms_output.put_line('NO EXISTE UN USUARIO REGISTRADA CON ESE ID');
         raise_application_error(-20033, 'NO EXISTE EL USUARIO DE LA PERSONA QUE SE QUIERE VINCULAR');
     WHEN dup_val_on_index THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
@@ -486,3 +486,106 @@ EXCEPTION
         dbms_output.put_line('MENSAJE:' || sqlerrm);
         raise_application_error(-20036, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_item_add;
+/
+CREATE OR REPLACE PROCEDURE proc_book_add (
+    p_id_item     IN            book.id_item%TYPE,
+    p_isbn        IN            book.isbn%TYPE,
+    p_editorial   IN            book.id_editorial%TYPE,
+    p_edition     IN            book.edition%TYPE
+) IS
+
+    v_id_item        book.id_item%TYPE;
+    v_id_editorial   book.id_editorial%TYPE;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        id_item
+    INTO v_id_item
+    FROM
+        item
+    WHERE
+        id_item = p_id_item;
+
+    INSERT INTO book (
+        id_item,
+        isbn,
+        edition,
+        id_editorial
+    ) VALUES (
+        p_id_item,
+        p_isbn,
+        p_edition,
+        p_editorial
+    );
+
+    dbms_output.put_line('LIBRO AGREGADO CON ÉXITO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NO EXISTE UN ELEMENTO O EDITORIAL REGISTRADA CON ESE ID');
+        raise_application_error(-20033, 'NO EXISTE EL UN ELEMENTO O EDITORIALQUE SE QUIERE VINCULAR');
+    WHEN dup_val_on_index THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
+        raise_application_error(-20034, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20035, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20036, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_book_add;
+/
+CREATE OR REPLACE PROCEDURE proc_author_for_book_add (
+    p_book     IN         author_for_book.id_book%TYPE,
+    p_author   IN         author_for_book.id_author%TYPE
+) IS
+
+    v_id_book     author_for_book.id_book%TYPE;
+    v_id_author   author_for_book.id_author%TYPE;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        id_item
+    INTO v_id_book
+    FROM
+        book
+    WHERE
+        id_item = p_book;
+
+    SELECT
+        id_author
+    INTO v_id_author
+    FROM
+        author
+    WHERE
+        id_author = p_author;
+
+    INSERT INTO author_for_book (
+        id_author,
+        id_book
+    ) VALUES (
+        p_author,
+        p_book
+    );
+
+    dbms_output.put_line('AUTHOR ASIGNADO CON ÉXITO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NO EXISTE EL AUTOR O LIBRO REGISTRADA CON ESE ID');
+        raise_application_error(-20037, 'NO EXISTE EL AUTOR O LIBRO QUE SE QUIERE VINCULAR');
+    WHEN dup_val_on_index THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
+        raise_application_error(-20038, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20039, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20040, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_author_for_book_add;
+/

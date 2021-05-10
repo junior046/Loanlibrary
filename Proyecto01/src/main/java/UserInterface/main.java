@@ -1207,7 +1207,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_Main_Menu_Button_ItemsActionPerformed
 
     private void Main_Menu_Button_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ExitActionPerformed
-        // TODO add your handling code here:
+        closeProgram();
     }//GEN-LAST:event_Main_Menu_Button_ExitActionPerformed
 
     /**

@@ -230,9 +230,11 @@ public class main extends javax.swing.JFrame {
         Unchangeable_Panel_Base = new javax.swing.JPanel();
         Main_Layered_PanelBase = new javax.swing.JLayeredPane();
         Menu_Panel_Main = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Main_Menu_Button_Contacts = new javax.swing.JButton();
+        Main_Menu_Button_Items = new javax.swing.JButton();
+        Main_Menu_Button_Account = new javax.swing.JButton();
+        Main_Menu_Button_Exit = new javax.swing.JButton();
+        Main_Menu_Button_LogOut = new javax.swing.JButton();
         Panel_Prestamos = new javax.swing.JPanel();
         Panel_LibroDetalle = new javax.swing.JPanel();
         Panel_UsuarioDetalle = new javax.swing.JPanel();
@@ -788,30 +790,50 @@ public class main extends javax.swing.JFrame {
         Menu_Panel_Main.setBackground(new java.awt.Color(2, 48, 71));
         Menu_Panel_Main.setMaximumSize(new java.awt.Dimension(900, 450));
         Menu_Panel_Main.setMinimumSize(new java.awt.Dimension(900, 450));
+        Menu_Panel_Main.setPreferredSize(new java.awt.Dimension(900, 450));
         Menu_Panel_Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setText("My Account");
-        jButton3.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton3.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton3.setPreferredSize(new java.awt.Dimension(250, 300));
-        Menu_Panel_Main.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 260, -1));
-
-        jButton5.setText("My Account");
-        jButton5.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton5.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton5.setPreferredSize(new java.awt.Dimension(250, 300));
-        Menu_Panel_Main.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
-
-        jButton6.setText("My Account");
-        jButton6.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton6.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton6.setPreferredSize(new java.awt.Dimension(250, 300));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Main_Menu_Button_Contacts.setIcon(getImageIcon("Contacts.jpg"));
+        Main_Menu_Button_Contacts.setText("My Contacts");
+        Main_Menu_Button_Contacts.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.setPreferredSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                Main_Menu_Button_ContactsActionPerformed(evt);
             }
         });
-        Menu_Panel_Main.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        Menu_Panel_Main.add(Main_Menu_Button_Contacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        Main_Menu_Button_Items.setIcon(getImageIcon("Items.jpg"));
+        Main_Menu_Button_Items.setText("My Account");
+        Main_Menu_Button_Items.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.setPreferredSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_ItemsActionPerformed(evt);
+            }
+        });
+        Menu_Panel_Main.add(Main_Menu_Button_Items, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 260, -1));
+
+        Main_Menu_Button_Account.setIcon(getImageIcon("Account.jpg"));
+        Main_Menu_Button_Account.setText("My Account");
+        Main_Menu_Button_Account.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Account.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Account.setPreferredSize(new java.awt.Dimension(250, 300));
+        Menu_Panel_Main.add(Main_Menu_Button_Account, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
+
+        Main_Menu_Button_Exit.setText("Exit");
+        Main_Menu_Button_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_ExitActionPerformed(evt);
+            }
+        });
+        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 410, -1, -1));
+
+        Main_Menu_Button_LogOut.setText("Log Out");
+        Menu_Panel_Main.add(Main_Menu_Button_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, -1, -1));
 
         Main_Layered_PanelBase.add(Menu_Panel_Main);
         Menu_Panel_Main.setBounds(0, 0, 900, 450);
@@ -1099,9 +1121,9 @@ public class main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void Main_Menu_Button_ContactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ContactsActionPerformed
         hideEveryPanelExceptThis_MAIN(Panel_Prestamos);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_Main_Menu_Button_ContactsActionPerformed
 
     private void cofirmExit_button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cofirmExit_button_AcceptActionPerformed
         //controlador.guardarPrograma();
@@ -1180,6 +1202,14 @@ public class main extends javax.swing.JFrame {
         hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
     }//GEN-LAST:event_PasswordRecovery_Button_SignUpActionPerformed
 
+    private void Main_Menu_Button_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ItemsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_ItemsActionPerformed
+
+    private void Main_Menu_Button_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ExitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_ExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1238,6 +1268,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel LogIn_label_HeadTitle;
     private javax.swing.JLabel LogIn_label_logo;
     private javax.swing.JLayeredPane Main_Layered_PanelBase;
+    private javax.swing.JButton Main_Menu_Button_Account;
+    private javax.swing.JButton Main_Menu_Button_Contacts;
+    private javax.swing.JButton Main_Menu_Button_Exit;
+    private javax.swing.JButton Main_Menu_Button_Items;
+    private javax.swing.JButton Main_Menu_Button_LogOut;
     private javax.swing.JPanel Main_Panel_Head;
     private javax.swing.JLabel Main_label_HeadTitle;
     private javax.swing.JLabel Main_label_logo;
@@ -1278,9 +1313,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton cofirmExit_button_Cancel;
     private javax.swing.JLabel cofirmExit_label_tittle;
     private javax.swing.JDialog confirmExit;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;

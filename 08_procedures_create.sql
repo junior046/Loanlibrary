@@ -109,7 +109,6 @@ END proc_editorial_add;
 CREATE OR REPLACE PROCEDURE proc_developer_add (
     p_developer   IN            developer.developer%TYPE
 ) IS
-
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_nn, -1400 );
 BEGIN
@@ -206,12 +205,13 @@ EXCEPTION
 END proc_type_add;
 /
 
-CREATE OR REPLACE PROCEDURE proc_author_add(
-    p_first_name            IN                      author.first_name%TYPE,
-    p_second_name           IN                      author.second_name%TYPE,
-    p_first_lastname        IN                      author.first_lastname%TYPE,
-    p_second_lastname       IN                      author.second_lastname%TYPE
-)IS
+CREATE OR REPLACE PROCEDURE proc_author_add (
+    p_first_name        IN                  author.first_name%TYPE,
+    p_second_name       IN                  author.second_name%TYPE,
+    p_first_lastname    IN                  author.first_lastname%TYPE,
+    p_second_lastname   IN                  author.second_lastname%TYPE
+) IS
+
     exception_pk EXCEPTION;
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_pk, -1 );
@@ -246,10 +246,12 @@ EXCEPTION
         raise_application_error(-20017, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_author_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_classification_add (
     p_classification   IN                 classification.classification%TYPE,
     p_description      IN                 classification.description%TYPE
-)IS
+) IS
+
     exception_pk EXCEPTION;
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_pk, -1 );
@@ -260,7 +262,7 @@ BEGIN
         classification,
         description
     ) VALUES (
-        S_CLASSIFICATION.NEXTVAL,
+        s_classification.NEXTVAL,
         initcap(p_classification),
         upper(p_description)
     );
@@ -280,11 +282,11 @@ EXCEPTION
         raise_application_error(-20020, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_classification_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_email_add (
     p_email       IN            email.email%TYPE,
     p_id_person   IN            email.id_person%TYPE
 ) IS
-
     v_id_person email.id_person%TYPE;
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_nn, -1400 );
@@ -306,13 +308,14 @@ BEGIN
         lower(p_email),
         p_id_person
     );
+
     dbms_output.put_line('EMAIL AGREGADO CON ÉXITO');
     COMMIT;
 EXCEPTION
-   WHEN NO_DATA_FOUND THEN
+    WHEN no_data_found THEN
         dbms_output.put_line('NO EXISTE UNA PERSONA REGISTRADA CON ESE ID');
-       raise_application_error(-20021, 'NO EXISTE EL ID DE LA PERSONA QUE SE QUIERE VINCULAR');
-    WHEN DUP_VAL_ON_INDEX THEN
+        raise_application_error(-20021, 'NO EXISTE EL ID DE LA PERSONA QUE SE QUIERE VINCULAR');
+    WHEN dup_val_on_index THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
         raise_application_error(-20022, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
     WHEN exception_nn THEN
@@ -324,11 +327,11 @@ EXCEPTION
         raise_application_error(-20024, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_email_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_phone_add (
     p_phone       IN            phone.phone_number%TYPE,
     p_id_person   IN            phone.id_person%TYPE
 ) IS
-
     v_id_person phone.id_person%TYPE;
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_nn, -1400 );
@@ -350,13 +353,14 @@ BEGIN
         p_phone,
         p_id_person
     );
+
     dbms_output.put_line('TELÉFONO AGREGADO CON ÉXITO');
     COMMIT;
 EXCEPTION
-   WHEN NO_DATA_FOUND THEN
+    WHEN no_data_found THEN
         dbms_output.put_line('NO EXISTE UNA PERSONA REGISTRADA CON ESE ID');
-       raise_application_error(-20025, 'NO EXISTE EL ID DE LA PERSONA QUE SE QUIERE VINCULAR');
-    WHEN DUP_VAL_ON_INDEX THEN
+        raise_application_error(-20025, 'NO EXISTE EL ID DE LA PERSONA QUE SE QUIERE VINCULAR');
+    WHEN dup_val_on_index THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
         raise_application_error(-20026, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
     WHEN exception_nn THEN
@@ -368,6 +372,7 @@ EXCEPTION
         raise_application_error(-20028, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_phone_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_user_add (
     p_user        IN            user_person.user_person%TYPE,
     p_password    IN            user_person.password%TYPE,
@@ -415,6 +420,7 @@ EXCEPTION
         raise_application_error(-20032, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_user_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_item_add (
     p_item                IN                    item.item%TYPE,
     p_id_user             IN                    item.id_user%TYPE,
@@ -485,6 +491,7 @@ EXCEPTION
         raise_application_error(-20036, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_item_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_book_add (
     p_id_item     IN            book.id_item%TYPE,
     p_isbn        IN            book.isbn%TYPE,
@@ -504,6 +511,7 @@ BEGIN
         editorial
     WHERE
         id_editorial = p_editorial;
+
     SELECT
         id_item
     INTO v_id_item
@@ -542,6 +550,7 @@ EXCEPTION
         raise_application_error(-20036, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_book_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_author_for_book_add (
     p_book     IN         author_for_book.id_book%TYPE,
     p_author   IN         author_for_book.id_author%TYPE
@@ -594,6 +603,7 @@ EXCEPTION
         raise_application_error(-20040, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_author_for_book_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_film_add (
     p_id_item   IN          film.id_item%TYPE,
     p_date      IN          film.release_date%TYPE
@@ -636,13 +646,13 @@ EXCEPTION
         raise_application_error(-20044, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_film_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_magazine_add (
     p_id_item        IN               magazine.id_item%TYPE,
     p_date           IN               magazine.date_magazine%TYPE,
     p_registry_num   IN               magazine.registry_number%TYPE
 ) IS
-
-    v_id_item        magazine.id_item%TYPE;
+    v_id_item magazine.id_item%TYPE;
     exception_nn EXCEPTION;
     PRAGMA exception_init ( exception_nn, -1400 );
 BEGIN
@@ -682,6 +692,7 @@ EXCEPTION
         raise_application_error(-20048, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_magazine_add;
 /
+
 CREATE OR REPLACE PROCEDURE proc_game_add (
     p_id_item     IN            game.id_item%TYPE,
     p_date        IN            game.date_game%TYPE,
@@ -724,15 +735,325 @@ BEGIN
 EXCEPTION
     WHEN no_data_found THEN
         dbms_output.put_line('NO EXISTE UN ELEMENTO O DESARROLLADOR REGISTRADO CON ESE ID');
-        raise_application_error(-20033, 'NO EXISTE EL UN ELEMENTO O DESARROLLADOR QUE SE QUIERE VINCULAR');
+        raise_application_error(-20050, 'NO EXISTE EL UN ELEMENTO O DESARROLLADOR QUE SE QUIERE VINCULAR');
     WHEN dup_val_on_index THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
-        raise_application_error(-20034, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
+        raise_application_error(-20051, 'YA EXISTE EL VALOR Y NO SE PUEDE DUPLICAR');
     WHEN exception_nn THEN
         dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
-        raise_application_error(-20035, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20052, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
     WHEN OTHERS THEN
         dbms_output.put_line('CODIGO:' || sqlcode);
         dbms_output.put_line('MENSAJE:' || sqlerrm);
-        raise_application_error(-20036, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+        raise_application_error(-20053, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_game_add;
+/
+
+CREATE OR REPLACE PROCEDURE proc_binnacle_add (
+    p_id_user       IN              binnacle.id_user%TYPE,
+    p_name_object   IN              binnacle.name_object%TYPE,
+    p_table         IN              binnacle.table_name%TYPE,
+    p_id_type       IN              binnacle.id_type%TYPE
+) IS
+
+    v_id_user   binnacle.id_user%TYPE;
+    v_id_type   binnacle.id_type%TYPE;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        id_user
+    INTO v_id_user
+    FROM
+        user_person
+    WHERE
+        id_user = p_id_user;
+
+    SELECT
+        id_type
+    INTO v_id_type
+    FROM
+        type
+    WHERE
+        id_type = p_id_type;
+
+    INSERT INTO binnacle (
+        id_binnacle,
+        id_user,
+        name_object,
+        table_name,
+        date_binnacle,
+        id_type
+    ) VALUES (
+        s_binnacle.NEXTVAL,
+        p_id_user,
+        p_name_object,
+        p_table,
+        SYSDATE,
+        p_id_type
+    );
+
+    dbms_output.put_line('EL REGISTRO DE BITÁCORA HA SIDO AGREGADO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NO EXISTE EL TIPO O USUARIO REGISTRADO CON ESE ID');
+        raise_application_error(-20054, 'NO EXISTE EL UN ELEMENTO O DESARROLLADOR QUE SE QUIERE VINCULAR');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20055, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20056, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_binnacle_add;
+/
+
+CREATE OR REPLACE PROCEDURE proc_current_user_upd (
+    p_id_user   IN          current_user.id_user%TYPE
+) IS
+
+    v_id_user      current_user.id_user%TYPE;
+    verification   NUMBER(1);
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        id_user
+    INTO v_id_user
+    FROM
+        user_person
+    WHERE
+        id_user = p_id_user;
+
+    SELECT
+        COUNT(id_current)
+    INTO verification
+    FROM
+        current_user;
+
+    IF ( verification = 0 ) THEN
+        INSERT INTO current_user VALUES (
+            1,
+            p_id_user
+        );
+
+    ELSE
+        UPDATE current_user
+        SET
+            id_user = p_id_user
+        WHERE
+            id_current = 1;
+
+    END IF;
+
+    dbms_output.put_line('ITEM AGREGADO CON ÉXITO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        IF ( p_id_user IS NOT NULL ) THEN
+            dbms_output.put_line('NO EXISTE UN USUARIO REGISTRADA CON ESE ID');
+            raise_application_error(-20058, 'NO EXISTE EL USUARIO DE LA PERSONA QUE SE QUIERE VINCULAR');
+        ELSE
+            SELECT
+                COUNT(id_current)
+            INTO verification
+            FROM
+                current_user;
+
+            IF ( verification = 0 ) THEN
+                INSERT INTO current_user (id_current, id_user)VALUES (
+                    1,
+                    NULL
+                );
+
+            ELSE
+                UPDATE current_user
+                SET
+                    id_user = NULL
+                WHERE
+                    id_current = 1;
+
+            END IF;
+
+        END IF;
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20059, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20060, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_current_user_upd;
+/
+CREATE OR REPLACE PROCEDURE proc_borrower_list_add (
+    p_borrower   IN           borrower_list.id_borrower%TYPE,
+    p_lender     IN           borrower_list.id_lender%TYPE,
+    p_category   IN           borrower_list.id_category%TYPE
+) IS
+
+    v_id_borrower   borrower_list.id_borrower%TYPE;
+    v_id_lender     borrower_list.id_lender%TYPE;
+    v_id_category   category.id_category%TYPE;
+    exception_nn EXCEPTION;
+    exception_ck EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+    PRAGMA exception_init ( exception_ck, -2290 );
+BEGIN
+    SELECT
+        id_person
+    INTO v_id_borrower
+    FROM
+        person
+    WHERE
+        id_person = p_borrower;
+
+    SELECT
+        id_person
+    INTO v_id_lender
+    FROM
+        person
+    WHERE
+        id_person = p_lender;
+
+    SELECT
+        id_category
+    INTO v_id_category
+    FROM
+        category
+    WHERE
+        id_category = p_category;
+
+    IF p_borrower = p_lender THEN
+        dbms_output.put_line('EL PRESTATARIO NO PUEDE SER EL MISMO QUE EL PRESTADOR');
+        raise_application_error(-20999, 'EL PRESTATARIO NO PUEDE SER EL MISMO QUE EL PRESTADOR');
+    END IF;
+
+    INSERT INTO borrower_list (
+        id_borrower_list,
+        id_category,
+        id_borrower,
+        id_lender
+    ) VALUES (
+        s_borrower_list.NEXTVAL,
+        p_category,
+        p_borrower,
+        p_lender
+    );
+
+    dbms_output.put_line('EL REGISTRO DE PRESTATARIO HA SIDO AGREGADO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NO EXISTE lA CATEGORÍA O UNA DE LAS PERSONAS QUE SE QUIERE VINCULAR');
+        raise_application_error(-20063, 'NO EXISTE lA CATEGORÍA O UNA DE LAS PERSONAS  QUE SE QUIERE VINCULAR');
+    WHEN dup_val_on_index THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, YA EXISTE EL VALOR');
+        raise_application_error(-20064, 'YA EXISTE EL VALOR, NO PUEDE AGREGARSE UN PRESTATARIO DOS VECES A UN PRESTADOR');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20061, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20062, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_borrower_list_add;
+/
+CREATE OR REPLACE PROCEDURE proc_loan_add (
+    p_id_person   IN            loan.id_person%TYPE,
+    p_id_item     IN            loan.id_item%TYPE
+) IS
+
+    v_id_item    loan.id_item%TYPE;
+    v_person     loan.id_person%TYPE;
+    v_lender     person.id_person%TYPE;
+    v_borrower   person.id_person%TYPE;
+    v_status     item.available%TYPE;
+    exception_nn EXCEPTION;
+    PRAGMA exception_init ( exception_nn, -1400 );
+BEGIN
+    SELECT
+        i.available,
+        p.id_person
+    INTO
+        v_status,
+        v_lender
+    FROM
+        item          i
+        INNER JOIN user_person   p ON i.id_user = p.id_user
+    WHERE
+        i.id_item = p_id_item;
+
+    IF v_status = 'N' THEN
+        dbms_output.put_line('EL ARTÍCULO NO ESTÁ DISPONIBLE');
+        raise_application_error(-20998, 'EL ITEM NO ESTÁ DISPONIBLE');
+    END IF;
+
+    SELECT
+        id_person
+    INTO v_person
+    FROM
+        person
+    WHERE
+        id_person = p_id_person;
+
+  /* SELECT
+        P.id_person
+    INTO v_lender
+    FROM
+        item I INNER JOIN USER_PERSON P ON I.ID_USER = P.ID_PERSON
+    WHERE
+        id_item = p_id_item;*/
+
+    SELECT
+        id_item
+    INTO v_id_item
+    FROM
+        item
+    WHERE
+        id_item = p_id_item;
+
+    dbms_output.put_line('Lender es: ' || v_lender);
+    dbms_output.put_line('Borrower es: ' || p_id_person);
+    SELECT
+        id_borrower_list
+    INTO v_borrower
+    FROM
+        borrower_list
+    WHERE
+        id_lender = v_lender
+        AND id_borrower = p_id_person;
+
+    dbms_output.put_line('AUTORIZADO EL PRÉSTAMO');
+    INSERT INTO loan (
+        id_loan,
+        loan_date,
+        id_item,
+        id_person
+    ) VALUES (
+        s_loan.NEXTVAL,
+        SYSDATE,
+        p_id_item,
+        p_id_person
+    );
+
+    UPDATE item
+    SET
+        available = 'N'
+    WHERE
+        id_item = p_id_item;
+
+    dbms_output.put_line('EL REGISTRO DE PRESTAMO HA SIDO AGREGADO');
+    COMMIT;
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NO EXISTE LA PERSONA EN LISTA PRESTATARIO DISPONIBLES O EL ITEM NO ESTÁ REGISTRADO');
+        raise_application_error(-20065, 'NO EXISTE LA PERSONA EN LISTA PRESTATARIO DISPONIBLES O EL ITEM NO ESTÁ REGISTRADO');
+    WHEN exception_nn THEN
+        dbms_output.put_line('ERROR DE INSERCIÓN, NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+        raise_application_error(-20066, 'NO PUEDE DEJAR VACÍO UN CAMPO OBLIGATORIO.');
+    WHEN OTHERS THEN
+        dbms_output.put_line('CODIGO:' || sqlcode);
+        dbms_output.put_line('MENSAJE:' || sqlerrm);
+        raise_application_error(-20067, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
+END proc_loan_add;

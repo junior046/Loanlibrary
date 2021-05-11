@@ -6,7 +6,7 @@ MaxValue 10000000
 NOCACHE
 NOCYCLE;
 
-Create Sequence s_binncle
+Create Sequence s_binnacle
 Start with 1
 Increment by 1
 MinValue 0

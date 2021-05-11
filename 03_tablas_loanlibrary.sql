@@ -59,7 +59,8 @@ CREATE TABLE borrower_list
     id_borrower                    NUMBER(6) CONSTRAINT borrower_list_borrower_nn NOT NULL,
     CONSTRAINT borrower_list_borrower_fk FOREIGN KEY (id_borrower) REFERENCES person(id_person),
     id_lender                      NUMBER(6) CONSTRAINT borrower_list_lender_nn NOT NULL,
-    CONSTRAINT borrower_list_lender_fk FOREIGN KEY (id_lender) REFERENCES person(id_person)
+    CONSTRAINT borrower_list_lender_fk FOREIGN KEY (id_lender) REFERENCES person(id_person),
+    CONSTRAINT borrower_uk UNIQUE (id_borrower ,id_lender )
 );
 
 CREATE TABLE user_person
@@ -72,8 +73,10 @@ CREATE TABLE user_person
     CONSTRAINT user_person_uk UNIQUE (id_person),
     CONSTRAINT user_person_fk FOREIGN KEY (id_person) REFERENCES person(id_person),
     alert_days                     NUMBER(2) DEFAULT 5 CONSTRAINT user_alert_nn NOT NULL,
-    loan_days                     NUMBER(2) DEFAULT 15 CONSTRAINT user_loandays_nn NOT NULL,
-    days_tolerance                     NUMBER(2) DEFAULT 7 CONSTRAINT user_daystolerance_nn NOT NULL
+    loan_days                      NUMBER(2) DEFAULT 15 CONSTRAINT user_loandays_nn NOT NULL,
+    days_tolerance                 NUMBER(2) DEFAULT 7 CONSTRAINT user_daystolerance_nn NOT NULL,
+    administrator_user             char(1)DEFAULT 'N' CONSTRAINT user_administrator_nn NOT NULL,
+   CONSTRAINT user_administrator_ck check (administrator_user in ('Y','N'))
 );
 
 
@@ -247,3 +250,15 @@ CREATE TABLE loan
     FOREIGN KEY (id_person)
     REFERENCES person(id_person)
 );
+CREATE TABLE current_user (
+    id_current   NUMBER(1)CONSTRAINT id_current_ck CHECK ( id_current < 2 ),
+    id_user      NUMBER(6),    
+    CONSTRAINT current_user_user_fk 
+    FOREIGN KEY ( id_user )
+    REFERENCES user_person ( id_user ),
+    CONSTRAINT current_user 
+    PRIMARY KEY ( id_current )
+    USING INDEX TABLESPACE loanlibrary_ind PCTFREE 20
+    STORAGE ( INITIAL 10K NEXT 10K PCTINCREASE 0 )
+);
+/

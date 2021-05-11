@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
  * @author David B
  */
 public class EmailServices {
-    private final static String EMAIL = "loanbrary.system01@gmail.com ";
+    private final static String EMAIL = "loanbrary.system01@gmail.com";
     private final static String PASSWORD = "BasesDatos2021";
     private final static Properties PROPERTIES = initializeProperties();
 

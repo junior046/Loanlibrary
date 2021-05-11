@@ -230,9 +230,11 @@ public class main extends javax.swing.JFrame {
         Unchangeable_Panel_Base = new javax.swing.JPanel();
         Main_Layered_PanelBase = new javax.swing.JLayeredPane();
         Menu_Panel_Main = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Main_Menu_Button_Contacts = new javax.swing.JButton();
+        Main_Menu_Button_Items = new javax.swing.JButton();
+        Main_Menu_Button_Account = new javax.swing.JButton();
+        Main_Menu_Button_Exit = new javax.swing.JButton();
+        Main_Menu_Button_LogOut = new javax.swing.JButton();
         Panel_Prestamos = new javax.swing.JPanel();
         Panel_LibroDetalle = new javax.swing.JPanel();
         Panel_UsuarioDetalle = new javax.swing.JPanel();
@@ -251,7 +253,6 @@ public class main extends javax.swing.JFrame {
         confirmExit.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         confirmExit.setAlwaysOnTop(true);
         confirmExit.setFocusTraversalPolicyProvider(true);
-        confirmExit.setMaximumSize(new java.awt.Dimension(400, 300));
         confirmExit.setMinimumSize(new java.awt.Dimension(400, 300));
         confirmExit.setResizable(false);
         confirmExit.setType(java.awt.Window.Type.UTILITY);
@@ -311,9 +312,7 @@ public class main extends javax.swing.JFrame {
         LogIn_Frame.setAlwaysOnTop(true);
         LogIn_Frame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LogIn_Frame.setFocusTraversalPolicyProvider(true);
-        LogIn_Frame.setMaximumSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setMinimumSize(new java.awt.Dimension(600, 500));
-        LogIn_Frame.setPreferredSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setResizable(false);
 
         Unchangable_Layered_SignIn.setMaximumSize(new java.awt.Dimension(600, 500));
@@ -368,7 +367,6 @@ public class main extends javax.swing.JFrame {
         LogIn_Panel.setAlignmentY(0.0F);
         LogIn_Panel.setMaximumSize(new java.awt.Dimension(600, 380));
         LogIn_Panel.setMinimumSize(new java.awt.Dimension(600, 380));
-        LogIn_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LogIn_TextField_UserName.setMaximumSize(new java.awt.Dimension(90, 30));
         LogIn_TextField_UserName.setMinimumSize(new java.awt.Dimension(90, 30));
@@ -378,24 +376,20 @@ public class main extends javax.swing.JFrame {
                 LogIn_TextField_UserNameActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_TextField_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 260, -1));
 
         LogIn_Label_UserName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 24)); // NOI18N
         LogIn_Label_UserName.setForeground(new java.awt.Color(255, 255, 255));
         LogIn_Label_UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogIn_Label_UserName.setText("Username:");
         LogIn_Label_UserName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        LogIn_Panel.add(LogIn_Label_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 148, 30));
 
         LogIn_Label_Password.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 24)); // NOI18N
         LogIn_Label_Password.setForeground(new java.awt.Color(255, 255, 255));
         LogIn_Label_Password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LogIn_Label_Password.setText("Password:");
         LogIn_Label_Password.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        LogIn_Panel.add(LogIn_Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 148, 30));
 
         LogIn_PasswordField_Password.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        LogIn_Panel.add(LogIn_PasswordField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 260, 30));
 
         LogIn_Button_SignUp.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         LogIn_Button_SignUp.setText("Sign up ");
@@ -412,7 +406,6 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_SignUpActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 110, 40));
 
         LogIn_Button_Accept.setBackground(new java.awt.Color(255, 255, 255));
         LogIn_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
@@ -431,7 +424,6 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_AcceptActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 70, 30));
 
         LogIn_Button_PasswordRecovery.setBorderPainted(false);
         LogIn_Button_PasswordRecovery.setContentAreaFilled(false);
@@ -442,7 +434,6 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_PasswordRecoveryActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_PasswordRecovery, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 160, 20));
 
         LogIn_Label_PasswordRecovery.setFont(new java.awt.Font("Kozuka Mincho Pro L", 2, 14)); // NOI18N
         LogIn_Label_PasswordRecovery.setForeground(new java.awt.Color(204, 204, 204));
@@ -450,7 +441,6 @@ public class main extends javax.swing.JFrame {
         LogIn_Label_PasswordRecovery.setToolTipText("");
         LogIn_Label_PasswordRecovery.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         LogIn_Label_PasswordRecovery.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        LogIn_Panel.add(LogIn_Label_PasswordRecovery, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 170, 20));
 
         LogIn_Button_Accept1.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         LogIn_Button_Accept1.setText("Accept");
@@ -467,7 +457,59 @@ public class main extends javax.swing.JFrame {
                 LogIn_Button_Accept1ActionPerformed(evt);
             }
         });
-        LogIn_Panel.add(LogIn_Button_Accept1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 110, 40));
+
+        javax.swing.GroupLayout LogIn_PanelLayout = new javax.swing.GroupLayout(LogIn_Panel);
+        LogIn_Panel.setLayout(LogIn_PanelLayout);
+        LogIn_PanelLayout.setHorizontalGroup(
+            LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogIn_Button_PasswordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogIn_Label_PasswordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(LogIn_Button_SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
+                .addComponent(LogIn_Button_Accept1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addComponent(LogIn_Button_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(LogIn_Label_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(LogIn_PasswordField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                        .addComponent(LogIn_Label_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(LogIn_TextField_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        LogIn_PanelLayout.setVerticalGroup(
+            LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogIn_Label_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogIn_TextField_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LogIn_PasswordField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogIn_Label_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogIn_Button_PasswordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogIn_Label_PasswordRecovery, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(LogIn_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogIn_Button_SignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogIn_Button_Accept1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(LogIn_PanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(LogIn_Button_Accept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         LogIn_Layered_PanelBase.add(LogIn_Panel);
         LogIn_Panel.setBounds(0, 0, 600, 380);
@@ -722,7 +764,6 @@ public class main extends javax.swing.JFrame {
 
         Unchangable_Layered_Main.setMaximumSize(new java.awt.Dimension(900, 550));
         Unchangable_Layered_Main.setMinimumSize(new java.awt.Dimension(900, 550));
-        Unchangable_Layered_Main.setPreferredSize(new java.awt.Dimension(900, 550));
         Unchangable_Layered_Main.setLayout(new java.awt.BorderLayout());
 
         Main_Panel_Head.setBackground(new java.awt.Color(251, 133, 0));
@@ -735,8 +776,6 @@ public class main extends javax.swing.JFrame {
         Main_label_HeadTitle.setForeground(new java.awt.Color(255, 255, 255));
         Main_label_HeadTitle.setText("ss");
         Main_Panel_Head.add(Main_label_HeadTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 670, 100));
-
-        Main_label_logo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\1 SEMESTRE 21\\BASES DE DATOS\\Proyecto 01\\Loanlibrary\\Proyecto01\\src\\main\\java\\UserInterface\\images\\z_04.png")); // NOI18N
         Main_Panel_Head.add(Main_label_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 120));
 
         Unchangable_Layered_Main.add(Main_Panel_Head, java.awt.BorderLayout.PAGE_START);
@@ -747,35 +786,54 @@ public class main extends javax.swing.JFrame {
 
         Main_Layered_PanelBase.setMaximumSize(new java.awt.Dimension(900, 450));
         Main_Layered_PanelBase.setMinimumSize(new java.awt.Dimension(900, 450));
-        Main_Layered_PanelBase.setPreferredSize(new java.awt.Dimension(900, 450));
 
         Menu_Panel_Main.setBackground(new java.awt.Color(2, 48, 71));
         Menu_Panel_Main.setMaximumSize(new java.awt.Dimension(900, 450));
         Menu_Panel_Main.setMinimumSize(new java.awt.Dimension(900, 450));
+        Menu_Panel_Main.setPreferredSize(new java.awt.Dimension(900, 450));
         Menu_Panel_Main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setText("My Account");
-        jButton3.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton3.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton3.setPreferredSize(new java.awt.Dimension(250, 300));
-        Menu_Panel_Main.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 260, -1));
-
-        jButton5.setText("My Account");
-        jButton5.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton5.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton5.setPreferredSize(new java.awt.Dimension(250, 300));
-        Menu_Panel_Main.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
-
-        jButton6.setText("My Account");
-        jButton6.setMaximumSize(new java.awt.Dimension(250, 300));
-        jButton6.setMinimumSize(new java.awt.Dimension(250, 300));
-        jButton6.setPreferredSize(new java.awt.Dimension(250, 300));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        Main_Menu_Button_Contacts.setIcon(getImageIcon("Contacts.jpg"));
+        Main_Menu_Button_Contacts.setText("My Contacts");
+        Main_Menu_Button_Contacts.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.setPreferredSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Contacts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                Main_Menu_Button_ContactsActionPerformed(evt);
             }
         });
-        Menu_Panel_Main.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        Menu_Panel_Main.add(Main_Menu_Button_Contacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+
+        Main_Menu_Button_Items.setIcon(getImageIcon("Items.jpg"));
+        Main_Menu_Button_Items.setText("My Account");
+        Main_Menu_Button_Items.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.setPreferredSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Items.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_ItemsActionPerformed(evt);
+            }
+        });
+        Menu_Panel_Main.add(Main_Menu_Button_Items, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 260, -1));
+
+        Main_Menu_Button_Account.setIcon(getImageIcon("Account.jpg"));
+        Main_Menu_Button_Account.setText("My Account");
+        Main_Menu_Button_Account.setMaximumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Account.setMinimumSize(new java.awt.Dimension(250, 300));
+        Main_Menu_Button_Account.setPreferredSize(new java.awt.Dimension(250, 300));
+        Menu_Panel_Main.add(Main_Menu_Button_Account, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
+
+        Main_Menu_Button_Exit.setText("Exit");
+        Main_Menu_Button_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_ExitActionPerformed(evt);
+            }
+        });
+        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 410, -1, -1));
+
+        Main_Menu_Button_LogOut.setText("Log Out");
+        Menu_Panel_Main.add(Main_Menu_Button_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 410, -1, -1));
 
         Main_Layered_PanelBase.add(Menu_Panel_Main);
         Menu_Panel_Main.setBounds(0, 0, 900, 450);
@@ -1045,7 +1103,6 @@ public class main extends javax.swing.JFrame {
         setLocation(new java.awt.Point(0, 0));
         setMaximumSize(new java.awt.Dimension(0, 0));
         setName("DK"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(0, 0));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
         setType(java.awt.Window.Type.UTILITY);
@@ -1064,9 +1121,9 @@ public class main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void Main_Menu_Button_ContactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ContactsActionPerformed
+        hideEveryPanelExceptThis_MAIN(Panel_Prestamos);
+    }//GEN-LAST:event_Main_Menu_Button_ContactsActionPerformed
 
     private void cofirmExit_button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cofirmExit_button_AcceptActionPerformed
         //controlador.guardarPrograma();
@@ -1084,6 +1141,7 @@ public class main extends javax.swing.JFrame {
 
     private void LogIn_Button_SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_SignUpActionPerformed
         hideEveryPanelExceptThis_LogIn(SignUp_Panel, true);
+        
     }//GEN-LAST:event_LogIn_Button_SignUpActionPerformed
 
     private void LogIn_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_AcceptActionPerformed
@@ -1144,6 +1202,14 @@ public class main extends javax.swing.JFrame {
         hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
     }//GEN-LAST:event_PasswordRecovery_Button_SignUpActionPerformed
 
+    private void Main_Menu_Button_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ItemsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_ItemsActionPerformed
+
+    private void Main_Menu_Button_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ExitActionPerformed
+        closeProgram();
+    }//GEN-LAST:event_Main_Menu_Button_ExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1202,6 +1268,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel LogIn_label_HeadTitle;
     private javax.swing.JLabel LogIn_label_logo;
     private javax.swing.JLayeredPane Main_Layered_PanelBase;
+    private javax.swing.JButton Main_Menu_Button_Account;
+    private javax.swing.JButton Main_Menu_Button_Contacts;
+    private javax.swing.JButton Main_Menu_Button_Exit;
+    private javax.swing.JButton Main_Menu_Button_Items;
+    private javax.swing.JButton Main_Menu_Button_LogOut;
     private javax.swing.JPanel Main_Panel_Head;
     private javax.swing.JLabel Main_label_HeadTitle;
     private javax.swing.JLabel Main_label_logo;
@@ -1242,9 +1313,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton cofirmExit_button_Cancel;
     private javax.swing.JLabel cofirmExit_label_tittle;
     private javax.swing.JDialog confirmExit;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;

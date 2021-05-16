@@ -13,7 +13,7 @@ import DataAccess.User;
  * @author David B
  */
 public class Session {
-    private Session currentSesion;
+    private static Session currentSesion;
     private User currentUser;
 
     
@@ -21,7 +21,7 @@ public class Session {
         this.currentUser= currentUser;
     }
     
-    public Session getCurrentSession(String username, String password){
+    public static Session getCurrentSession(String username, String password){
         if(currentSesion==null && User.validateUser(username,password)) 
             currentSesion = new Session(new User(username,password));
         return currentSesion;
@@ -31,4 +31,8 @@ public class Session {
         return currentUser;
     }
     
+    public void logOut(){
+        currentSesion=null;
+        currentUser=null;
+    }
 }

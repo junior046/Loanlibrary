@@ -79,6 +79,8 @@ public class main extends javax.swing.JFrame {
             if(component instanceof JPanel)
                 component.setVisible(false);
         
+
+        
         if(flagrResponseClean) cleanWindow(panel);
         
         panel.setVisible(true);
@@ -92,8 +94,7 @@ public class main extends javax.swing.JFrame {
                 component.setVisible(false);
         
         if(flagrResponseClean) cleanWindow(panel);
-        
-
+       
         
         panel.setVisible(true);
     }
@@ -103,6 +104,19 @@ public class main extends javax.swing.JFrame {
        
        if(panel==LogIn_Panel) LogIn_label_HeadTitle.setText("Log In");
        if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
+       
+       if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
+       
+       
+   }
+   
+   private void setTitleMain(JPanel panel, String ... optionalMessage){
+       String message = (optionalMessage.length >= 1) ? optionalMessage[0] : "";
+       
+       if(panel==Menu_Panel_Main) Main_label_HeadTitle.setText("Main Menu");
+       if(panel==SignUp_Panel) Main_label_HeadTitle.setText("Sign Up");
+       
+       if(panel==SignUp_Panel) Main_label_HeadTitle.setText("Sign Up");
        
        
    }
@@ -312,7 +326,9 @@ public class main extends javax.swing.JFrame {
         LogIn_Frame.setAlwaysOnTop(true);
         LogIn_Frame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LogIn_Frame.setFocusTraversalPolicyProvider(true);
+        LogIn_Frame.setMaximumSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setMinimumSize(new java.awt.Dimension(600, 500));
+        LogIn_Frame.setPreferredSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setResizable(false);
 
         Unchangable_Layered_SignIn.setMaximumSize(new java.awt.Dimension(600, 500));
@@ -1153,9 +1169,9 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_LogIn_Button_PasswordRecoveryActionPerformed
 
     private void LogIn_Button_Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_Accept1ActionPerformed
-        //openFrameCloseFrame(mainWindow_Frame,LogIn);
-        //if(userType==userTypes.adminUser)hideEveryPanelExceptThis(AdminMenu_Panel_Main);
-        //else hideEveryPanelExceptThis(UserMenu_Panel_Main);
+        openFrameCloseFrame(mainWindow_Frame,LogIn_Frame);
+        hideEveryPanelExceptThis_LogIn(Menu_Panel_Main);
+        setTitleMain(Menu_Panel_Main);
     }//GEN-LAST:event_LogIn_Button_Accept1ActionPerformed
 
     private void SignUp_TextField_2ndSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUp_TextField_2ndSurnameActionPerformed

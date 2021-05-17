@@ -274,8 +274,10 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_ID = new javax.swing.JLabel();
         MyAccount_FormattedTextField_Email = new javax.swing.JFormattedTextField();
         MyAccount_Label_Number = new javax.swing.JLabel();
-        Panel_Prestamos = new javax.swing.JPanel();
+        Cancel = new javax.swing.JButton();
+        MyAccount_Button_Accept = new javax.swing.JButton();
         Panel_LibroDetalle = new javax.swing.JPanel();
+        Panel_Prestamos = new javax.swing.JPanel();
         Panel_UsuarioDetalle = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -289,6 +291,7 @@ public class main extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
 
         confirmExit.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        confirmExit.setTitle("Exit Confirmation");
         confirmExit.setAlwaysOnTop(true);
         confirmExit.setFocusTraversalPolicyProvider(true);
         confirmExit.setMinimumSize(new java.awt.Dimension(400, 300));
@@ -347,6 +350,7 @@ public class main extends javax.swing.JFrame {
         );
 
         LogIn_Frame.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        LogIn_Frame.setTitle("Loanbrary - Your library for loans");
         LogIn_Frame.setAlwaysOnTop(true);
         LogIn_Frame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LogIn_Frame.setFocusTraversalPolicyProvider(true);
@@ -799,11 +803,13 @@ public class main extends javax.swing.JFrame {
         );
 
         mainWindow_Frame.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        mainWindow_Frame.setTitle("Loanbrary - Your library for loans");
         mainWindow_Frame.setLocation(new java.awt.Point(0, 0));
         mainWindow_Frame.setMaximumSize(new java.awt.Dimension(900, 550));
         mainWindow_Frame.setMinimumSize(new java.awt.Dimension(900, 550));
         mainWindow_Frame.setSize(new java.awt.Dimension(900, 550));
 
+        Unchangable_Layered_Main.setBackground(new java.awt.Color(2, 48, 71));
         Unchangable_Layered_Main.setAlignmentX(0.0F);
         Unchangable_Layered_Main.setAlignmentY(0.0F);
         Unchangable_Layered_Main.setMaximumSize(new java.awt.Dimension(900, 550));
@@ -826,6 +832,7 @@ public class main extends javax.swing.JFrame {
 
         Unchangable_Layered_Main.add(Main_Panel_Head, java.awt.BorderLayout.PAGE_START);
 
+        Unchangeable_Panel_Base.setBackground(new java.awt.Color(2, 48, 71));
         Unchangeable_Panel_Base.setAlignmentX(0.0F);
         Unchangeable_Panel_Base.setAlignmentY(0.0F);
         Unchangeable_Panel_Base.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -884,6 +891,8 @@ public class main extends javax.swing.JFrame {
         });
         Menu_Panel_Main.add(Main_Menu_Button_Account, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 240, -1));
 
+        Main_Menu_Button_Exit.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Main_Menu_Button_Exit.setForeground(new java.awt.Color(255, 0, 51));
         Main_Menu_Button_Exit.setText("Exit");
         Main_Menu_Button_Exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Main_Menu_Button_Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -891,8 +900,9 @@ public class main extends javax.swing.JFrame {
                 Main_Menu_Button_ExitActionPerformed(evt);
             }
         });
-        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, -1, -1));
+        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
 
+        Main_Menu_Button_LogOut.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         Main_Menu_Button_LogOut.setText("Log Out");
         Main_Menu_Button_LogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Main_Menu_Button_LogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -900,11 +910,12 @@ public class main extends javax.swing.JFrame {
                 Main_Menu_Button_LogOutActionPerformed(evt);
             }
         });
-        Menu_Panel_Main.add(Main_Menu_Button_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, -1, -1));
+        Menu_Panel_Main.add(Main_Menu_Button_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, 40));
 
         Main_Layered_PanelBase.add(Menu_Panel_Main, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Panel_MyAccount.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_MyAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Panel_MyAccount.setMaximumSize(new java.awt.Dimension(900, 450));
         Panel_MyAccount.setMinimumSize(new java.awt.Dimension(900, 450));
         Panel_MyAccount.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -917,14 +928,14 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_2ndSurnameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 160, -1));
+        Panel_MyAccount.add(MyAccount_TextField_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 160, -1));
 
         MyAccount_Label_MiddleName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_MiddleName.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_MiddleName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_MiddleName.setText("Middle name:");
         MyAccount_Label_MiddleName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 110, 20));
+        Panel_MyAccount.add(MyAccount_Label_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 110, 20));
 
         MyAccount_TextField_MiddleName.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_MiddleName.setMinimumSize(new java.awt.Dimension(90, 30));
@@ -934,14 +945,14 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_MiddleNameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 160, -1));
+        Panel_MyAccount.add(MyAccount_TextField_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 160, -1));
 
         MyAccount_Label_1stSurname.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_1stSurname.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_1stSurname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_1stSurname.setText("1st Lastname:");
         MyAccount_Label_1stSurname.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_1stSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 120, 20));
+        Panel_MyAccount.add(MyAccount_Label_1stSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 120, 20));
 
         MyAccount_TextField_1stSurname.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_1stSurname.setMinimumSize(new java.awt.Dimension(90, 30));
@@ -951,29 +962,29 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_1stSurnameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_1stSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 150, 30));
+        Panel_MyAccount.add(MyAccount_TextField_1stSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 160, 30));
 
         MyAccount_Label_2ndSurname.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_2ndSurname.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_2ndSurname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_2ndSurname.setText("2nd Lastname:");
         MyAccount_Label_2ndSurname.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 120, 20));
-        Panel_MyAccount.add(MyAccount_FormattedTextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 160, 30));
+        Panel_MyAccount.add(MyAccount_Label_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 120, 20));
+        Panel_MyAccount.add(MyAccount_FormattedTextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 160, 30));
 
         MyAccount_Label_Password.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Password.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_Password.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Password.setText("Password:");
         MyAccount_Label_Password.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 100, 20));
+        Panel_MyAccount.add(MyAccount_Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 100, 20));
 
         MyAccount_Label_FirstName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_FirstName.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_FirstName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_FirstName.setText("First name:");
         MyAccount_Label_FirstName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 120, 30));
+        Panel_MyAccount.add(MyAccount_Label_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 120, 30));
 
         MyAccount_TextField_FirstName.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_FirstName.setMinimumSize(new java.awt.Dimension(90, 30));
@@ -983,30 +994,32 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_FirstNameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 150, 30));
+        Panel_MyAccount.add(MyAccount_TextField_FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 160, 30));
 
         MyAccount_Label_Email.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Email.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_Email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Email.setText("Email:");
         MyAccount_Label_Email.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 120, 20));
-        Panel_MyAccount.add(MyAccount_FormattedTextField_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 150, 30));
+        Panel_MyAccount.add(MyAccount_Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 80, 20));
+        Panel_MyAccount.add(MyAccount_FormattedTextField_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 160, 30));
 
+        MyAccount_FormattedTextField_ID.setEditable(false);
         MyAccount_FormattedTextField_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MyAccount_FormattedTextField_IDActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_FormattedTextField_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 150, 30));
+        Panel_MyAccount.add(MyAccount_FormattedTextField_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 160, 30));
 
         MyAccount_Label_Username.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Username.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_Username.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Username.setText("Username:");
         MyAccount_Label_Username.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 100, 20));
+        Panel_MyAccount.add(MyAccount_Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 100, 20));
 
+        MyAccount_TextField_Username.setEditable(false);
         MyAccount_TextField_Username.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_Username.setMinimumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_Username.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -1015,41 +1028,51 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_UsernameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 160, 30));
+        Panel_MyAccount.add(MyAccount_TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 160, 30));
 
         MyAccount_Label_ID.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_ID.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_ID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_ID.setText("ID:");
         MyAccount_Label_ID.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 120, 20));
-        Panel_MyAccount.add(MyAccount_FormattedTextField_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 150, 30));
+        Panel_MyAccount.add(MyAccount_Label_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 100, 20));
+
+        MyAccount_FormattedTextField_Email.setEditable(false);
+        MyAccount_FormattedTextField_Email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MyAccount_FormattedTextField_EmailActionPerformed(evt);
+            }
+        });
+        Panel_MyAccount.add(MyAccount_FormattedTextField_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 160, 30));
 
         MyAccount_Label_Number.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Number.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_Number.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Number.setText("Number:");
         MyAccount_Label_Number.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 120, 20));
+        Panel_MyAccount.add(MyAccount_Label_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 120, 20));
 
-        Main_Layered_PanelBase.add(Panel_MyAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Cancel.setText("Cancel");
+        Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
+        Panel_MyAccount.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, 40));
 
-        Panel_Prestamos.setBackground(new java.awt.Color(2, 48, 71));
-        Panel_Prestamos.setMaximumSize(new java.awt.Dimension(900, 450));
-        Panel_Prestamos.setMinimumSize(new java.awt.Dimension(900, 450));
+        MyAccount_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        MyAccount_Button_Accept.setText("Accept");
+        MyAccount_Button_Accept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MyAccount_Button_Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MyAccount_Button_AcceptActionPerformed(evt);
+            }
+        });
+        Panel_MyAccount.add(MyAccount_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 90, 40));
 
-        javax.swing.GroupLayout Panel_PrestamosLayout = new javax.swing.GroupLayout(Panel_Prestamos);
-        Panel_Prestamos.setLayout(Panel_PrestamosLayout);
-        Panel_PrestamosLayout.setHorizontalGroup(
-            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        Panel_PrestamosLayout.setVerticalGroup(
-            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
-
-        Main_Layered_PanelBase.add(Panel_Prestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        Main_Layered_PanelBase.add(Panel_MyAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 450));
 
         Panel_LibroDetalle.setBackground(new java.awt.Color(2, 48, 71));
         Panel_LibroDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -1067,6 +1090,23 @@ public class main extends javax.swing.JFrame {
         );
 
         Main_Layered_PanelBase.add(Panel_LibroDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
+        Panel_Prestamos.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_Prestamos.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_Prestamos.setMinimumSize(new java.awt.Dimension(900, 450));
+
+        javax.swing.GroupLayout Panel_PrestamosLayout = new javax.swing.GroupLayout(Panel_Prestamos);
+        Panel_Prestamos.setLayout(Panel_PrestamosLayout);
+        Panel_PrestamosLayout.setHorizontalGroup(
+            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        Panel_PrestamosLayout.setVerticalGroup(
+            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        Main_Layered_PanelBase.add(Panel_Prestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         Panel_UsuarioDetalle.setBackground(new java.awt.Color(2, 48, 71));
         Panel_UsuarioDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -1256,18 +1296,7 @@ public class main extends javax.swing.JFrame {
 
         Unchangable_Layered_Main.add(Unchangeable_Panel_Base, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout mainWindow_FrameLayout = new javax.swing.GroupLayout(mainWindow_Frame.getContentPane());
-        mainWindow_Frame.getContentPane().setLayout(mainWindow_FrameLayout);
-        mainWindow_FrameLayout.setHorizontalGroup(
-            mainWindow_FrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Unchangable_Layered_Main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        mainWindow_FrameLayout.setVerticalGroup(
-            mainWindow_FrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainWindow_FrameLayout.createSequentialGroup()
-                .addComponent(Unchangable_Layered_Main, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(450, Short.MAX_VALUE))
-        );
+        mainWindow_Frame.getContentPane().add(Unchangable_Layered_Main, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -1332,10 +1361,11 @@ public class main extends javax.swing.JFrame {
 
     private void LogIn_Button_Accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogIn_Button_Accept1ActionPerformed
         currentSession= Session.getCurrentSession(LogIn_TextField_UserName.getText(), LogIn_PasswordField_Password.getPassword().toString());
+        
         if(currentSession != null){
             openFrameCloseFrame(mainWindow_Frame,LogIn_Frame);
             setTitleMain(Menu_Panel_Main);
-            hideEveryPanelExceptThis_LogIn(Menu_Panel_Main);
+            hideEveryPanelExceptThis_MAIN(Menu_Panel_Main);
         }
     }//GEN-LAST:event_LogIn_Button_Accept1ActionPerformed
 
@@ -1392,7 +1422,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_Main_Menu_Button_ExitActionPerformed
 
     private void Main_Menu_Button_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_AccountActionPerformed
-        // TODO add your handling code here:
+        hideEveryPanelExceptThis_MAIN(Panel_MyAccount);
     }//GEN-LAST:event_Main_Menu_Button_AccountActionPerformed
 
     private void Main_Menu_Button_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOutActionPerformed
@@ -1425,6 +1455,18 @@ public class main extends javax.swing.JFrame {
     private void MyAccount_TextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_TextField_UsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MyAccount_TextField_UsernameActionPerformed
+
+    private void MyAccount_FormattedTextField_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_FormattedTextField_EmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MyAccount_FormattedTextField_EmailActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelActionPerformed
+
+    private void MyAccount_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_Button_AcceptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MyAccount_Button_AcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1467,6 +1509,7 @@ public class main extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancel;
     private javax.swing.JButton LogIn_Button_Accept;
     private javax.swing.JButton LogIn_Button_Accept1;
     private javax.swing.JButton LogIn_Button_PasswordRecovery;
@@ -1492,6 +1535,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Main_label_HeadTitle;
     private javax.swing.JLabel Main_label_logo;
     private javax.swing.JPanel Menu_Panel_Main;
+    private javax.swing.JButton MyAccount_Button_Accept;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_Email;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_ID;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_Number;

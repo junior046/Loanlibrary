@@ -85,10 +85,46 @@ public class main extends javax.swing.JFrame {
             if(component instanceof JPanel)
                 component.setVisible(false);
         
-
+        if(panel==Panel_NewItem) hideSubPanels_Items(ItemType_Panel_Book,true);
+        
+        setTitleMain(panel);
         
         if(flagrResponseClean) cleanWindow(panel);
         
+        panel.setVisible(true);
+    }
+    
+    private void hideSubPanels_Items(JPanel panel, boolean ... flagCleanPanel){
+        boolean flagrResponseClean = (flagCleanPanel.length >= 1) ? flagCleanPanel[0] : false;
+        
+        for(Component component : NewItem_LayeredPanel_ItemType.getComponents()) 
+            if(component instanceof JPanel)
+                component.setVisible(false);
+        
+        if(panel==ItemType_Panel_Book) hideSubPanels_BookOptions(HideBookOptions,true);
+        if(panel==ItemType_Panel_Game) hideSubPanels_GameOptions(HideDeveloperOptions,true);
+        
+        
+        if(flagrResponseClean) cleanWindow(panel);
+        
+        panel.setVisible(true);
+    }
+    
+    private void hideSubPanels_BookOptions(JPanel panel, boolean ... flagCleanPanel){
+        boolean flagrResponseClean = (flagCleanPanel.length >= 1) ? flagCleanPanel[0] : false;
+        for(Component component : Book_LayeredPane_AddNewEditorialORAuthor.getComponents()) 
+            if(component instanceof JPanel)
+                component.setVisible(false);
+        if(flagrResponseClean) cleanWindow(panel);
+        panel.setVisible(true);
+    }
+    
+    private void hideSubPanels_GameOptions(JPanel panel, boolean ... flagCleanPanel){
+        boolean flagrResponseClean = (flagCleanPanel.length >= 1) ? flagCleanPanel[0] : false;
+        for(Component component : Game_LayeredPane_AddNewDeveloper.getComponents()) 
+            if(component instanceof JPanel)
+                component.setVisible(false);
+        if(flagrResponseClean) cleanWindow(panel);
         panel.setVisible(true);
     }
     
@@ -99,21 +135,18 @@ public class main extends javax.swing.JFrame {
             if(component instanceof JPanel)
                 component.setVisible(false);
         
+        setTitleLogin(panel);
+        
         if(flagrResponseClean) cleanWindow(panel);
-       
         
         panel.setVisible(true);
     }
      
-   private void setTitle(JPanel panel, String ... optionalMessage){
-       String message = (optionalMessage.length >= 1) ? optionalMessage[0] : "";
-       
+   private void setTitleLogin(JPanel panel){
        if(panel==LogIn_Panel) LogIn_label_HeadTitle.setText("Log In");
-       if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
-       
-       if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
-       
-       
+       else if(panel==SignUp_Panel) LogIn_label_HeadTitle.setText("Sign Up");
+       else if(panel==PasswordRecovery_Panel) LogIn_label_HeadTitle.setText("PasswordRecovery");
+       else LogIn_label_HeadTitle.setText("LoanBrary");
    }
    
    private void setTitleMain(JPanel panel, String ... optionalMessage){
@@ -121,14 +154,19 @@ public class main extends javax.swing.JFrame {
        if(!message.equals("")){
            Main_label_HeadTitle.setText(message);
            return;} 
+       
        if(panel==Menu_Panel_Main) Main_label_HeadTitle.setText("Main Menu");
-       if(panel==SignUp_Panel) Main_label_HeadTitle.setText("Sign Up");
-       
-       if(panel==SignUp_Panel) Main_label_HeadTitle.setText("Sign Up");
-       
-       
+       else if(panel==Panel_MyAccount) Main_label_HeadTitle.setText("My Account");
+       else if(panel==Panel_NewItem) Main_label_HeadTitle.setText("New Item"); 
+       else Main_label_HeadTitle.setText("LoanBrary");
    }
     
+   
+   private void InitializeItemsTable(){
+       String[] columnNames = {"Name", "Description", "Classification",  "Calification", "Status"}; 
+       Object[][] data= {{"Don Quijote", "Spanish Book",5,},{}};
+   }
+   
      private void cleanWindow(JPanel panel){
         for(Component component : panel.getComponents()){   
             if(component instanceof JTextField){
@@ -156,16 +194,7 @@ public class main extends javax.swing.JFrame {
                 comp.removeAll();
             }
         }
-    }
-     
-     private void changeHeadingMessage(String message, boolean ... flagSingIn){
-         boolean responseFlagSingIn = (flagSingIn.length >= 1) ? flagSingIn[0] : false;
-         if(!responseFlagSingIn){
-             
-         } else {
-         }
-     }
-     
+    }     
      
     private int closeProgram(){
         confirmExit.setVisible(true);
@@ -174,7 +203,6 @@ public class main extends javax.swing.JFrame {
         confirmExit.requestFocus();
         
         currentVisibleFrame.setVisible(false);
-
         return 0;
     }
     
@@ -258,6 +286,14 @@ public class main extends javax.swing.JFrame {
         Main_Menu_Button_Account = new javax.swing.JButton();
         Main_Menu_Button_Exit = new javax.swing.JButton();
         Main_Menu_Button_LogOut = new javax.swing.JButton();
+        Panel_MyItems = new javax.swing.JPanel();
+        MyItems_jScrollPane_Container_Table = new javax.swing.JScrollPane();
+        MyItems_jTable_TablaItems = new javax.swing.JTable();
+        Main_Menu_Button_LogOut1 = new javax.swing.JButton();
+        Main_Menu_Button_LogOut2 = new javax.swing.JButton();
+        Main_Menu_Button_LogOut3 = new javax.swing.JButton();
+        Main_Menu_Button_LogOut4 = new javax.swing.JButton();
+        Panel_MyContacts = new javax.swing.JPanel();
         Panel_MyAccount = new javax.swing.JPanel();
         MyAccount_TextField_2ndSurname = new javax.swing.JTextField();
         MyAccount_Label_MiddleName = new javax.swing.JLabel();
@@ -286,13 +322,19 @@ public class main extends javax.swing.JFrame {
         NewItem_jSpinner_Calification = new javax.swing.JSpinner();
         NewItem_jScrollPane_UNCHANGEABLE = new javax.swing.JScrollPane();
         NewItem_jTextArea_Description = new javax.swing.JTextArea();
-        New_Button_Cancel = new javax.swing.JButton();
+        NewItem_Button_Cancel = new javax.swing.JButton();
         NewItem_Button_Accept = new javax.swing.JButton();
         NewItem_Label_Calification = new javax.swing.JLabel();
         NewItem_Label_Description = new javax.swing.JLabel();
         NewItem_Label_CoverPicture = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
         NewItem_Label_ItemType = new javax.swing.JLabel();
+        NewItem_Label_Name = new javax.swing.JLabel();
+        NewItem_Label_Clasification = new javax.swing.JLabel();
+        NewItem_Label_Name1 = new javax.swing.JLabel();
+        NewItem_jComboBox_ItemType = new javax.swing.JComboBox<>();
+        NewItem_Button_AddNewClassification = new javax.swing.JButton();
+        NewItem_label_AddNewClassification = new javax.swing.JLabel();
         NewItem_LayeredPanel_ItemType = new javax.swing.JLayeredPane();
         ItemType_Panel_Book = new javax.swing.JPanel();
         Book_FormattedTextField_Edition = new javax.swing.JFormattedTextField();
@@ -331,6 +373,9 @@ public class main extends javax.swing.JFrame {
         Magazine_Label_Date = new javax.swing.JLabel();
         Magazine_FormattedTextField_Date1 = new javax.swing.JFormattedTextField();
         Magazine_Label_RegistrationNumber = new javax.swing.JLabel();
+        ItemType_Panel_Film = new javax.swing.JPanel();
+        Film_FormattedTextField_Date = new javax.swing.JFormattedTextField();
+        Film_Label_Date = new javax.swing.JLabel();
         ItemType_Panel_Game = new javax.swing.JPanel();
         Game_FormattedTextField_Year = new javax.swing.JFormattedTextField();
         Game_Label_Year = new javax.swing.JLabel();
@@ -345,17 +390,14 @@ public class main extends javax.swing.JFrame {
         AddDeveloper_Label_AddNewDeveloper = new javax.swing.JLabel();
         AddDeveloper_Label_NewDeveloper = new javax.swing.JLabel();
         AddDeveloper_TextField_NewDeveloper = new javax.swing.JTextField();
-        ItemType_Panel_Film = new javax.swing.JPanel();
-        Film_FormattedTextField_Date = new javax.swing.JFormattedTextField();
-        Film_Label_Date = new javax.swing.JLabel();
-        NewItem_Label_Name = new javax.swing.JLabel();
-        NewItem_Label_Clasification = new javax.swing.JLabel();
-        NewItem_Button_Clasification = new javax.swing.JButton();
-        NewItem_Label_Name1 = new javax.swing.JLabel();
-        NewItem_jComboBox_ItemType = new javax.swing.JComboBox<>();
-        Panel_Prestamos = new javax.swing.JPanel();
+        NewClassification = new javax.swing.JPanel();
+        NewClassification_TextField_NewClassification = new javax.swing.JTextField();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        NewClassification_Label_NewClassification = new javax.swing.JLabel();
+        NewClassification_Button_AddNewClassification = new javax.swing.JButton();
+        NewClassification_label_AddNewClassification = new javax.swing.JLabel();
+        NewItem_jComboBox_ItemType1 = new javax.swing.JComboBox<>();
         Panel_UsuarioDetalle = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -978,7 +1020,7 @@ public class main extends javax.swing.JFrame {
                 Main_Menu_Button_ExitActionPerformed(evt);
             }
         });
-        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
+        Menu_Panel_Main.add(Main_Menu_Button_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, 40));
 
         Main_Menu_Button_LogOut.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         Main_Menu_Button_LogOut.setText("Log Out");
@@ -991,6 +1033,111 @@ public class main extends javax.swing.JFrame {
         Menu_Panel_Main.add(Main_Menu_Button_LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, -1, 40));
 
         Main_Layered_PanelBase.add(Menu_Panel_Main, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Panel_MyItems.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_MyItems.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_MyItems.setMinimumSize(new java.awt.Dimension(900, 450));
+
+        MyItems_jTable_TablaItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        MyItems_jScrollPane_Container_Table.setViewportView(MyItems_jTable_TablaItems);
+
+        Main_Menu_Button_LogOut1.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Main_Menu_Button_LogOut1.setText("Delete Item");
+        Main_Menu_Button_LogOut1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Menu_Button_LogOut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_LogOut1ActionPerformed(evt);
+            }
+        });
+
+        Main_Menu_Button_LogOut2.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Main_Menu_Button_LogOut2.setText("Return");
+        Main_Menu_Button_LogOut2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Menu_Button_LogOut2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_LogOut2ActionPerformed(evt);
+            }
+        });
+
+        Main_Menu_Button_LogOut3.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Main_Menu_Button_LogOut3.setText("New Item");
+        Main_Menu_Button_LogOut3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Menu_Button_LogOut3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_LogOut3ActionPerformed(evt);
+            }
+        });
+
+        Main_Menu_Button_LogOut4.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        Main_Menu_Button_LogOut4.setText("Edit Item");
+        Main_Menu_Button_LogOut4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Menu_Button_LogOut4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Main_Menu_Button_LogOut4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Panel_MyItemsLayout = new javax.swing.GroupLayout(Panel_MyItems);
+        Panel_MyItems.setLayout(Panel_MyItemsLayout);
+        Panel_MyItemsLayout.setHorizontalGroup(
+            Panel_MyItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_MyItemsLayout.createSequentialGroup()
+                .addGap(0, 30, Short.MAX_VALUE)
+                .addGroup(Panel_MyItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MyItems_jScrollPane_Container_Table, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Panel_MyItemsLayout.createSequentialGroup()
+                        .addComponent(Main_Menu_Button_LogOut3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Main_Menu_Button_LogOut4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Main_Menu_Button_LogOut1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Main_Menu_Button_LogOut2)
+                        .addGap(4, 4, 4)))
+                .addGap(0, 30, Short.MAX_VALUE))
+        );
+        Panel_MyItemsLayout.setVerticalGroup(
+            Panel_MyItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_MyItemsLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(MyItems_jScrollPane_Container_Table, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
+                .addGroup(Panel_MyItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Main_Menu_Button_LogOut1)
+                    .addComponent(Main_Menu_Button_LogOut2)
+                    .addComponent(Main_Menu_Button_LogOut3)
+                    .addComponent(Main_Menu_Button_LogOut4))
+                .addGap(27, 27, 27))
+        );
+
+        Main_Layered_PanelBase.add(Panel_MyItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+
+        Panel_MyContacts.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_MyContacts.setMaximumSize(new java.awt.Dimension(900, 450));
+        Panel_MyContacts.setMinimumSize(new java.awt.Dimension(900, 450));
+
+        javax.swing.GroupLayout Panel_MyContactsLayout = new javax.swing.GroupLayout(Panel_MyContacts);
+        Panel_MyContacts.setLayout(Panel_MyContactsLayout);
+        Panel_MyContactsLayout.setHorizontalGroup(
+            Panel_MyContactsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        Panel_MyContactsLayout.setVerticalGroup(
+            Panel_MyContactsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        Main_Layered_PanelBase.add(Panel_MyContacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         Panel_MyAccount.setBackground(new java.awt.Color(2, 48, 71));
         Panel_MyAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1006,14 +1153,14 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_2ndSurnameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 160, -1));
+        Panel_MyAccount.add(MyAccount_TextField_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 160, -1));
 
         MyAccount_Label_MiddleName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_MiddleName.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_MiddleName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_MiddleName.setText("Middle name:");
         MyAccount_Label_MiddleName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 110, 20));
+        Panel_MyAccount.add(MyAccount_Label_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 110, 20));
 
         MyAccount_TextField_MiddleName.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_MiddleName.setMinimumSize(new java.awt.Dimension(90, 30));
@@ -1023,7 +1170,7 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_MiddleNameActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 160, -1));
+        Panel_MyAccount.add(MyAccount_TextField_MiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 160, -1));
 
         MyAccount_Label_1stSurname.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_1stSurname.setForeground(new java.awt.Color(255, 255, 255));
@@ -1047,14 +1194,14 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_2ndSurname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_2ndSurname.setText("2nd Lastname:");
         MyAccount_Label_2ndSurname.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 120, 20));
+        Panel_MyAccount.add(MyAccount_Label_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, 20));
 
         MyAccount_Label_Password.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Password.setForeground(new java.awt.Color(255, 255, 255));
         MyAccount_Label_Password.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Password.setText("Password:");
         MyAccount_Label_Password.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 100, 20));
+        Panel_MyAccount.add(MyAccount_Label_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 100, 20));
 
         MyAccount_Label_FirstName.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_FirstName.setForeground(new java.awt.Color(255, 255, 255));
@@ -1078,7 +1225,7 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_Email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MyAccount_Label_Email.setText("Email:");
         MyAccount_Label_Email.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_MyAccount.add(MyAccount_Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 80, 20));
+        Panel_MyAccount.add(MyAccount_Label_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 80, 20));
         Panel_MyAccount.add(MyAccount_FormattedTextField_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 160, 30));
 
         MyAccount_FormattedTextField_ID.setEditable(false);
@@ -1096,7 +1243,6 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_Username.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_MyAccount.add(MyAccount_Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 100, 20));
 
-        MyAccount_TextField_Password.setEditable(false);
         MyAccount_TextField_Password.setMaximumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_Password.setMinimumSize(new java.awt.Dimension(90, 30));
         MyAccount_TextField_Password.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -1105,7 +1251,7 @@ public class main extends javax.swing.JFrame {
                 MyAccount_TextField_PasswordActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 160, 30));
+        Panel_MyAccount.add(MyAccount_TextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 160, 30));
 
         MyAccount_Label_ID.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_ID.setForeground(new java.awt.Color(255, 255, 255));
@@ -1120,7 +1266,7 @@ public class main extends javax.swing.JFrame {
                 MyAccount_FormattedTextField_EmailActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_FormattedTextField_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 160, 30));
+        Panel_MyAccount.add(MyAccount_FormattedTextField_Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 160, 30));
 
         MyAccount_Label_Number.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Number.setForeground(new java.awt.Color(255, 255, 255));
@@ -1188,6 +1334,8 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_NewItem.add(NewItem_Button_Accept2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 170, 30));
+
+        NewItem_jSpinner_Calification.setModel(new javax.swing.SpinnerNumberModel(0, 0, 5, 1));
         Panel_NewItem.add(NewItem_jSpinner_Calification, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 170, 30));
 
         NewItem_jTextArea_Description.setColumns(20);
@@ -1196,15 +1344,15 @@ public class main extends javax.swing.JFrame {
 
         Panel_NewItem.add(NewItem_jScrollPane_UNCHANGEABLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 170, 100));
 
-        New_Button_Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
-        New_Button_Cancel.setText("Cancel");
-        New_Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        New_Button_Cancel.addActionListener(new java.awt.event.ActionListener() {
+        NewItem_Button_Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        NewItem_Button_Cancel.setText("Cancel");
+        NewItem_Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_Button_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                New_Button_CancelActionPerformed(evt);
+                NewItem_Button_CancelActionPerformed(evt);
             }
         });
-        Panel_NewItem.add(New_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, 40));
+        Panel_NewItem.add(NewItem_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 110, 40));
 
         NewItem_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         NewItem_Button_Accept.setText("Accept");
@@ -1244,6 +1392,54 @@ public class main extends javax.swing.JFrame {
         NewItem_Label_ItemType.setText("Item type:");
         NewItem_Label_ItemType.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_NewItem.add(NewItem_Label_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 100, 20));
+
+        NewItem_Label_Name.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Name.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Name.setText("Name:");
+        NewItem_Label_Name.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
+
+        NewItem_Label_Clasification.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Clasification.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Clasification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Clasification.setText("Classification:");
+        NewItem_Label_Clasification.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Clasification, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 120, 20));
+
+        NewItem_Label_Name1.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Name1.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Name1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Name1.setText("Name:");
+        NewItem_Label_Name1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
+
+        NewItem_jComboBox_ItemType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Classification" }));
+        NewItem_jComboBox_ItemType.setPreferredSize(new java.awt.Dimension(170, 30));
+        Panel_NewItem.add(NewItem_jComboBox_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 140, 30));
+
+        NewItem_Button_AddNewClassification.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        NewItem_Button_AddNewClassification.setToolTipText("Add a new classification");
+        NewItem_Button_AddNewClassification.setBorderPainted(false);
+        NewItem_Button_AddNewClassification.setContentAreaFilled(false);
+        NewItem_Button_AddNewClassification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_Button_AddNewClassification.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        NewItem_Button_AddNewClassification.setMaximumSize(new java.awt.Dimension(30, 30));
+        NewItem_Button_AddNewClassification.setMinimumSize(new java.awt.Dimension(30, 30));
+        NewItem_Button_AddNewClassification.setPreferredSize(new java.awt.Dimension(30, 30));
+        Panel_NewItem.add(NewItem_Button_AddNewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, -1));
+
+        NewItem_label_AddNewClassification.setBackground(new java.awt.Color(2, 48, 71));
+        NewItem_label_AddNewClassification.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        NewItem_label_AddNewClassification.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_label_AddNewClassification.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NewItem_label_AddNewClassification.setText("+");
+        NewItem_label_AddNewClassification.setToolTipText("Add a new classification");
+        NewItem_label_AddNewClassification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_label_AddNewClassification.setMaximumSize(new java.awt.Dimension(30, 30));
+        NewItem_label_AddNewClassification.setMinimumSize(new java.awt.Dimension(30, 30));
+        NewItem_label_AddNewClassification.setPreferredSize(new java.awt.Dimension(30, 30));
+        Panel_NewItem.add(NewItem_label_AddNewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, 20));
 
         NewItem_LayeredPanel_ItemType.setMaximumSize(new java.awt.Dimension(380, 250));
         NewItem_LayeredPanel_ItemType.setMinimumSize(new java.awt.Dimension(380, 250));
@@ -1358,7 +1554,7 @@ public class main extends javax.swing.JFrame {
         Book_label_AddNewAuthor.setPreferredSize(new java.awt.Dimension(30, 30));
         ItemType_Panel_Book.add(Book_label_AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, 20));
 
-        Book_List_SelectAuthors.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        Book_List_SelectAuthors.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         Book_List_SelectAuthors.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Miguel de Cervantes" };
             public int getSize() { return strings.length; }
@@ -1366,7 +1562,7 @@ public class main extends javax.swing.JFrame {
         });
         Book_ScrollPane_SelectAuthors_Unchangeable.setViewportView(Book_List_SelectAuthors);
 
-        ItemType_Panel_Book.add(Book_ScrollPane_SelectAuthors_Unchangeable, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 140, 20));
+        ItemType_Panel_Book.add(Book_ScrollPane_SelectAuthors_Unchangeable, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 140, 30));
 
         Book_LayeredPane_AddNewEditorialORAuthor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1597,6 +1793,49 @@ public class main extends javax.swing.JFrame {
 
         NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Magazine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        ItemType_Panel_Film.setBackground(new java.awt.Color(2, 48, 71));
+        ItemType_Panel_Film.setAlignmentX(0.0F);
+        ItemType_Panel_Film.setAlignmentY(0.0F);
+        ItemType_Panel_Film.setMaximumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Film.setMinimumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Film.setPreferredSize(new java.awt.Dimension(380, 250));
+
+        Film_FormattedTextField_Date.setAlignmentY(0.0F);
+        Film_FormattedTextField_Date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Film_FormattedTextField_DateActionPerformed(evt);
+            }
+        });
+
+        Film_Label_Date.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Film_Label_Date.setForeground(new java.awt.Color(255, 255, 255));
+        Film_Label_Date.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Film_Label_Date.setText("Release year:");
+        Film_Label_Date.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Film_Label_Date.setAlignmentY(0.0F);
+
+        javax.swing.GroupLayout ItemType_Panel_FilmLayout = new javax.swing.GroupLayout(ItemType_Panel_Film);
+        ItemType_Panel_Film.setLayout(ItemType_Panel_FilmLayout);
+        ItemType_Panel_FilmLayout.setHorizontalGroup(
+            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(Film_Label_Date)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        ItemType_Panel_FilmLayout.setVerticalGroup(
+            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
+                .addGroup(ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Film_Label_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 220, Short.MAX_VALUE))
+        );
+
+        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Film, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         ItemType_Panel_Game.setBackground(new java.awt.Color(2, 48, 71));
         ItemType_Panel_Game.setAlignmentX(0.0F);
         ItemType_Panel_Game.setAlignmentY(0.0F);
@@ -1718,104 +1957,69 @@ public class main extends javax.swing.JFrame {
 
         NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Game, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        ItemType_Panel_Film.setBackground(new java.awt.Color(2, 48, 71));
-        ItemType_Panel_Film.setAlignmentX(0.0F);
-        ItemType_Panel_Film.setAlignmentY(0.0F);
-        ItemType_Panel_Film.setMaximumSize(new java.awt.Dimension(380, 250));
-        ItemType_Panel_Film.setMinimumSize(new java.awt.Dimension(380, 250));
-        ItemType_Panel_Film.setPreferredSize(new java.awt.Dimension(380, 250));
+        NewClassification.setBackground(new java.awt.Color(2, 48, 71));
+        NewClassification.setAlignmentX(0.0F);
+        NewClassification.setAlignmentY(0.0F);
+        NewClassification.setMaximumSize(new java.awt.Dimension(380, 250));
+        NewClassification.setMinimumSize(new java.awt.Dimension(380, 250));
+        NewClassification.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Film_FormattedTextField_Date.setAlignmentY(0.0F);
-        Film_FormattedTextField_Date.addActionListener(new java.awt.event.ActionListener() {
+        NewClassification_TextField_NewClassification.setEditable(false);
+        NewClassification_TextField_NewClassification.setMaximumSize(new java.awt.Dimension(90, 30));
+        NewClassification_TextField_NewClassification.setMinimumSize(new java.awt.Dimension(90, 30));
+        NewClassification_TextField_NewClassification.setPreferredSize(new java.awt.Dimension(90, 30));
+        NewClassification_TextField_NewClassification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Film_FormattedTextField_DateActionPerformed(evt);
+                NewClassification_TextField_NewClassificationActionPerformed(evt);
             }
         });
+        NewClassification.add(NewClassification_TextField_NewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 140, 30));
+        NewClassification.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 260, 100));
 
-        Film_Label_Date.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
-        Film_Label_Date.setForeground(new java.awt.Color(255, 255, 255));
-        Film_Label_Date.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Film_Label_Date.setText("Release year:");
-        Film_Label_Date.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Film_Label_Date.setAlignmentY(0.0F);
+        NewClassification_Label_NewClassification.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewClassification_Label_NewClassification.setForeground(new java.awt.Color(255, 255, 255));
+        NewClassification_Label_NewClassification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewClassification_Label_NewClassification.setText("New Classification:");
+        NewClassification_Label_NewClassification.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        NewClassification.add(NewClassification_Label_NewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 20));
 
-        javax.swing.GroupLayout ItemType_Panel_FilmLayout = new javax.swing.GroupLayout(ItemType_Panel_Film);
-        ItemType_Panel_Film.setLayout(ItemType_Panel_FilmLayout);
-        ItemType_Panel_FilmLayout.setHorizontalGroup(
-            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(Film_Label_Date)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        ItemType_Panel_FilmLayout.setVerticalGroup(
-            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
-                .addGroup(ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Film_Label_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 220, Short.MAX_VALUE))
-        );
+        NewClassification_Button_AddNewClassification.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        NewClassification_Button_AddNewClassification.setToolTipText("Add a new classification");
+        NewClassification_Button_AddNewClassification.setBorderPainted(false);
+        NewClassification_Button_AddNewClassification.setContentAreaFilled(false);
+        NewClassification_Button_AddNewClassification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewClassification_Button_AddNewClassification.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        NewClassification_Button_AddNewClassification.setMaximumSize(new java.awt.Dimension(30, 30));
+        NewClassification_Button_AddNewClassification.setMinimumSize(new java.awt.Dimension(30, 30));
+        NewClassification_Button_AddNewClassification.setPreferredSize(new java.awt.Dimension(30, 30));
+        NewClassification.add(NewClassification_Button_AddNewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 20, 30));
 
-        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Film, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        NewClassification_label_AddNewClassification.setBackground(new java.awt.Color(2, 48, 71));
+        NewClassification_label_AddNewClassification.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        NewClassification_label_AddNewClassification.setForeground(new java.awt.Color(255, 255, 255));
+        NewClassification_label_AddNewClassification.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NewClassification_label_AddNewClassification.setText("+");
+        NewClassification_label_AddNewClassification.setToolTipText("Add a new classification");
+        NewClassification_label_AddNewClassification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewClassification_label_AddNewClassification.setMaximumSize(new java.awt.Dimension(30, 30));
+        NewClassification_label_AddNewClassification.setMinimumSize(new java.awt.Dimension(30, 30));
+        NewClassification_label_AddNewClassification.setPreferredSize(new java.awt.Dimension(30, 30));
+        NewClassification.add(NewClassification_label_AddNewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 20, 30));
+
+        NewItem_LayeredPanel_ItemType.add(NewClassification, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Panel_NewItem.add(NewItem_LayeredPanel_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
 
-        NewItem_Label_Name.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
-        NewItem_Label_Name.setForeground(new java.awt.Color(255, 255, 255));
-        NewItem_Label_Name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        NewItem_Label_Name.setText("Name:");
-        NewItem_Label_Name.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_NewItem.add(NewItem_Label_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
-
-        NewItem_Label_Clasification.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
-        NewItem_Label_Clasification.setForeground(new java.awt.Color(255, 255, 255));
-        NewItem_Label_Clasification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        NewItem_Label_Clasification.setText("Clasification:");
-        NewItem_Label_Clasification.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_NewItem.add(NewItem_Label_Clasification, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 120, 20));
-
-        NewItem_Button_Clasification.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
-        NewItem_Button_Clasification.setText("Clasification");
-        NewItem_Button_Clasification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NewItem_Button_Clasification.addActionListener(new java.awt.event.ActionListener() {
+        NewItem_jComboBox_ItemType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Book", "Magazine", "Film", "Game" }));
+        NewItem_jComboBox_ItemType1.setPreferredSize(new java.awt.Dimension(170, 30));
+        NewItem_jComboBox_ItemType1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewItem_Button_ClasificationActionPerformed(evt);
+                NewItem_jComboBox_ItemType1ActionPerformed(evt);
             }
         });
-        Panel_NewItem.add(NewItem_Button_Clasification, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 170, 30));
-
-        NewItem_Label_Name1.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
-        NewItem_Label_Name1.setForeground(new java.awt.Color(255, 255, 255));
-        NewItem_Label_Name1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        NewItem_Label_Name1.setText("Name:");
-        NewItem_Label_Name1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Panel_NewItem.add(NewItem_Label_Name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
-
-        NewItem_jComboBox_ItemType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        NewItem_jComboBox_ItemType.setPreferredSize(new java.awt.Dimension(170, 30));
-        Panel_NewItem.add(NewItem_jComboBox_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 170, 30));
+        Panel_NewItem.add(NewItem_jComboBox_ItemType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 170, 30));
 
         Main_Layered_PanelBase.add(Panel_NewItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 450));
-
-        Panel_Prestamos.setBackground(new java.awt.Color(2, 48, 71));
-        Panel_Prestamos.setMaximumSize(new java.awt.Dimension(900, 450));
-        Panel_Prestamos.setMinimumSize(new java.awt.Dimension(900, 450));
-
-        javax.swing.GroupLayout Panel_PrestamosLayout = new javax.swing.GroupLayout(Panel_Prestamos);
-        Panel_Prestamos.setLayout(Panel_PrestamosLayout);
-        Panel_PrestamosLayout.setHorizontalGroup(
-            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        Panel_PrestamosLayout.setVerticalGroup(
-            Panel_PrestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
-
-        Main_Layered_PanelBase.add(Panel_Prestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         Panel_UsuarioDetalle.setBackground(new java.awt.Color(2, 48, 71));
         Panel_UsuarioDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -1833,23 +2037,6 @@ public class main extends javax.swing.JFrame {
         );
 
         Main_Layered_PanelBase.add(Panel_UsuarioDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
-
-        jPanel6.setBackground(new java.awt.Color(2, 48, 71));
-        jPanel6.setMaximumSize(new java.awt.Dimension(900, 450));
-        jPanel6.setMinimumSize(new java.awt.Dimension(900, 450));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
-
-        Main_Layered_PanelBase.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         jPanel7.setBackground(new java.awt.Color(2, 48, 71));
         jPanel7.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -2038,8 +2225,7 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Main_Menu_Button_ContactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ContactsActionPerformed
-        //ImageChooser.showOpenDialog(null);
-        ImageChooser.getSelectedFile();
+        
     }//GEN-LAST:event_Main_Menu_Button_ContactsActionPerformed
 
     private void cofirmExit_button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cofirmExit_button_AcceptActionPerformed
@@ -2124,7 +2310,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordRecovery_Button_CancelActionPerformed
 
     private void Main_Menu_Button_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ItemsActionPerformed
-        // TODO add your handling code here:
+        hideEveryPanelExceptThis_MAIN(Panel_NewItem, true);
     }//GEN-LAST:event_Main_Menu_Button_ItemsActionPerformed
 
     private void Main_Menu_Button_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ExitActionPerformed
@@ -2138,7 +2324,7 @@ public class main extends javax.swing.JFrame {
     private void Main_Menu_Button_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOutActionPerformed
         currentSession.logOut();
         openFrameCloseFrame(LogIn_Frame,mainWindow_Frame);
-        setTitle(LogIn_Panel);
+        setTitleLogin(LogIn_Panel);
         hideEveryPanelExceptThis_LogIn(LogIn_Panel);
     }//GEN-LAST:event_Main_Menu_Button_LogOutActionPerformed
 
@@ -2182,12 +2368,13 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MyAccount_TextField_UsernameActionPerformed
 
-    private void New_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_New_Button_CancelActionPerformed
+    private void NewItem_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_CancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_New_Button_CancelActionPerformed
+    }//GEN-LAST:event_NewItem_Button_CancelActionPerformed
 
     private void NewItem_Button_Accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_Accept2ActionPerformed
-        // TODO add your handling code here:
+        ImageChooser.showOpenDialog(null);
+        ImageChooser.getSelectedFile();
     }//GEN-LAST:event_NewItem_Button_Accept2ActionPerformed
 
     private void NewItem_TextField_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_TextField_NameActionPerformed
@@ -2197,10 +2384,6 @@ public class main extends javax.swing.JFrame {
     private void NewItem_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_AcceptActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NewItem_Button_AcceptActionPerformed
-
-    private void NewItem_Button_ClasificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_ClasificationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NewItem_Button_ClasificationActionPerformed
 
     private void Film_FormattedTextField_DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Film_FormattedTextField_DateActionPerformed
         // TODO add your handling code here:
@@ -2245,6 +2428,30 @@ public class main extends javax.swing.JFrame {
     private void AddAuthor_Button_AddNewAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_Button_AddNewAuthorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddAuthor_Button_AddNewAuthorActionPerformed
+
+    private void NewClassification_TextField_NewClassificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewClassification_TextField_NewClassificationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewClassification_TextField_NewClassificationActionPerformed
+
+    private void NewItem_jComboBox_ItemType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_jComboBox_ItemType1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewItem_jComboBox_ItemType1ActionPerformed
+
+    private void Main_Menu_Button_LogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOut1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_LogOut1ActionPerformed
+
+    private void Main_Menu_Button_LogOut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOut2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_LogOut2ActionPerformed
+
+    private void Main_Menu_Button_LogOut3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOut3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_LogOut3ActionPerformed
+
+    private void Main_Menu_Button_LogOut4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOut4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Main_Menu_Button_LogOut4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2363,6 +2570,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton Main_Menu_Button_Exit;
     private javax.swing.JButton Main_Menu_Button_Items;
     private javax.swing.JButton Main_Menu_Button_LogOut;
+    private javax.swing.JButton Main_Menu_Button_LogOut1;
+    private javax.swing.JButton Main_Menu_Button_LogOut2;
+    private javax.swing.JButton Main_Menu_Button_LogOut3;
+    private javax.swing.JButton Main_Menu_Button_LogOut4;
     private javax.swing.JPanel Main_Panel_Head;
     private javax.swing.JLabel Main_label_HeadTitle;
     private javax.swing.JLabel Main_label_logo;
@@ -2387,9 +2598,17 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField MyAccount_TextField_MiddleName;
     private javax.swing.JTextField MyAccount_TextField_Password;
     private javax.swing.JTextField MyAccount_TextField_Username;
+    private javax.swing.JScrollPane MyItems_jScrollPane_Container_Table;
+    private javax.swing.JTable MyItems_jTable_TablaItems;
+    private javax.swing.JPanel NewClassification;
+    private javax.swing.JButton NewClassification_Button_AddNewClassification;
+    private javax.swing.JLabel NewClassification_Label_NewClassification;
+    private javax.swing.JTextField NewClassification_TextField_NewClassification;
+    private javax.swing.JLabel NewClassification_label_AddNewClassification;
     private javax.swing.JButton NewItem_Button_Accept;
     private javax.swing.JButton NewItem_Button_Accept2;
-    private javax.swing.JButton NewItem_Button_Clasification;
+    private javax.swing.JButton NewItem_Button_AddNewClassification;
+    private javax.swing.JButton NewItem_Button_Cancel;
     private javax.swing.JLabel NewItem_Label_Calification;
     private javax.swing.JLabel NewItem_Label_Clasification;
     private javax.swing.JLabel NewItem_Label_CoverPicture;
@@ -2400,13 +2619,15 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLayeredPane NewItem_LayeredPanel_ItemType;
     private javax.swing.JTextField NewItem_TextField_Name;
     private javax.swing.JComboBox<String> NewItem_jComboBox_ItemType;
+    private javax.swing.JComboBox<String> NewItem_jComboBox_ItemType1;
     private javax.swing.JScrollPane NewItem_jScrollPane_UNCHANGEABLE;
     private javax.swing.JSpinner NewItem_jSpinner_Calification;
     private javax.swing.JTextArea NewItem_jTextArea_Description;
-    private javax.swing.JButton New_Button_Cancel;
+    private javax.swing.JLabel NewItem_label_AddNewClassification;
     private javax.swing.JPanel Panel_MyAccount;
+    private javax.swing.JPanel Panel_MyContacts;
+    private javax.swing.JPanel Panel_MyItems;
     private javax.swing.JPanel Panel_NewItem;
-    private javax.swing.JPanel Panel_Prestamos;
     private javax.swing.JPanel Panel_UsuarioDetalle;
     private javax.swing.JButton PasswordRecovery_Button_Accept;
     private javax.swing.JButton PasswordRecovery_Button_Cancel;
@@ -2444,13 +2665,13 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog confirmExit;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private javax.swing.Box.Filler filler3;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;

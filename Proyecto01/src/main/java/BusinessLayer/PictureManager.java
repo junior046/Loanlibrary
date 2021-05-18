@@ -12,5 +12,7 @@ package BusinessLayer;
 public class PictureManager {
     public PictureManager(){}
     
-    
+    public static void copyPictureIntoSystem(String imageAddres){
+                
+    }
 }

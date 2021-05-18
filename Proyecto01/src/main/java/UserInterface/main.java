@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import BusinessLayer.EmailServices;
 import BusinessLayer.Session;
+import java.io.File;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 
@@ -56,7 +58,7 @@ public class main extends javax.swing.JFrame {
         LogIn_Frame.setLocationRelativeTo(null);
         hideEveryPanelExceptThis_LogIn(LogIn_Panel);
 
-        
+        ImageChooser.addChoosableFileFilter(new FileNameExtensionFilter("Image Files", "jpg", "png", "jpeg"));
         
         
     }
@@ -195,6 +197,7 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageChooser = new javax.swing.JFileChooser();
         confirmExit = new javax.swing.JDialog();
         cofirmExit_label_tittle = new javax.swing.JLabel();
         cofirmExit_button_Accept = new javax.swing.JButton();
@@ -240,7 +243,7 @@ public class main extends javax.swing.JFrame {
         PasswordRecovery_Panel = new javax.swing.JPanel();
         PasswordRecovery_TextField_UserName = new javax.swing.JTextField();
         PasswordRecovery_Label_UserName = new javax.swing.JLabel();
-        PasswordRecovery_Button_SignUp = new javax.swing.JButton();
+        PasswordRecovery_Button_Cancel = new javax.swing.JButton();
         PasswordRecovery_Button_Accept = new javax.swing.JButton();
         mainWindow_Frame = new javax.swing.JFrame();
         Unchangable_Layered_Main = new javax.swing.JLayeredPane();
@@ -262,7 +265,6 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_1stSurname = new javax.swing.JLabel();
         MyAccount_TextField_1stSurname = new javax.swing.JTextField();
         MyAccount_Label_2ndSurname = new javax.swing.JLabel();
-        MyAccount_FormattedTextField_Password = new javax.swing.JFormattedTextField();
         MyAccount_Label_Password = new javax.swing.JLabel();
         MyAccount_Label_FirstName = new javax.swing.JLabel();
         MyAccount_TextField_FirstName = new javax.swing.JTextField();
@@ -270,13 +272,87 @@ public class main extends javax.swing.JFrame {
         MyAccount_FormattedTextField_Number = new javax.swing.JFormattedTextField();
         MyAccount_FormattedTextField_ID = new javax.swing.JFormattedTextField();
         MyAccount_Label_Username = new javax.swing.JLabel();
-        MyAccount_TextField_Username = new javax.swing.JTextField();
+        MyAccount_TextField_Password = new javax.swing.JTextField();
         MyAccount_Label_ID = new javax.swing.JLabel();
         MyAccount_FormattedTextField_Email = new javax.swing.JFormattedTextField();
         MyAccount_Label_Number = new javax.swing.JLabel();
-        Cancel = new javax.swing.JButton();
+        MyAccount_Button_Cancel = new javax.swing.JButton();
         MyAccount_Button_Accept = new javax.swing.JButton();
-        Panel_LibroDetalle = new javax.swing.JPanel();
+        MyAccount_TextField_Username = new javax.swing.JTextField();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        Panel_NewItem = new javax.swing.JPanel();
+        NewItem_TextField_Name = new javax.swing.JTextField();
+        NewItem_Button_Accept2 = new javax.swing.JButton();
+        NewItem_jSpinner_Calification = new javax.swing.JSpinner();
+        NewItem_jScrollPane_UNCHANGEABLE = new javax.swing.JScrollPane();
+        NewItem_jTextArea_Description = new javax.swing.JTextArea();
+        New_Button_Cancel = new javax.swing.JButton();
+        NewItem_Button_Accept = new javax.swing.JButton();
+        NewItem_Label_Calification = new javax.swing.JLabel();
+        NewItem_Label_Description = new javax.swing.JLabel();
+        NewItem_Label_CoverPicture = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
+        NewItem_Label_ItemType = new javax.swing.JLabel();
+        NewItem_LayeredPanel_ItemType = new javax.swing.JLayeredPane();
+        ItemType_Panel_Book = new javax.swing.JPanel();
+        Book_FormattedTextField_Edition = new javax.swing.JFormattedTextField();
+        Book_Label_Edition = new javax.swing.JLabel();
+        Book_Label_Editorial = new javax.swing.JLabel();
+        Book_jComboBox_Editorial = new javax.swing.JComboBox<>();
+        Book_Button_AddNewEditorial = new javax.swing.JButton();
+        Book_label_AddNewEditorial = new javax.swing.JLabel();
+        Book_Label_ISBN = new javax.swing.JLabel();
+        Book_FormattedTextField_ISBN = new javax.swing.JFormattedTextField();
+        Book_Label_Author = new javax.swing.JLabel();
+        Book_Button_AddNewAuthor = new javax.swing.JButton();
+        Book_label_AddNewAuthor = new javax.swing.JLabel();
+        Book_ScrollPane_SelectAuthors_Unchangeable = new javax.swing.JScrollPane();
+        Book_List_SelectAuthors = new javax.swing.JList<>();
+        Book_LayeredPane_AddNewEditorialORAuthor = new javax.swing.JLayeredPane();
+        HideBookOptions = new javax.swing.JPanel();
+        AddNewEditorial = new javax.swing.JPanel();
+        AddEditorial_Button_AddNewEditorial = new javax.swing.JButton();
+        AddEditorial_Label_AddNewEditorial = new javax.swing.JLabel();
+        AddEditorial_Label_NewEditorial = new javax.swing.JLabel();
+        AddEditorial_TextField_NewEditorial = new javax.swing.JTextField();
+        AddNewAuthor = new javax.swing.JPanel();
+        AddAuthor_Label_AuthorName1 = new javax.swing.JLabel();
+        AddAuthor_TextField_Name1 = new javax.swing.JTextField();
+        AddAuthor_Label_AuthorName2 = new javax.swing.JLabel();
+        AddAuthor_TextField_Name2 = new javax.swing.JTextField();
+        AddAuthor_Label_AuthorLastname1 = new javax.swing.JLabel();
+        AddAuthor_TextField_Lastname1 = new javax.swing.JTextField();
+        AddAuthor_Label_AuthorLastname2 = new javax.swing.JLabel();
+        AddAuthor_TextField_Lastname2 = new javax.swing.JTextField();
+        AddAuthor_Button_AddNewAuthor = new javax.swing.JButton();
+        AddAuthor_label_AddNewAuthor = new javax.swing.JLabel();
+        ItemType_Panel_Magazine = new javax.swing.JPanel();
+        Magazine_FormattedTextField_Date = new javax.swing.JFormattedTextField();
+        Magazine_Label_Date = new javax.swing.JLabel();
+        Magazine_FormattedTextField_Date1 = new javax.swing.JFormattedTextField();
+        Magazine_Label_RegistrationNumber = new javax.swing.JLabel();
+        ItemType_Panel_Game = new javax.swing.JPanel();
+        Game_FormattedTextField_Year = new javax.swing.JFormattedTextField();
+        Game_Label_Year = new javax.swing.JLabel();
+        Game_Label_Developer = new javax.swing.JLabel();
+        Game_jComboBox_DeveloperList = new javax.swing.JComboBox<>();
+        Game_Button_AddNewDeveloper = new javax.swing.JButton();
+        Game_Label_AddNewDeveloper = new javax.swing.JLabel();
+        Game_LayeredPane_AddNewDeveloper = new javax.swing.JLayeredPane();
+        HideDeveloperOptions = new javax.swing.JPanel();
+        AddNewDeveloper = new javax.swing.JPanel();
+        AddDeveloper_Button_AddNewDeveloper = new javax.swing.JButton();
+        AddDeveloper_Label_AddNewDeveloper = new javax.swing.JLabel();
+        AddDeveloper_Label_NewDeveloper = new javax.swing.JLabel();
+        AddDeveloper_TextField_NewDeveloper = new javax.swing.JTextField();
+        ItemType_Panel_Film = new javax.swing.JPanel();
+        Film_FormattedTextField_Date = new javax.swing.JFormattedTextField();
+        Film_Label_Date = new javax.swing.JLabel();
+        NewItem_Label_Name = new javax.swing.JLabel();
+        NewItem_Label_Clasification = new javax.swing.JLabel();
+        NewItem_Button_Clasification = new javax.swing.JButton();
+        NewItem_Label_Name1 = new javax.swing.JLabel();
+        NewItem_jComboBox_ItemType = new javax.swing.JComboBox<>();
         Panel_Prestamos = new javax.swing.JPanel();
         Panel_UsuarioDetalle = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -289,6 +365,8 @@ public class main extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
+
+        ImageChooser.setFileFilter(null);
 
         confirmExit.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         confirmExit.setTitle("Exit Confirmation");
@@ -750,22 +828,22 @@ public class main extends javax.swing.JFrame {
         PasswordRecovery_Label_UserName.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         PasswordRecovery_Panel.add(PasswordRecovery_Label_UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 148, 30));
 
-        PasswordRecovery_Button_SignUp.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
-        PasswordRecovery_Button_SignUp.setText("Cancel");
-        PasswordRecovery_Button_SignUp.setAlignmentY(0.0F);
-        PasswordRecovery_Button_SignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PasswordRecovery_Button_SignUp.setFocusCycleRoot(true);
-        PasswordRecovery_Button_SignUp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PasswordRecovery_Button_SignUp.setIconTextGap(0);
-        PasswordRecovery_Button_SignUp.setMaximumSize(new java.awt.Dimension(90, 30));
-        PasswordRecovery_Button_SignUp.setMinimumSize(new java.awt.Dimension(90, 30));
-        PasswordRecovery_Button_SignUp.setPreferredSize(new java.awt.Dimension(90, 30));
-        PasswordRecovery_Button_SignUp.addActionListener(new java.awt.event.ActionListener() {
+        PasswordRecovery_Button_Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        PasswordRecovery_Button_Cancel.setText("Cancel");
+        PasswordRecovery_Button_Cancel.setAlignmentY(0.0F);
+        PasswordRecovery_Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PasswordRecovery_Button_Cancel.setFocusCycleRoot(true);
+        PasswordRecovery_Button_Cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PasswordRecovery_Button_Cancel.setIconTextGap(0);
+        PasswordRecovery_Button_Cancel.setMaximumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Cancel.setMinimumSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Cancel.setPreferredSize(new java.awt.Dimension(90, 30));
+        PasswordRecovery_Button_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordRecovery_Button_SignUpActionPerformed(evt);
+                PasswordRecovery_Button_CancelActionPerformed(evt);
             }
         });
-        PasswordRecovery_Panel.add(PasswordRecovery_Button_SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 110, 40));
+        PasswordRecovery_Panel.add(PasswordRecovery_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 110, 40));
 
         PasswordRecovery_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         PasswordRecovery_Button_Accept.setText("Accept");
@@ -970,7 +1048,6 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_2ndSurname.setText("2nd Lastname:");
         MyAccount_Label_2ndSurname.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_MyAccount.add(MyAccount_Label_2ndSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 120, 20));
-        Panel_MyAccount.add(MyAccount_FormattedTextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 160, 30));
 
         MyAccount_Label_Password.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_Password.setForeground(new java.awt.Color(255, 255, 255));
@@ -1019,16 +1096,16 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_Username.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_MyAccount.add(MyAccount_Label_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 100, 20));
 
-        MyAccount_TextField_Username.setEditable(false);
-        MyAccount_TextField_Username.setMaximumSize(new java.awt.Dimension(90, 30));
-        MyAccount_TextField_Username.setMinimumSize(new java.awt.Dimension(90, 30));
-        MyAccount_TextField_Username.setPreferredSize(new java.awt.Dimension(90, 30));
-        MyAccount_TextField_Username.addActionListener(new java.awt.event.ActionListener() {
+        MyAccount_TextField_Password.setEditable(false);
+        MyAccount_TextField_Password.setMaximumSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Password.setMinimumSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Password.setPreferredSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MyAccount_TextField_UsernameActionPerformed(evt);
+                MyAccount_TextField_PasswordActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(MyAccount_TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 160, 30));
+        Panel_MyAccount.add(MyAccount_TextField_Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 160, 30));
 
         MyAccount_Label_ID.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
         MyAccount_Label_ID.setForeground(new java.awt.Color(255, 255, 255));
@@ -1052,15 +1129,15 @@ public class main extends javax.swing.JFrame {
         MyAccount_Label_Number.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         Panel_MyAccount.add(MyAccount_Label_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 120, 20));
 
-        Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
-        Cancel.setText("Cancel");
-        Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Cancel.addActionListener(new java.awt.event.ActionListener() {
+        MyAccount_Button_Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        MyAccount_Button_Cancel.setText("Cancel");
+        MyAccount_Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MyAccount_Button_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelActionPerformed(evt);
+                MyAccount_Button_CancelActionPerformed(evt);
             }
         });
-        Panel_MyAccount.add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, 40));
+        Panel_MyAccount.add(MyAccount_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, 40));
 
         MyAccount_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
         MyAccount_Button_Accept.setText("Accept");
@@ -1072,24 +1149,656 @@ public class main extends javax.swing.JFrame {
         });
         Panel_MyAccount.add(MyAccount_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 90, 40));
 
+        MyAccount_TextField_Username.setEditable(false);
+        MyAccount_TextField_Username.setMaximumSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Username.setMinimumSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Username.setPreferredSize(new java.awt.Dimension(90, 30));
+        MyAccount_TextField_Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MyAccount_TextField_UsernameActionPerformed(evt);
+            }
+        });
+        Panel_MyAccount.add(MyAccount_TextField_Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 160, 30));
+        Panel_MyAccount.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 110, 50));
+
         Main_Layered_PanelBase.add(Panel_MyAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 450));
 
-        Panel_LibroDetalle.setBackground(new java.awt.Color(2, 48, 71));
-        Panel_LibroDetalle.setMaximumSize(new java.awt.Dimension(900, 450));
-        Panel_LibroDetalle.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_NewItem.setBackground(new java.awt.Color(2, 48, 71));
+        Panel_NewItem.setMaximumSize(new java.awt.Dimension(901, 451));
+        Panel_NewItem.setMinimumSize(new java.awt.Dimension(900, 450));
+        Panel_NewItem.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout Panel_LibroDetalleLayout = new javax.swing.GroupLayout(Panel_LibroDetalle);
-        Panel_LibroDetalle.setLayout(Panel_LibroDetalleLayout);
-        Panel_LibroDetalleLayout.setHorizontalGroup(
-            Panel_LibroDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+        NewItem_TextField_Name.setEditable(false);
+        NewItem_TextField_Name.setMaximumSize(new java.awt.Dimension(90, 30));
+        NewItem_TextField_Name.setMinimumSize(new java.awt.Dimension(90, 30));
+        NewItem_TextField_Name.setPreferredSize(new java.awt.Dimension(90, 30));
+        NewItem_TextField_Name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewItem_TextField_NameActionPerformed(evt);
+            }
+        });
+        Panel_NewItem.add(NewItem_TextField_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 170, 30));
+
+        NewItem_Button_Accept2.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        NewItem_Button_Accept2.setText("Cover Picture");
+        NewItem_Button_Accept2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_Button_Accept2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewItem_Button_Accept2ActionPerformed(evt);
+            }
+        });
+        Panel_NewItem.add(NewItem_Button_Accept2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 170, 30));
+        Panel_NewItem.add(NewItem_jSpinner_Calification, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 170, 30));
+
+        NewItem_jTextArea_Description.setColumns(20);
+        NewItem_jTextArea_Description.setRows(5);
+        NewItem_jScrollPane_UNCHANGEABLE.setViewportView(NewItem_jTextArea_Description);
+
+        Panel_NewItem.add(NewItem_jScrollPane_UNCHANGEABLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 170, 100));
+
+        New_Button_Cancel.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        New_Button_Cancel.setText("Cancel");
+        New_Button_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        New_Button_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                New_Button_CancelActionPerformed(evt);
+            }
+        });
+        Panel_NewItem.add(New_Button_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, -1, 40));
+
+        NewItem_Button_Accept.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        NewItem_Button_Accept.setText("Accept");
+        NewItem_Button_Accept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_Button_Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewItem_Button_AcceptActionPerformed(evt);
+            }
+        });
+        Panel_NewItem.add(NewItem_Button_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 360, 90, 40));
+
+        NewItem_Label_Calification.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Calification.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Calification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Calification.setText("Calification:");
+        NewItem_Label_Calification.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Calification, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 100, 20));
+
+        NewItem_Label_Description.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Description.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Description.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Description.setText("Description:");
+        NewItem_Label_Description.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Description, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 100, 20));
+
+        NewItem_Label_CoverPicture.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_CoverPicture.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_CoverPicture.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_CoverPicture.setText("Cover picture:");
+        NewItem_Label_CoverPicture.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_CoverPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 120, 20));
+        Panel_NewItem.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 110, 50));
+
+        NewItem_Label_ItemType.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_ItemType.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_ItemType.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_ItemType.setText("Item type:");
+        NewItem_Label_ItemType.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 100, 20));
+
+        NewItem_LayeredPanel_ItemType.setMaximumSize(new java.awt.Dimension(380, 250));
+        NewItem_LayeredPanel_ItemType.setMinimumSize(new java.awt.Dimension(380, 250));
+        NewItem_LayeredPanel_ItemType.setPreferredSize(new java.awt.Dimension(380, 250));
+        NewItem_LayeredPanel_ItemType.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ItemType_Panel_Book.setBackground(new java.awt.Color(2, 48, 71));
+        ItemType_Panel_Book.setAlignmentX(0.0F);
+        ItemType_Panel_Book.setAlignmentY(0.0F);
+        ItemType_Panel_Book.setMaximumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Book.setMinimumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Book.setPreferredSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Book.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Book_FormattedTextField_Edition.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Book_FormattedTextField_EditionActionPerformed(evt);
+            }
+        });
+        ItemType_Panel_Book.add(Book_FormattedTextField_Edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 30, 30));
+
+        Book_Label_Edition.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Book_Label_Edition.setForeground(new java.awt.Color(255, 255, 255));
+        Book_Label_Edition.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Book_Label_Edition.setText("Edition:");
+        Book_Label_Edition.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Book.add(Book_Label_Edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 100, 20));
+
+        Book_Label_Editorial.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Book_Label_Editorial.setForeground(new java.awt.Color(255, 255, 255));
+        Book_Label_Editorial.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Book_Label_Editorial.setLabelFor(Game_jComboBox_DeveloperList);
+        Book_Label_Editorial.setText("Editorial:");
+        Book_Label_Editorial.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Book.add(Book_Label_Editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 100, 20));
+
+        Book_jComboBox_Editorial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Book_jComboBox_Editorial.setMaximumSize(new java.awt.Dimension(58, 30));
+        Book_jComboBox_Editorial.setMinimumSize(new java.awt.Dimension(58, 30));
+        Book_jComboBox_Editorial.setPreferredSize(new java.awt.Dimension(58, 30));
+        Book_jComboBox_Editorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Book_jComboBox_EditorialActionPerformed(evt);
+            }
+        });
+        ItemType_Panel_Book.add(Book_jComboBox_Editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 140, -1));
+
+        Book_Button_AddNewEditorial.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        Book_Button_AddNewEditorial.setToolTipText("Add a new editorial");
+        Book_Button_AddNewEditorial.setBorderPainted(false);
+        Book_Button_AddNewEditorial.setContentAreaFilled(false);
+        Book_Button_AddNewEditorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Book_Button_AddNewEditorial.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Book_Button_AddNewEditorial.setMaximumSize(new java.awt.Dimension(30, 30));
+        Book_Button_AddNewEditorial.setMinimumSize(new java.awt.Dimension(30, 30));
+        Book_Button_AddNewEditorial.setPreferredSize(new java.awt.Dimension(30, 30));
+        ItemType_Panel_Book.add(Book_Button_AddNewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+
+        Book_label_AddNewEditorial.setBackground(new java.awt.Color(2, 48, 71));
+        Book_label_AddNewEditorial.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Book_label_AddNewEditorial.setForeground(new java.awt.Color(255, 255, 255));
+        Book_label_AddNewEditorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Book_label_AddNewEditorial.setText("+");
+        Book_label_AddNewEditorial.setToolTipText("Add a new editorial");
+        Book_label_AddNewEditorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Book_label_AddNewEditorial.setMaximumSize(new java.awt.Dimension(30, 30));
+        Book_label_AddNewEditorial.setMinimumSize(new java.awt.Dimension(30, 30));
+        Book_label_AddNewEditorial.setPreferredSize(new java.awt.Dimension(30, 30));
+        ItemType_Panel_Book.add(Book_label_AddNewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, 20));
+
+        Book_Label_ISBN.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Book_Label_ISBN.setForeground(new java.awt.Color(255, 255, 255));
+        Book_Label_ISBN.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Book_Label_ISBN.setText("ISBN:");
+        Book_Label_ISBN.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Book.add(Book_Label_ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 50, 20));
+        ItemType_Panel_Book.add(Book_FormattedTextField_ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 100, 30));
+
+        Book_Label_Author.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Book_Label_Author.setForeground(new java.awt.Color(255, 255, 255));
+        Book_Label_Author.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Book_Label_Author.setLabelFor(Game_jComboBox_DeveloperList);
+        Book_Label_Author.setText("Author or authors:");
+        Book_Label_Author.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Book.add(Book_Label_Author, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 170, 20));
+
+        Book_Button_AddNewAuthor.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        Book_Button_AddNewAuthor.setToolTipText("Add a new author");
+        Book_Button_AddNewAuthor.setBorderPainted(false);
+        Book_Button_AddNewAuthor.setContentAreaFilled(false);
+        Book_Button_AddNewAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Book_Button_AddNewAuthor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Book_Button_AddNewAuthor.setMaximumSize(new java.awt.Dimension(30, 30));
+        Book_Button_AddNewAuthor.setMinimumSize(new java.awt.Dimension(30, 30));
+        Book_Button_AddNewAuthor.setPreferredSize(new java.awt.Dimension(30, 30));
+        Book_Button_AddNewAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Book_Button_AddNewAuthorActionPerformed(evt);
+            }
+        });
+        ItemType_Panel_Book.add(Book_Button_AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+
+        Book_label_AddNewAuthor.setBackground(new java.awt.Color(2, 48, 71));
+        Book_label_AddNewAuthor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Book_label_AddNewAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        Book_label_AddNewAuthor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Book_label_AddNewAuthor.setText("+");
+        Book_label_AddNewAuthor.setToolTipText("Add a new author");
+        Book_label_AddNewAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Book_label_AddNewAuthor.setMaximumSize(new java.awt.Dimension(30, 30));
+        Book_label_AddNewAuthor.setMinimumSize(new java.awt.Dimension(30, 30));
+        Book_label_AddNewAuthor.setPreferredSize(new java.awt.Dimension(30, 30));
+        ItemType_Panel_Book.add(Book_label_AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, 20));
+
+        Book_List_SelectAuthors.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        Book_List_SelectAuthors.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Miguel de Cervantes" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        Book_ScrollPane_SelectAuthors_Unchangeable.setViewportView(Book_List_SelectAuthors);
+
+        ItemType_Panel_Book.add(Book_ScrollPane_SelectAuthors_Unchangeable, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 140, 20));
+
+        Book_LayeredPane_AddNewEditorialORAuthor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        HideBookOptions.setBackground(new java.awt.Color(2, 48, 71));
+
+        javax.swing.GroupLayout HideBookOptionsLayout = new javax.swing.GroupLayout(HideBookOptions);
+        HideBookOptions.setLayout(HideBookOptionsLayout);
+        HideBookOptionsLayout.setHorizontalGroup(
+            HideBookOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
-        Panel_LibroDetalleLayout.setVerticalGroup(
-            Panel_LibroDetalleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+        HideBookOptionsLayout.setVerticalGroup(
+            HideBookOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        Main_Layered_PanelBase.add(Panel_LibroDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        Book_LayeredPane_AddNewEditorialORAuthor.add(HideBookOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 100));
+
+        AddNewEditorial.setBackground(new java.awt.Color(2, 48, 71));
+        AddNewEditorial.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AddEditorial_Button_AddNewEditorial.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        AddEditorial_Button_AddNewEditorial.setToolTipText("Add a new editorial");
+        AddEditorial_Button_AddNewEditorial.setBorderPainted(false);
+        AddEditorial_Button_AddNewEditorial.setContentAreaFilled(false);
+        AddEditorial_Button_AddNewEditorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddEditorial_Button_AddNewEditorial.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddEditorial_Button_AddNewEditorial.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddEditorial_Button_AddNewEditorial.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddEditorial_Button_AddNewEditorial.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddNewEditorial.add(AddEditorial_Button_AddNewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, -1));
+
+        AddEditorial_Label_AddNewEditorial.setBackground(new java.awt.Color(2, 48, 71));
+        AddEditorial_Label_AddNewEditorial.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AddEditorial_Label_AddNewEditorial.setForeground(new java.awt.Color(255, 255, 255));
+        AddEditorial_Label_AddNewEditorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AddEditorial_Label_AddNewEditorial.setText("+");
+        AddEditorial_Label_AddNewEditorial.setToolTipText("Add a new editorial");
+        AddEditorial_Label_AddNewEditorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddEditorial_Label_AddNewEditorial.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddEditorial_Label_AddNewEditorial.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddEditorial_Label_AddNewEditorial.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddNewEditorial.add(AddEditorial_Label_AddNewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, 20));
+
+        AddEditorial_Label_NewEditorial.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddEditorial_Label_NewEditorial.setForeground(new java.awt.Color(255, 255, 255));
+        AddEditorial_Label_NewEditorial.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddEditorial_Label_NewEditorial.setLabelFor(Game_jComboBox_DeveloperList);
+        AddEditorial_Label_NewEditorial.setText("New editorial:");
+        AddEditorial_Label_NewEditorial.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewEditorial.add(AddEditorial_Label_NewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 20));
+
+        AddEditorial_TextField_NewEditorial.setEditable(false);
+        AddEditorial_TextField_NewEditorial.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddEditorial_TextField_NewEditorial.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddEditorial_TextField_NewEditorial.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddEditorial_TextField_NewEditorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddEditorial_TextField_NewEditorialActionPerformed(evt);
+            }
+        });
+        AddNewEditorial.add(AddEditorial_TextField_NewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 140, 30));
+
+        Book_LayeredPane_AddNewEditorialORAuthor.add(AddNewEditorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 120));
+
+        AddNewAuthor.setBackground(new java.awt.Color(2, 48, 71));
+        AddNewAuthor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AddAuthor_Label_AuthorName1.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddAuthor_Label_AuthorName1.setForeground(new java.awt.Color(255, 255, 255));
+        AddAuthor_Label_AuthorName1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddAuthor_Label_AuthorName1.setLabelFor(Game_jComboBox_DeveloperList);
+        AddAuthor_Label_AuthorName1.setText("1st name:");
+        AddAuthor_Label_AuthorName1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewAuthor.add(AddAuthor_Label_AuthorName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 80, 20));
+
+        AddAuthor_TextField_Name1.setEditable(false);
+        AddAuthor_TextField_Name1.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name1.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name1.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAuthor_TextField_Name1ActionPerformed(evt);
+            }
+        });
+        AddNewAuthor.add(AddAuthor_TextField_Name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 80, 20));
+
+        AddAuthor_Label_AuthorName2.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddAuthor_Label_AuthorName2.setForeground(new java.awt.Color(255, 255, 255));
+        AddAuthor_Label_AuthorName2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddAuthor_Label_AuthorName2.setLabelFor(Game_jComboBox_DeveloperList);
+        AddAuthor_Label_AuthorName2.setText("2nd name:");
+        AddAuthor_Label_AuthorName2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewAuthor.add(AddAuthor_Label_AuthorName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 90, 20));
+
+        AddAuthor_TextField_Name2.setEditable(false);
+        AddAuthor_TextField_Name2.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name2.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name2.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAuthor_TextField_Name2ActionPerformed(evt);
+            }
+        });
+        AddNewAuthor.add(AddAuthor_TextField_Name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 80, 20));
+
+        AddAuthor_Label_AuthorLastname1.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddAuthor_Label_AuthorLastname1.setForeground(new java.awt.Color(255, 255, 255));
+        AddAuthor_Label_AuthorLastname1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddAuthor_Label_AuthorLastname1.setLabelFor(Game_jComboBox_DeveloperList);
+        AddAuthor_Label_AuthorLastname1.setText("lastname#1:");
+        AddAuthor_Label_AuthorLastname1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewAuthor.add(AddAuthor_Label_AuthorLastname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 20));
+
+        AddAuthor_TextField_Lastname1.setEditable(false);
+        AddAuthor_TextField_Lastname1.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname1.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname1.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAuthor_TextField_Lastname1ActionPerformed(evt);
+            }
+        });
+        AddNewAuthor.add(AddAuthor_TextField_Lastname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 80, 20));
+
+        AddAuthor_Label_AuthorLastname2.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddAuthor_Label_AuthorLastname2.setForeground(new java.awt.Color(255, 255, 255));
+        AddAuthor_Label_AuthorLastname2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddAuthor_Label_AuthorLastname2.setLabelFor(Game_jComboBox_DeveloperList);
+        AddAuthor_Label_AuthorLastname2.setText("lastname#2:");
+        AddAuthor_Label_AuthorLastname2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewAuthor.add(AddAuthor_Label_AuthorLastname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 100, 20));
+
+        AddAuthor_TextField_Lastname2.setEditable(false);
+        AddAuthor_TextField_Lastname2.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname2.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname2.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddAuthor_TextField_Lastname2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAuthor_TextField_Lastname2ActionPerformed(evt);
+            }
+        });
+        AddNewAuthor.add(AddAuthor_TextField_Lastname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 80, 20));
+
+        AddAuthor_Button_AddNewAuthor.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        AddAuthor_Button_AddNewAuthor.setToolTipText("Add a new author");
+        AddAuthor_Button_AddNewAuthor.setBorderPainted(false);
+        AddAuthor_Button_AddNewAuthor.setContentAreaFilled(false);
+        AddAuthor_Button_AddNewAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddAuthor_Button_AddNewAuthor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddAuthor_Button_AddNewAuthor.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddAuthor_Button_AddNewAuthor.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddAuthor_Button_AddNewAuthor.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddAuthor_Button_AddNewAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddAuthor_Button_AddNewAuthorActionPerformed(evt);
+            }
+        });
+        AddNewAuthor.add(AddAuthor_Button_AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 110, -1));
+
+        AddAuthor_label_AddNewAuthor.setBackground(new java.awt.Color(2, 48, 71));
+        AddAuthor_label_AddNewAuthor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AddAuthor_label_AddNewAuthor.setForeground(new java.awt.Color(255, 255, 255));
+        AddAuthor_label_AddNewAuthor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AddAuthor_label_AddNewAuthor.setText("Add new author");
+        AddAuthor_label_AddNewAuthor.setToolTipText("Add a new author");
+        AddAuthor_label_AddNewAuthor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddAuthor_label_AddNewAuthor.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddAuthor_label_AddNewAuthor.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddAuthor_label_AddNewAuthor.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddNewAuthor.add(AddAuthor_label_AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 110, 20));
+
+        Book_LayeredPane_AddNewEditorialORAuthor.add(AddNewAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 110));
+
+        ItemType_Panel_Book.add(Book_LayeredPane_AddNewEditorialORAuthor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 380, 110));
+
+        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Book, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        ItemType_Panel_Magazine.setBackground(new java.awt.Color(2, 48, 71));
+        ItemType_Panel_Magazine.setAlignmentX(0.0F);
+        ItemType_Panel_Magazine.setAlignmentY(0.0F);
+        ItemType_Panel_Magazine.setMaximumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Magazine.setMinimumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Magazine.setPreferredSize(new java.awt.Dimension(380, 250));
+
+        Magazine_Label_Date.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Magazine_Label_Date.setForeground(new java.awt.Color(255, 255, 255));
+        Magazine_Label_Date.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Magazine_Label_Date.setText("Publication Date:");
+        Magazine_Label_Date.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        Magazine_Label_RegistrationNumber.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Magazine_Label_RegistrationNumber.setForeground(new java.awt.Color(255, 255, 255));
+        Magazine_Label_RegistrationNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Magazine_Label_RegistrationNumber.setText("Registration Number:");
+        Magazine_Label_RegistrationNumber.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout ItemType_Panel_MagazineLayout = new javax.swing.GroupLayout(ItemType_Panel_Magazine);
+        ItemType_Panel_Magazine.setLayout(ItemType_Panel_MagazineLayout);
+        ItemType_Panel_MagazineLayout.setHorizontalGroup(
+            ItemType_Panel_MagazineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ItemType_Panel_MagazineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ItemType_Panel_MagazineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ItemType_Panel_MagazineLayout.createSequentialGroup()
+                        .addComponent(Magazine_Label_RegistrationNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Magazine_FormattedTextField_Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ItemType_Panel_MagazineLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Magazine_Label_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Magazine_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
+        );
+        ItemType_Panel_MagazineLayout.setVerticalGroup(
+            ItemType_Panel_MagazineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ItemType_Panel_MagazineLayout.createSequentialGroup()
+                .addGroup(ItemType_Panel_MagazineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Magazine_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Magazine_Label_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ItemType_Panel_MagazineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Magazine_FormattedTextField_Date1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Magazine_Label_RegistrationNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 172, Short.MAX_VALUE))
+        );
+
+        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Magazine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        ItemType_Panel_Game.setBackground(new java.awt.Color(2, 48, 71));
+        ItemType_Panel_Game.setAlignmentX(0.0F);
+        ItemType_Panel_Game.setAlignmentY(0.0F);
+        ItemType_Panel_Game.setMaximumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Game.setMinimumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Game.setPreferredSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Game.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ItemType_Panel_Game.add(Game_FormattedTextField_Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 170, 30));
+
+        Game_Label_Year.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Game_Label_Year.setForeground(new java.awt.Color(255, 255, 255));
+        Game_Label_Year.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Game_Label_Year.setText("Release year:");
+        Game_Label_Year.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Game.add(Game_Label_Year, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 20));
+
+        Game_Label_Developer.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Game_Label_Developer.setForeground(new java.awt.Color(255, 255, 255));
+        Game_Label_Developer.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Game_Label_Developer.setLabelFor(Game_jComboBox_DeveloperList);
+        Game_Label_Developer.setText("Developer:");
+        Game_Label_Developer.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        ItemType_Panel_Game.add(Game_Label_Developer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 100, 20));
+
+        Game_jComboBox_DeveloperList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Game_jComboBox_DeveloperList.setMaximumSize(new java.awt.Dimension(58, 30));
+        Game_jComboBox_DeveloperList.setMinimumSize(new java.awt.Dimension(58, 30));
+        Game_jComboBox_DeveloperList.setPreferredSize(new java.awt.Dimension(58, 30));
+        ItemType_Panel_Game.add(Game_jComboBox_DeveloperList, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 48, 140, -1));
+
+        Game_Button_AddNewDeveloper.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        Game_Button_AddNewDeveloper.setToolTipText("Add a new developer");
+        Game_Button_AddNewDeveloper.setBorderPainted(false);
+        Game_Button_AddNewDeveloper.setContentAreaFilled(false);
+        Game_Button_AddNewDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Game_Button_AddNewDeveloper.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Game_Button_AddNewDeveloper.setMaximumSize(new java.awt.Dimension(30, 30));
+        Game_Button_AddNewDeveloper.setMinimumSize(new java.awt.Dimension(30, 30));
+        Game_Button_AddNewDeveloper.setPreferredSize(new java.awt.Dimension(30, 30));
+        ItemType_Panel_Game.add(Game_Button_AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+
+        Game_Label_AddNewDeveloper.setBackground(new java.awt.Color(2, 48, 71));
+        Game_Label_AddNewDeveloper.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        Game_Label_AddNewDeveloper.setForeground(new java.awt.Color(255, 255, 255));
+        Game_Label_AddNewDeveloper.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Game_Label_AddNewDeveloper.setText("+");
+        Game_Label_AddNewDeveloper.setToolTipText("Add a new developer");
+        Game_Label_AddNewDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Game_Label_AddNewDeveloper.setMaximumSize(new java.awt.Dimension(30, 30));
+        Game_Label_AddNewDeveloper.setMinimumSize(new java.awt.Dimension(30, 30));
+        Game_Label_AddNewDeveloper.setPreferredSize(new java.awt.Dimension(30, 30));
+        ItemType_Panel_Game.add(Game_Label_AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, 20));
+
+        Game_LayeredPane_AddNewDeveloper.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        HideDeveloperOptions.setBackground(new java.awt.Color(2, 48, 71));
+
+        javax.swing.GroupLayout HideDeveloperOptionsLayout = new javax.swing.GroupLayout(HideDeveloperOptions);
+        HideDeveloperOptions.setLayout(HideDeveloperOptionsLayout);
+        HideDeveloperOptionsLayout.setHorizontalGroup(
+            HideDeveloperOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+        HideDeveloperOptionsLayout.setVerticalGroup(
+            HideDeveloperOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        Game_LayeredPane_AddNewDeveloper.add(HideDeveloperOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        AddNewDeveloper.setBackground(new java.awt.Color(2, 48, 71));
+        AddNewDeveloper.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AddDeveloper_Button_AddNewDeveloper.setFont(new java.awt.Font("Old English Text MT", 1, 3)); // NOI18N
+        AddDeveloper_Button_AddNewDeveloper.setToolTipText("Add a new developer");
+        AddDeveloper_Button_AddNewDeveloper.setBorderPainted(false);
+        AddDeveloper_Button_AddNewDeveloper.setContentAreaFilled(false);
+        AddDeveloper_Button_AddNewDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddDeveloper_Button_AddNewDeveloper.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        AddDeveloper_Button_AddNewDeveloper.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddDeveloper_Button_AddNewDeveloper.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddDeveloper_Button_AddNewDeveloper.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddNewDeveloper.add(AddDeveloper_Button_AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, -1));
+
+        AddDeveloper_Label_AddNewDeveloper.setBackground(new java.awt.Color(2, 48, 71));
+        AddDeveloper_Label_AddNewDeveloper.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        AddDeveloper_Label_AddNewDeveloper.setForeground(new java.awt.Color(255, 255, 255));
+        AddDeveloper_Label_AddNewDeveloper.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AddDeveloper_Label_AddNewDeveloper.setText("+");
+        AddDeveloper_Label_AddNewDeveloper.setToolTipText("Add a new developer");
+        AddDeveloper_Label_AddNewDeveloper.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        AddDeveloper_Label_AddNewDeveloper.setMaximumSize(new java.awt.Dimension(30, 30));
+        AddDeveloper_Label_AddNewDeveloper.setMinimumSize(new java.awt.Dimension(30, 30));
+        AddDeveloper_Label_AddNewDeveloper.setPreferredSize(new java.awt.Dimension(30, 30));
+        AddNewDeveloper.add(AddDeveloper_Label_AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, 20));
+
+        AddDeveloper_Label_NewDeveloper.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        AddDeveloper_Label_NewDeveloper.setForeground(new java.awt.Color(255, 255, 255));
+        AddDeveloper_Label_NewDeveloper.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        AddDeveloper_Label_NewDeveloper.setLabelFor(Game_jComboBox_DeveloperList);
+        AddDeveloper_Label_NewDeveloper.setText("New developer:");
+        AddDeveloper_Label_NewDeveloper.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        AddNewDeveloper.add(AddDeveloper_Label_NewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 130, 20));
+
+        AddDeveloper_TextField_NewDeveloper.setEditable(false);
+        AddDeveloper_TextField_NewDeveloper.setMaximumSize(new java.awt.Dimension(90, 30));
+        AddDeveloper_TextField_NewDeveloper.setMinimumSize(new java.awt.Dimension(90, 30));
+        AddDeveloper_TextField_NewDeveloper.setPreferredSize(new java.awt.Dimension(90, 30));
+        AddDeveloper_TextField_NewDeveloper.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddDeveloper_TextField_NewDeveloperActionPerformed(evt);
+            }
+        });
+        AddNewDeveloper.add(AddDeveloper_TextField_NewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 140, 30));
+
+        Game_LayeredPane_AddNewDeveloper.add(AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 150));
+
+        ItemType_Panel_Game.add(Game_LayeredPane_AddNewDeveloper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 380, 130));
+
+        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Game, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        ItemType_Panel_Film.setBackground(new java.awt.Color(2, 48, 71));
+        ItemType_Panel_Film.setAlignmentX(0.0F);
+        ItemType_Panel_Film.setAlignmentY(0.0F);
+        ItemType_Panel_Film.setMaximumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Film.setMinimumSize(new java.awt.Dimension(380, 250));
+        ItemType_Panel_Film.setPreferredSize(new java.awt.Dimension(380, 250));
+
+        Film_FormattedTextField_Date.setAlignmentY(0.0F);
+        Film_FormattedTextField_Date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Film_FormattedTextField_DateActionPerformed(evt);
+            }
+        });
+
+        Film_Label_Date.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        Film_Label_Date.setForeground(new java.awt.Color(255, 255, 255));
+        Film_Label_Date.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Film_Label_Date.setText("Release year:");
+        Film_Label_Date.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Film_Label_Date.setAlignmentY(0.0F);
+
+        javax.swing.GroupLayout ItemType_Panel_FilmLayout = new javax.swing.GroupLayout(ItemType_Panel_Film);
+        ItemType_Panel_Film.setLayout(ItemType_Panel_FilmLayout);
+        ItemType_Panel_FilmLayout.setHorizontalGroup(
+            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(Film_Label_Date)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        ItemType_Panel_FilmLayout.setVerticalGroup(
+            ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ItemType_Panel_FilmLayout.createSequentialGroup()
+                .addGroup(ItemType_Panel_FilmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Film_Label_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Film_FormattedTextField_Date, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 220, Short.MAX_VALUE))
+        );
+
+        NewItem_LayeredPanel_ItemType.add(ItemType_Panel_Film, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Panel_NewItem.add(NewItem_LayeredPanel_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, -1));
+
+        NewItem_Label_Name.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Name.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Name.setText("Name:");
+        NewItem_Label_Name.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
+
+        NewItem_Label_Clasification.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Clasification.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Clasification.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Clasification.setText("Clasification:");
+        NewItem_Label_Clasification.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Clasification, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 120, 20));
+
+        NewItem_Button_Clasification.setFont(new java.awt.Font("Lucida Sans Unicode", 2, 18)); // NOI18N
+        NewItem_Button_Clasification.setText("Clasification");
+        NewItem_Button_Clasification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NewItem_Button_Clasification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewItem_Button_ClasificationActionPerformed(evt);
+            }
+        });
+        Panel_NewItem.add(NewItem_Button_Clasification, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 170, 30));
+
+        NewItem_Label_Name1.setFont(new java.awt.Font("Kozuka Mincho Pr6N L", 0, 18)); // NOI18N
+        NewItem_Label_Name1.setForeground(new java.awt.Color(255, 255, 255));
+        NewItem_Label_Name1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        NewItem_Label_Name1.setText("Name:");
+        NewItem_Label_Name1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Panel_NewItem.add(NewItem_Label_Name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, 20));
+
+        NewItem_jComboBox_ItemType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        NewItem_jComboBox_ItemType.setPreferredSize(new java.awt.Dimension(170, 30));
+        Panel_NewItem.add(NewItem_jComboBox_ItemType, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 170, 30));
+
+        Main_Layered_PanelBase.add(Panel_NewItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 450));
 
         Panel_Prestamos.setBackground(new java.awt.Color(2, 48, 71));
         Panel_Prestamos.setMaximumSize(new java.awt.Dimension(900, 450));
@@ -1329,7 +2038,8 @@ public class main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Main_Menu_Button_ContactsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ContactsActionPerformed
-        hideEveryPanelExceptThis_MAIN(Panel_Prestamos);
+        //ImageChooser.showOpenDialog(null);
+        ImageChooser.getSelectedFile();
     }//GEN-LAST:event_Main_Menu_Button_ContactsActionPerformed
 
     private void cofirmExit_button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cofirmExit_button_AcceptActionPerformed
@@ -1409,9 +2119,9 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordRecovery_Button_AcceptActionPerformed
 
-    private void PasswordRecovery_Button_SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_Button_SignUpActionPerformed
+    private void PasswordRecovery_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordRecovery_Button_CancelActionPerformed
         hideEveryPanelExceptThis_LogIn(LogIn_Panel, true);
-    }//GEN-LAST:event_PasswordRecovery_Button_SignUpActionPerformed
+    }//GEN-LAST:event_PasswordRecovery_Button_CancelActionPerformed
 
     private void Main_Menu_Button_ItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_ItemsActionPerformed
         // TODO add your handling code here:
@@ -1422,7 +2132,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_Main_Menu_Button_ExitActionPerformed
 
     private void Main_Menu_Button_AccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_AccountActionPerformed
-        hideEveryPanelExceptThis_MAIN(Panel_MyAccount);
+        hideEveryPanelExceptThis_MAIN(Panel_MyAccount,true);
     }//GEN-LAST:event_Main_Menu_Button_AccountActionPerformed
 
     private void Main_Menu_Button_LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Main_Menu_Button_LogOutActionPerformed
@@ -1452,21 +2162,89 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MyAccount_FormattedTextField_IDActionPerformed
 
-    private void MyAccount_TextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_TextField_UsernameActionPerformed
+    private void MyAccount_TextField_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_TextField_PasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MyAccount_TextField_UsernameActionPerformed
+    }//GEN-LAST:event_MyAccount_TextField_PasswordActionPerformed
 
     private void MyAccount_FormattedTextField_EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_FormattedTextField_EmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MyAccount_FormattedTextField_EmailActionPerformed
 
-    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CancelActionPerformed
+    private void MyAccount_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_Button_CancelActionPerformed
+        hideEveryPanelExceptThis_MAIN(Menu_Panel_Main);
+    }//GEN-LAST:event_MyAccount_Button_CancelActionPerformed
 
     private void MyAccount_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_Button_AcceptActionPerformed
-        // TODO add your handling code here:
+        hideEveryPanelExceptThis_MAIN(Menu_Panel_Main);
     }//GEN-LAST:event_MyAccount_Button_AcceptActionPerformed
+
+    private void MyAccount_TextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyAccount_TextField_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MyAccount_TextField_UsernameActionPerformed
+
+    private void New_Button_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_New_Button_CancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_New_Button_CancelActionPerformed
+
+    private void NewItem_Button_Accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_Accept2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewItem_Button_Accept2ActionPerformed
+
+    private void NewItem_TextField_NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_TextField_NameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewItem_TextField_NameActionPerformed
+
+    private void NewItem_Button_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_AcceptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewItem_Button_AcceptActionPerformed
+
+    private void NewItem_Button_ClasificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewItem_Button_ClasificationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewItem_Button_ClasificationActionPerformed
+
+    private void Film_FormattedTextField_DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Film_FormattedTextField_DateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Film_FormattedTextField_DateActionPerformed
+
+    private void AddDeveloper_TextField_NewDeveloperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDeveloper_TextField_NewDeveloperActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddDeveloper_TextField_NewDeveloperActionPerformed
+
+    private void AddEditorial_TextField_NewEditorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEditorial_TextField_NewEditorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddEditorial_TextField_NewEditorialActionPerformed
+
+    private void Book_jComboBox_EditorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Book_jComboBox_EditorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Book_jComboBox_EditorialActionPerformed
+
+    private void Book_FormattedTextField_EditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Book_FormattedTextField_EditionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Book_FormattedTextField_EditionActionPerformed
+
+    private void AddAuthor_TextField_Name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_TextField_Name1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddAuthor_TextField_Name1ActionPerformed
+
+    private void AddAuthor_TextField_Name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_TextField_Name2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddAuthor_TextField_Name2ActionPerformed
+
+    private void AddAuthor_TextField_Lastname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_TextField_Lastname1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddAuthor_TextField_Lastname1ActionPerformed
+
+    private void AddAuthor_TextField_Lastname2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_TextField_Lastname2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddAuthor_TextField_Lastname2ActionPerformed
+
+    private void Book_Button_AddNewAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Book_Button_AddNewAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Book_Button_AddNewAuthorActionPerformed
+
+    private void AddAuthor_Button_AddNewAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddAuthor_Button_AddNewAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddAuthor_Button_AddNewAuthorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1509,7 +2287,57 @@ public class main extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancel;
+    private javax.swing.JButton AddAuthor_Button_AddNewAuthor;
+    private javax.swing.JLabel AddAuthor_Label_AuthorLastname1;
+    private javax.swing.JLabel AddAuthor_Label_AuthorLastname2;
+    private javax.swing.JLabel AddAuthor_Label_AuthorName1;
+    private javax.swing.JLabel AddAuthor_Label_AuthorName2;
+    private javax.swing.JTextField AddAuthor_TextField_Lastname1;
+    private javax.swing.JTextField AddAuthor_TextField_Lastname2;
+    private javax.swing.JTextField AddAuthor_TextField_Name1;
+    private javax.swing.JTextField AddAuthor_TextField_Name2;
+    private javax.swing.JLabel AddAuthor_label_AddNewAuthor;
+    private javax.swing.JButton AddDeveloper_Button_AddNewDeveloper;
+    private javax.swing.JLabel AddDeveloper_Label_AddNewDeveloper;
+    private javax.swing.JLabel AddDeveloper_Label_NewDeveloper;
+    private javax.swing.JTextField AddDeveloper_TextField_NewDeveloper;
+    private javax.swing.JButton AddEditorial_Button_AddNewEditorial;
+    private javax.swing.JLabel AddEditorial_Label_AddNewEditorial;
+    private javax.swing.JLabel AddEditorial_Label_NewEditorial;
+    private javax.swing.JTextField AddEditorial_TextField_NewEditorial;
+    private javax.swing.JPanel AddNewAuthor;
+    private javax.swing.JPanel AddNewDeveloper;
+    private javax.swing.JPanel AddNewEditorial;
+    private javax.swing.JButton Book_Button_AddNewAuthor;
+    private javax.swing.JButton Book_Button_AddNewEditorial;
+    private javax.swing.JFormattedTextField Book_FormattedTextField_Edition;
+    private javax.swing.JFormattedTextField Book_FormattedTextField_ISBN;
+    private javax.swing.JLabel Book_Label_Author;
+    private javax.swing.JLabel Book_Label_Edition;
+    private javax.swing.JLabel Book_Label_Editorial;
+    private javax.swing.JLabel Book_Label_ISBN;
+    private javax.swing.JLayeredPane Book_LayeredPane_AddNewEditorialORAuthor;
+    private javax.swing.JList<String> Book_List_SelectAuthors;
+    private javax.swing.JScrollPane Book_ScrollPane_SelectAuthors_Unchangeable;
+    private javax.swing.JComboBox<String> Book_jComboBox_Editorial;
+    private javax.swing.JLabel Book_label_AddNewAuthor;
+    private javax.swing.JLabel Book_label_AddNewEditorial;
+    private javax.swing.JFormattedTextField Film_FormattedTextField_Date;
+    private javax.swing.JLabel Film_Label_Date;
+    private javax.swing.JButton Game_Button_AddNewDeveloper;
+    private javax.swing.JFormattedTextField Game_FormattedTextField_Year;
+    private javax.swing.JLabel Game_Label_AddNewDeveloper;
+    private javax.swing.JLabel Game_Label_Developer;
+    private javax.swing.JLabel Game_Label_Year;
+    private javax.swing.JLayeredPane Game_LayeredPane_AddNewDeveloper;
+    private javax.swing.JComboBox<String> Game_jComboBox_DeveloperList;
+    private javax.swing.JPanel HideBookOptions;
+    private javax.swing.JPanel HideDeveloperOptions;
+    private javax.swing.JFileChooser ImageChooser;
+    private javax.swing.JPanel ItemType_Panel_Book;
+    private javax.swing.JPanel ItemType_Panel_Film;
+    private javax.swing.JPanel ItemType_Panel_Game;
+    private javax.swing.JPanel ItemType_Panel_Magazine;
     private javax.swing.JButton LogIn_Button_Accept;
     private javax.swing.JButton LogIn_Button_Accept1;
     private javax.swing.JButton LogIn_Button_PasswordRecovery;
@@ -1525,6 +2353,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField LogIn_TextField_UserName;
     private javax.swing.JLabel LogIn_label_HeadTitle;
     private javax.swing.JLabel LogIn_label_logo;
+    private javax.swing.JFormattedTextField Magazine_FormattedTextField_Date;
+    private javax.swing.JFormattedTextField Magazine_FormattedTextField_Date1;
+    private javax.swing.JLabel Magazine_Label_Date;
+    private javax.swing.JLabel Magazine_Label_RegistrationNumber;
     private javax.swing.JLayeredPane Main_Layered_PanelBase;
     private javax.swing.JButton Main_Menu_Button_Account;
     private javax.swing.JButton Main_Menu_Button_Contacts;
@@ -1536,10 +2368,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Main_label_logo;
     private javax.swing.JPanel Menu_Panel_Main;
     private javax.swing.JButton MyAccount_Button_Accept;
+    private javax.swing.JButton MyAccount_Button_Cancel;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_Email;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_ID;
     private javax.swing.JFormattedTextField MyAccount_FormattedTextField_Number;
-    private javax.swing.JFormattedTextField MyAccount_FormattedTextField_Password;
     private javax.swing.JLabel MyAccount_Label_1stSurname;
     private javax.swing.JLabel MyAccount_Label_2ndSurname;
     private javax.swing.JLabel MyAccount_Label_Email;
@@ -1553,13 +2385,31 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField MyAccount_TextField_2ndSurname;
     private javax.swing.JTextField MyAccount_TextField_FirstName;
     private javax.swing.JTextField MyAccount_TextField_MiddleName;
+    private javax.swing.JTextField MyAccount_TextField_Password;
     private javax.swing.JTextField MyAccount_TextField_Username;
-    private javax.swing.JPanel Panel_LibroDetalle;
+    private javax.swing.JButton NewItem_Button_Accept;
+    private javax.swing.JButton NewItem_Button_Accept2;
+    private javax.swing.JButton NewItem_Button_Clasification;
+    private javax.swing.JLabel NewItem_Label_Calification;
+    private javax.swing.JLabel NewItem_Label_Clasification;
+    private javax.swing.JLabel NewItem_Label_CoverPicture;
+    private javax.swing.JLabel NewItem_Label_Description;
+    private javax.swing.JLabel NewItem_Label_ItemType;
+    private javax.swing.JLabel NewItem_Label_Name;
+    private javax.swing.JLabel NewItem_Label_Name1;
+    private javax.swing.JLayeredPane NewItem_LayeredPanel_ItemType;
+    private javax.swing.JTextField NewItem_TextField_Name;
+    private javax.swing.JComboBox<String> NewItem_jComboBox_ItemType;
+    private javax.swing.JScrollPane NewItem_jScrollPane_UNCHANGEABLE;
+    private javax.swing.JSpinner NewItem_jSpinner_Calification;
+    private javax.swing.JTextArea NewItem_jTextArea_Description;
+    private javax.swing.JButton New_Button_Cancel;
     private javax.swing.JPanel Panel_MyAccount;
+    private javax.swing.JPanel Panel_NewItem;
     private javax.swing.JPanel Panel_Prestamos;
     private javax.swing.JPanel Panel_UsuarioDetalle;
     private javax.swing.JButton PasswordRecovery_Button_Accept;
-    private javax.swing.JButton PasswordRecovery_Button_SignUp;
+    private javax.swing.JButton PasswordRecovery_Button_Cancel;
     private javax.swing.JLabel PasswordRecovery_Label_UserName;
     private javax.swing.JPanel PasswordRecovery_Panel;
     private javax.swing.JTextField PasswordRecovery_TextField_UserName;
@@ -1592,6 +2442,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton cofirmExit_button_Cancel;
     private javax.swing.JLabel cofirmExit_label_tittle;
     private javax.swing.JDialog confirmExit;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;

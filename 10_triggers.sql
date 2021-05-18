@@ -8,8 +8,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END PersonBeforeInsert;
-
-
+/
 CREATE OR REPLACE TRIGGER loanlibrary.PersonBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.person
@@ -18,7 +17,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END PersonBeforeUpdate;
-
+/
 -- PHONE TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.PhoneBeforeInsert
@@ -29,8 +28,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END PhoneBeforeInsert;
-
-
+/
 CREATE OR REPLACE TRIGGER loanlibrary.PhoneBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.phone
@@ -39,7 +37,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END PhoneBeforeUpdate;
-
+/
 -- EMAIL TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.EmailBeforeInsert
@@ -51,7 +49,7 @@ BEGIN
     :new.creation_date:=SYSDATE;
 END EmailBeforeInsert;
 
-
+/
 CREATE OR REPLACE TRIGGER loanlibrary.EmailBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.email
@@ -60,7 +58,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END EmailBeforeUpdate;
-
+/
 -- CATEGORY TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.CategoryBeforeInsert
@@ -71,7 +69,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END CategoryBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.CategoryBeforeUpdate
 BEFORE UPDATE
@@ -81,7 +79,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END CategoryBeforeUpdate;
-
+/
 -- BORROWER_LIST TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.BorrowerListBeforeInsert
@@ -92,7 +90,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END BorrowerListBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.BorrowerListBeforeUpdate
 BEFORE UPDATE
@@ -102,7 +100,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END BorrowerListBeforeUpdate;
-
+/
 -- USER_PERSON TRIGGERS
 
 
@@ -114,7 +112,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END UserPersonBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.UserPersonBeforeUpdate
 BEFORE UPDATE
@@ -124,7 +122,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END UserPersonBeforeUpdate;
-
+/
 -- CLASSIFICATION TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.ClassificationBeforeInsert
@@ -135,7 +133,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END ClassificationBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.ClassificationBeforeUpdate
 BEFORE UPDATE
@@ -145,7 +143,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END ClassificationBeforeUpdate;
-
+/
 -- ITEM TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.ItemBeforeInsert
@@ -156,7 +154,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END ItemBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.ItemBeforeUpdate
 BEFORE UPDATE
@@ -166,7 +164,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END ItemBeforeUpdate;
-
+/
 -- TYPE TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.TypeBeforeInsert
@@ -177,7 +175,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END TypeBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.TypeBeforeUpdate
 BEFORE UPDATE
@@ -187,7 +185,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END TypeBeforeUpdate;
-
+/
 -- BINNACLE TRIGGERS
 
 CREATE OR REPLACE TRIGGER loanlibrary.BinnacleBeforeInsert
@@ -198,7 +196,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END BinnacleBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.BinnacleBeforeUpdate
 BEFORE UPDATE
@@ -208,7 +206,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END BinnacleBeforeUpdate;
-
+/
 -- PARAMETER TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.ParameterBeforeInsert
@@ -219,7 +217,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END ParameterBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.ParameterBeforeUpdate
 BEFORE UPDATE
@@ -229,7 +227,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END ParameterBeforeUpdate;
-
+/
 -- AUTHOR TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBeforeInsert
@@ -240,7 +238,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END AuthorBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBeforeUpdate
 BEFORE UPDATE
@@ -250,7 +248,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END AuthorBeforeUpdate;
-
+/
 -- EDITORIAL TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.EditorialBeforeInsert
@@ -261,7 +259,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END EditorialBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.EditorialBeforeUpdate
 BEFORE UPDATE
@@ -271,7 +269,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END EditorialBeforeUpdate;
-
+/
 -- BOOK TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.BookBeforeInsert
@@ -282,7 +280,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END BookBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.BookBeforeUpdate
 BEFORE UPDATE
@@ -292,7 +290,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END BookBeforeUpdate;
-
+/
 -- AUTHOR_FOR_BOOK TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBookBeforeInsert
@@ -303,7 +301,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END AuthorBookBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBookBeforeUpdate
 BEFORE UPDATE
@@ -313,7 +311,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END AuthorBookBeforeUpdate;
-
+/
 -- DEVELOPER TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.DeveloperBeforeInsert
@@ -324,7 +322,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END DeveloperBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.DeveloperBeforeUpdate
 BEFORE UPDATE
@@ -334,7 +332,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END DeveloperBeforeUpdate;
-
+/
 -- GAME TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.GameBeforeInsert
@@ -345,7 +343,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END GameBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.GameBeforeUpdate
 BEFORE UPDATE
@@ -355,7 +353,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END GameBeforeUpdate;
-
+/
 -- MAGAZINE TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.MagazineBeforeInsert
@@ -366,7 +364,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END MagazineBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.MagazineBeforeUpdate
 BEFORE UPDATE
@@ -376,7 +374,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END MagazineBeforeUpdate;
-
+/
 -- FILM TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.FilmBeforeInsert
@@ -387,16 +385,17 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END FilmBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.FilmBeforeUpdate
+BEFORE UPDATE
 ON loanlibrary.film
 For each row
 BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END FilmBeforeUpdate;
-
+/
 -- LOAN TRIGGER
 
 CREATE OR REPLACE TRIGGER loanlibrary.LoanBeforeInsert
@@ -407,7 +406,7 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END BLoanBeforeInsert;
-
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.LoanBeforeUpdate
 BEFORE UPDATE
@@ -417,7 +416,7 @@ BEGIN
     :new.last_update_user:=USER;
     :new.last_update_date:=SYSDATE;
 END LoanBeforeUpdate;
-
+/
 
 
 

@@ -1,6 +1,11 @@
 /*Tablas basadas en el modelo lógico de url : https://drive.google.com/file/d/1mm2V1134apR4pyHh1rfFIfHJ-qTI_dzo/view?usp=sharing
 */
 
+/*
+Descripción: Create de la tabla 'PERSON', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE person
 (
@@ -17,6 +22,12 @@ CREATE TABLE person
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'PHONE', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE phone
 (
     id_phone                           NUMBER(6),
@@ -32,6 +43,12 @@ CREATE TABLE phone
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'EMAIL', con sus restricciónes, llave primariia y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE email
 (
     id_email                          NUMBER(6) CONSTRAINT email_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
@@ -43,6 +60,12 @@ CREATE TABLE email
     REFERENCES person(id_person)
 );
 
+/*
+Descripción: Create de la tabla 'CATEGORY', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE category
 (
     id_category                     NUMBER(6) CONSTRAINT category_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
@@ -50,6 +73,12 @@ CREATE TABLE category
     CONSTRAINT category_category_uk UNIQUE (category),
     description                     VARCHAR2(50)
 );
+
+/*
+Descripción: Create de la tabla 'BORROWER LIST', con sus restricciónes, llave primaria y foráneas.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE borrower_list
 (
@@ -62,6 +91,12 @@ CREATE TABLE borrower_list
     CONSTRAINT borrower_list_lender_fk FOREIGN KEY (id_lender) REFERENCES person(id_person),
     CONSTRAINT borrower_uk UNIQUE (id_borrower ,id_lender )
 );
+
+/*
+Descripción: Create de la tabla 'USER PERSON', con sus restricciónes, llave primaria y foráneas.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE user_person
 (
@@ -79,6 +114,11 @@ CREATE TABLE user_person
    CONSTRAINT user_administrator_ck check (administrator_user in ('Y','N'))
 );
 
+/*
+Descripción: Create de la tabla 'CLASSIFICATION', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE classification
 (
@@ -87,6 +127,12 @@ CREATE TABLE classification
     CONSTRAINT classification_class_uk UNIQUE (classification),
     description                 VARCHAR2(50)
 );
+
+/*
+Descripción: Create de la tabla 'ITEM', con sus restricciónes, llave primaria y foráneas.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE item
 (
@@ -104,6 +150,11 @@ CREATE TABLE item
    CONSTRAINT item_calification_ck check (calification >0 AND calification <=10)
 );
 
+/*
+Descripción: Create de la tabla 'TYPE', con sus restricciónes, llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE type
 (
@@ -111,6 +162,12 @@ CREATE TABLE type
     type                      VARCHAR2(20) CONSTRAINT type_type_nn NOT NULL,
     CONSTRAINT type_type_uk UNIQUE (type)
 );
+
+/*
+Descripción: Create de la tabla 'BINNACLE', con sus restricciónes, llave primaria, y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE binnacle
 (
@@ -124,6 +181,12 @@ CREATE TABLE binnacle
     CONSTRAINT binnacle_type_fk FOREIGN KEY (id_type) REFERENCES type(id_type)
 );
 
+/*
+Descripción: Create de la tabla 'PARAMETER', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE parameter
 (
     id_parameter              NUMBER(6) CONSTRAINT parameter_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
@@ -131,6 +194,13 @@ CREATE TABLE parameter
     parameter                      VARCHAR2(50) CONSTRAINT parameter_parameter_nn NOT NULL,
     CONSTRAINT parameter_parameter_uk UNIQUE (parameter)
 );
+
+/*
+Descripción: Create de la tabla 'AUTHOR', con sus restricciónes y llave primaria
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 
 CREATE TABLE author
 (
@@ -141,12 +211,27 @@ CREATE TABLE author
     second_lastname           VARCHAR2(25)CONSTRAINT author_second_lastname_nn NOT NULL
 );
 
+/*
+Descripción: Create de la tabla 'EDITORIAL', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
+
+
 CREATE TABLE editorial
 (
     id_editorial            NUMBER(6) CONSTRAINT editorial_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     editorial               VARCHAR2(30) CONSTRAINT editorial_editorial_nn NOT NULL,
     CONSTRAINT editorail_editorial_uk UNIQUE(editorial)
 );
+
+
+/*
+Descripción: Create de la tabla 'BOOK', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 
 CREATE TABLE book
@@ -168,6 +253,12 @@ CREATE TABLE book
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'AUTHOR FOR BOOK', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE author_for_book
 (
     id_author               NUMBER(6),
@@ -184,12 +275,24 @@ CREATE TABLE author_for_book
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'DEVELOPER', con sus restricciónes y llave primaria.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE developer
 (
     id_developer            NUMBER(6) CONSTRAINT developer_pk PRIMARY KEY USING INDEX TABLESPACE loanlibrary_Ind PCTFREE 20 STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0),
     developer               VARCHAR2(30) CONSTRAINT developer_developer_nn NOT NULL,
     CONSTRAINT developer_developer_uk UNIQUE(developer)
 );
+
+/*
+Descripción: Create de la tabla 'GAME', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE game
 (
@@ -208,6 +311,12 @@ CREATE TABLE game
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'MAGAZINE', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE magazine
 (
     id_item                 NUMBER(6),
@@ -223,6 +332,12 @@ CREATE TABLE magazine
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
 
+/*
+Descripción: Create de la tabla 'ITEM', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE film
 (
     id_item                 NUMBER(6),
@@ -235,6 +350,12 @@ CREATE TABLE film
     TABLESPACE loanlibrary_Ind PCTFREE 20
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 0)
 );
+
+/*
+Descripción: Create de la tabla 'LOAN', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
 
 CREATE TABLE loan
 (
@@ -250,6 +371,13 @@ CREATE TABLE loan
     FOREIGN KEY (id_person)
     REFERENCES person(id_person)
 );
+
+/*
+Descripción: Create de la tabla 'CURRENT_USER', con sus restricciónes, llave primaria y foránea.
+Fecha Creación: 31/03/2021
+Autor Principal: Junior A. López Aguirre
+*/
+
 CREATE TABLE current_user (
     id_current   NUMBER(1)CONSTRAINT id_current_ck CHECK ( id_current < 2 ),
     id_user      NUMBER(6),    

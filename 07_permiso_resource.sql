@@ -1,3 +1,8 @@
+/*
+Descripción: Permisos de tablas para el esquema LOANLIBRARY.
+Fecha Creación: 15/04/2021
+Autor Principal: Viviana Vargas ortiz
+*/
 
 --DESDE SYSTEM
 GRANT
@@ -6,6 +11,11 @@ GRANT
     UPDATE ANY TABLE,
     DELETE ANY TABLE
 TO loanlibrary;
+/*
+Descripción: Permisos de usuarios para el esquema LOANLIBRARY.
+Fecha Creación: 15/04/2021
+Autor Principal: Viviana Vargas Ortiz
+*/
 
 GRANT
     CREATE USER,

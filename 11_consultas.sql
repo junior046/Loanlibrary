@@ -13,7 +13,7 @@ CREATE OR REPLACE FUNCTION  lookup_person
      l_return   SYS_REFCURSOR;
 BEGIN
             open l_return for
-            select p.id_person, p.identification_card, p.first_name,p.second_name, p.first_last_name, p.second_lastname,e.email, ph.phone_number
+            select p.id_person, p.identification_card, p.first_name,p.second_name, p.first_lastname, p.second_lastname,e.email, ph.phone_number
             from person p
             inner join email e on e.id_person=p.id_person
             inner join phone ph on ph.id_person=p.id_person;
@@ -99,7 +99,7 @@ CREATE OR REPLACE FUNCTION  lookup_classification
 BEGIN
             open l_return for
             select c.id_classification, c.classification, c.description
-            from classification c
+            from classification c;
             return l_return;
 END;
 

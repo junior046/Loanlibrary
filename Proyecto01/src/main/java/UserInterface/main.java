@@ -432,9 +432,7 @@ public class main extends javax.swing.JFrame {
         LogIn_Frame.setAlwaysOnTop(true);
         LogIn_Frame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LogIn_Frame.setFocusTraversalPolicyProvider(true);
-        LogIn_Frame.setMaximumSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setMinimumSize(new java.awt.Dimension(600, 500));
-        LogIn_Frame.setPreferredSize(new java.awt.Dimension(600, 500));
         LogIn_Frame.setResizable(false);
 
         Unchangable_Layered_SignIn.setMaximumSize(new java.awt.Dimension(600, 500));
@@ -883,7 +881,6 @@ public class main extends javax.swing.JFrame {
         mainWindow_Frame.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         mainWindow_Frame.setTitle("Loanbrary - Your library for loans");
         mainWindow_Frame.setLocation(new java.awt.Point(0, 0));
-        mainWindow_Frame.setMaximumSize(new java.awt.Dimension(900, 550));
         mainWindow_Frame.setMinimumSize(new java.awt.Dimension(900, 550));
         mainWindow_Frame.setSize(new java.awt.Dimension(900, 550));
 
@@ -1247,7 +1244,6 @@ public class main extends javax.swing.JFrame {
 
         NewItem_LayeredPanel_ItemType.setMaximumSize(new java.awt.Dimension(380, 250));
         NewItem_LayeredPanel_ItemType.setMinimumSize(new java.awt.Dimension(380, 250));
-        NewItem_LayeredPanel_ItemType.setPreferredSize(new java.awt.Dimension(380, 250));
         NewItem_LayeredPanel_ItemType.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ItemType_Panel_Book.setBackground(new java.awt.Color(2, 48, 71));

@@ -1,3 +1,9 @@
+/* 
+Descripcion: Triggers para las tablas.
+Fecha de Creacion: 18/05/2021
+Autor: Viviana Vargas Ortiz
+*/
+
 -- PERSON TRIGGERS
 
 -- Trigger that inserts the user and date information before 

@@ -15,9 +15,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import BusinessLayer.EmailServices;
 import BusinessLayer.Session;
+import DataAccess.ProcedureInterface;
 import java.io.File;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 
 
 /**
@@ -60,7 +63,11 @@ public class main extends javax.swing.JFrame {
 
         ImageChooser.addChoosableFileFilter(new FileNameExtensionFilter("Image Files", "jpg", "png", "jpeg"));
         
-        
+        try {
+            ProcedureInterface.proc_person_add(0000, "Data", "Base", "First", "Trial");
+        } catch (SQLException ex) {
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
        
     private void openMainFrame(){

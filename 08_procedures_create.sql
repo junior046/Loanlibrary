@@ -1,3 +1,9 @@
+/*
+Descripción: Procedure para inserción de la tabla 'PERSON'.
+Fecha Creación: 17/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 CREATE OR REPLACE PROCEDURE proc_person_add (
     p_identification_card   IN                      person.identification_card%TYPE,
     p_first_name            IN                      person.first_name%TYPE,
@@ -43,6 +49,12 @@ EXCEPTION
 END proc_person_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'CATEGORY'.
+Fecha Creación: 17/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 CREATE OR REPLACE PROCEDURE proc_category_add (
     p_category      IN              category.category%TYPE,
     p_description   IN              category.description%TYPE
@@ -72,7 +84,11 @@ EXCEPTION
         raise_application_error(-20005, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_category_add;
 /
-
+/*
+Descripción: Procedure para inserción de la tabla 'EDITORIAL'.
+Fecha Creación: 17/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 CREATE OR REPLACE PROCEDURE proc_editorial_add (
     p_editorial   IN            editorial.editorial%TYPE
 ) IS
@@ -105,6 +121,11 @@ EXCEPTION
         raise_application_error(-20006, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_editorial_add;
 /
+/*
+Descripción: Procedure para inserción de la tabla 'DEVELOPER'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_developer_add (
     p_developer   IN            developer.developer%TYPE
@@ -135,6 +156,11 @@ EXCEPTION
         raise_application_error(-20009, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_developer_add;
 /
+/*
+Descripción: Procedure para inserción de la tabla 'PARAMETER'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_parameter_add (
     p_parameter   IN            parameter.parameter%TYPE,
@@ -172,6 +198,12 @@ EXCEPTION
 END proc_parameter_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'TYPE'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 CREATE OR REPLACE PROCEDURE proc_type_add (
     p_type   IN       type.type%TYPE
 ) IS
@@ -204,6 +236,12 @@ EXCEPTION
         raise_application_error(-20014, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_type_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'AUTHOR'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_author_add (
     p_first_name        IN                  author.first_name%TYPE,
@@ -247,6 +285,12 @@ EXCEPTION
 END proc_author_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'CLASSIFICATION'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 CREATE OR REPLACE PROCEDURE proc_classification_add (
     p_classification   IN                 classification.classification%TYPE,
     p_description      IN                 classification.description%TYPE
@@ -282,6 +326,13 @@ EXCEPTION
         raise_application_error(-20020, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_classification_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'EMAIL'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 
 CREATE OR REPLACE PROCEDURE proc_email_add (
     p_email       IN            email.email%TYPE,
@@ -328,6 +379,13 @@ EXCEPTION
 END proc_email_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'PHONE'.
+Fecha Creación: 24/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
+
 CREATE OR REPLACE PROCEDURE proc_phone_add (
     p_phone       IN            phone.phone_number%TYPE,
     p_id_person   IN            phone.id_person%TYPE
@@ -372,6 +430,12 @@ EXCEPTION
         raise_application_error(-20028, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_phone_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'USER'.
+Fecha Creación: 18/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_user_add (
     p_user        IN            user_person.user_person%TYPE,
@@ -420,6 +484,13 @@ EXCEPTION
         raise_application_error(-20032, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_user_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'ITEM'.
+Fecha Creación: 25/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 
 CREATE OR REPLACE PROCEDURE proc_item_add (
     p_item                IN                    item.item%TYPE,
@@ -492,6 +563,13 @@ EXCEPTION
 END proc_item_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'BOOK'.
+Fecha Creación: 25/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
+
 CREATE OR REPLACE PROCEDURE proc_book_add (
     p_id_item     IN            book.id_item%TYPE,
     p_isbn        IN            book.isbn%TYPE,
@@ -551,6 +629,13 @@ EXCEPTION
 END proc_book_add;
 /
 
+/*
+Descripción: Procedure para inserción de la tabla 'AUTHOR FOR BOOK'.
+Fecha Creación: 25/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
+
 CREATE OR REPLACE PROCEDURE proc_author_for_book_add (
     p_book     IN         author_for_book.id_book%TYPE,
     p_author   IN         author_for_book.id_author%TYPE
@@ -604,6 +689,13 @@ EXCEPTION
 END proc_author_for_book_add;
 /
 
+
+/*
+Descripción: Procedure para inserción de la tabla 'FILM'.
+Fecha Creación: 25/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
 CREATE OR REPLACE PROCEDURE proc_film_add (
     p_id_item   IN          film.id_item%TYPE,
     p_date      IN          film.release_date%TYPE
@@ -646,6 +738,12 @@ EXCEPTION
         raise_application_error(-20044, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_film_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'MAGAZINE'.
+Fecha Creación: 29/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_magazine_add (
     p_id_item        IN               magazine.id_item%TYPE,
@@ -692,6 +790,12 @@ EXCEPTION
         raise_application_error(-20048, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_magazine_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'GAME'.
+Fecha Creación: 29/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_game_add (
     p_id_item     IN            game.id_item%TYPE,
@@ -748,6 +852,12 @@ EXCEPTION
         raise_application_error(-20053, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_game_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'BINNACLE'.
+Fecha Creación: 29/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_binnacle_add (
     p_id_user       IN              binnacle.id_user%TYPE,
@@ -808,6 +918,12 @@ EXCEPTION
         raise_application_error(-20056, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_binnacle_add;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'CURRENT USER'.
+Fecha Creación: 30/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
 
 CREATE OR REPLACE PROCEDURE proc_current_user_upd (
     p_id_user   IN          current_user.id_user%TYPE
@@ -886,6 +1002,14 @@ EXCEPTION
         raise_application_error(-20060, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_current_user_upd;
 /
+
+/*
+Descripción: Procedure para inserción de la tabla 'BORROWER lIST'.
+Fecha Creación: 30/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
+
 CREATE OR REPLACE PROCEDURE proc_borrower_list_add (
     p_borrower   IN           borrower_list.id_borrower%TYPE,
     p_lender     IN           borrower_list.id_lender%TYPE,
@@ -959,6 +1083,15 @@ EXCEPTION
         raise_application_error(-20062, 'HA OCURRIDO UN ERROR, VERIFIQUE LOS DATOS');
 END proc_borrower_list_add;
 /
+
+
+/*
+Descripción: Procedure para inserción de la tabla 'LOAN'.
+Fecha Creación: 30/04/2021
+Autor Principal: Junior A. López Aguirre.
+*/
+
+
 CREATE OR REPLACE PROCEDURE proc_loan_add (
     p_id_person   IN            loan.id_person%TYPE,
     p_id_item     IN            loan.id_item%TYPE

@@ -1,4 +1,13 @@
+/* 
+Descripcion: Triggers para las tablas.
+Fecha de Creacion: 18/05/2021
+Autor: Viviana Vargas Ortiz
+*/
+
 -- PERSON TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.PersonBeforeInsert
 BEFORE INSERT
@@ -9,6 +18,10 @@ BEGIN
     :new.creation_date:=SYSDATE;
 END PersonBeforeInsert;
 /
+
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.PersonBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.person
@@ -18,7 +31,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END PersonBeforeUpdate;
 /
+
 -- PHONE TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.PhoneBeforeInsert
 BEFORE INSERT
@@ -29,6 +46,10 @@ BEGIN
     :new.creation_date:=SYSDATE;
 END PhoneBeforeInsert;
 /
+
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.PhoneBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.phone
@@ -38,7 +59,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END PhoneBeforeUpdate;
 /
+
 -- EMAIL TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.EmailBeforeInsert
 BEFORE INSERT
@@ -48,8 +73,11 @@ BEGIN
     :new.creation_user:=USER;
     :new.creation_date:=SYSDATE;
 END EmailBeforeInsert;
-
 /
+
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.EmailBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.email
@@ -59,7 +87,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END EmailBeforeUpdate;
 /
+
 -- CATEGORY TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.CategoryBeforeInsert
 BEFORE INSERT
@@ -71,6 +103,10 @@ BEGIN
 END CategoryBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
+
 CREATE OR REPLACE TRIGGER loanlibrary.CategoryBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.category
@@ -80,7 +116,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END CategoryBeforeUpdate;
 /
+
 -- BORROWER_LIST TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.BorrowerListBeforeInsert
 BEFORE INSERT
@@ -92,6 +132,9 @@ BEGIN
 END BorrowerListBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.BorrowerListBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.borrower_list
@@ -101,8 +144,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END BorrowerListBeforeUpdate;
 /
+
 -- USER_PERSON TRIGGERS
 
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.UserPersonBeforeInsert
 BEFORE INSERT
@@ -114,6 +160,9 @@ BEGIN
 END UserPersonBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.UserPersonBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.user_person
@@ -123,7 +172,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END UserPersonBeforeUpdate;
 /
+
 -- CLASSIFICATION TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.ClassificationBeforeInsert
 BEFORE INSERT
@@ -135,6 +188,9 @@ BEGIN
 END ClassificationBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.ClassificationBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.classification
@@ -144,7 +200,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END ClassificationBeforeUpdate;
 /
+
 -- ITEM TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.ItemBeforeInsert
 BEFORE INSERT
@@ -156,6 +216,9 @@ BEGIN
 END ItemBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.ItemBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.item
@@ -165,7 +228,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END ItemBeforeUpdate;
 /
+
 -- TYPE TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.TypeBeforeInsert
 BEFORE INSERT
@@ -177,6 +244,9 @@ BEGIN
 END TypeBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.TypeBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.type
@@ -186,7 +256,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END TypeBeforeUpdate;
 /
+
 -- BINNACLE TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.BinnacleBeforeInsert
 BEFORE INSERT
@@ -198,6 +272,9 @@ BEGIN
 END BinnacleBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.BinnacleBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.binnacle
@@ -207,7 +284,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END BinnacleBeforeUpdate;
 /
+
 -- PARAMETER TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.ParameterBeforeInsert
 BEFORE INSERT
@@ -219,6 +300,9 @@ BEGIN
 END ParameterBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.ParameterBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.parameter
@@ -228,7 +312,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END ParameterBeforeUpdate;
 /
+
 -- AUTHOR TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBeforeInsert
 BEFORE INSERT
@@ -240,6 +328,9 @@ BEGIN
 END AuthorBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.author
@@ -249,7 +340,12 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END AuthorBeforeUpdate;
 /
+
 -- EDITORIAL TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
+/
 
 CREATE OR REPLACE TRIGGER loanlibrary.EditorialBeforeInsert
 BEFORE INSERT
@@ -261,6 +357,9 @@ BEGIN
 END EditorialBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.EditorialBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.editorial
@@ -270,7 +369,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END EditorialBeforeUpdate;
 /
--- BOOK TRIGGER
+
+-- BOOK TRIGGERS
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.BookBeforeInsert
 BEFORE INSERT
@@ -282,6 +385,9 @@ BEGIN
 END BookBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.BookBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.book
@@ -291,7 +397,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END BookBeforeUpdate;
 /
+
 -- AUTHOR_FOR_BOOK TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBookBeforeInsert
 BEFORE INSERT
@@ -303,6 +413,9 @@ BEGIN
 END AuthorBookBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.AuthorBookBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.author_for_book
@@ -312,7 +425,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END AuthorBookBeforeUpdate;
 /
+
 -- DEVELOPER TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.DeveloperBeforeInsert
 BEFORE INSERT
@@ -324,6 +441,9 @@ BEGIN
 END DeveloperBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.DeveloperBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.developer
@@ -333,7 +453,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END DeveloperBeforeUpdate;
 /
+
 -- GAME TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.GameBeforeInsert
 BEFORE INSERT
@@ -345,6 +469,9 @@ BEGIN
 END GameBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.GameBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.game
@@ -354,7 +481,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END GameBeforeUpdate;
 /
+
 -- MAGAZINE TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.MagazineBeforeInsert
 BEFORE INSERT
@@ -366,6 +497,9 @@ BEGIN
 END MagazineBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.MagazineBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.magazine
@@ -375,7 +509,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END MagazineBeforeUpdate;
 /
+
 -- FILM TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.FilmBeforeInsert
 BEFORE INSERT
@@ -387,6 +525,9 @@ BEGIN
 END FilmBeforeInsert;
 /
 
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
+
 CREATE OR REPLACE TRIGGER loanlibrary.FilmBeforeUpdate
 BEFORE UPDATE
 ON loanlibrary.film
@@ -396,7 +537,11 @@ BEGIN
     :new.last_update_date:=SYSDATE;
 END FilmBeforeUpdate;
 /
+
 -- LOAN TRIGGER
+
+-- Trigger that inserts the user and date information before 
+-- there is an insertion in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.LoanBeforeInsert
 BEFORE INSERT
@@ -407,6 +552,9 @@ BEGIN
     :new.creation_date:=SYSDATE;
 END BLoanBeforeInsert;
 /
+
+-- Trigger that inserts the user and date information before 
+-- there is an update in the table.
 
 CREATE OR REPLACE TRIGGER loanlibrary.LoanBeforeUpdate
 BEFORE UPDATE

@@ -56,7 +56,7 @@ CREATE OR REPLACE FUNCTION  lookup_category
      l_return   SYS_REFCURSOR;
 BEGIN
             open l_return for
-            select c.id_category, c.catgory, c.description
+            select c.id_category, c.category, c.description
             from category c;
             return l_return;
 END;
@@ -72,7 +72,7 @@ BEGIN
             select bl.id_borrower_list, bl.id_category, bl.id_borrower, bl.id_lender
             from borrower_list bl
             inner join person p on p.id_person=bl.id_borrower
-            inner join person p on p.id_person=bl.id_lender;
+            inner join person pe on pe.id_person=bl.id_lender;
             return l_return;
 END;
 
